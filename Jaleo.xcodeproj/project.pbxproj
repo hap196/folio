@@ -1,0 +1,698 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C8DFD0B2B522023003B7233 /* JaleoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0A2B522023003B7233 /* JaleoApp.swift */; };
+		1C8DFD0D2B522023003B7233 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0C2B522023003B7233 /* ContentView.swift */; };
+		1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0E2B52202C003B7233 /* Assets.xcassets */; };
+		1C8DFD122B52202C003B7233 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD112B52202C003B7233 /* Preview Assets.xcassets */; };
+		1C8DFD1C2B52202D003B7233 /* JaleoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD1B2B52202D003B7233 /* JaleoTests.swift */; };
+		1C8DFD262B52202D003B7233 /* JaleoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD252B52202D003B7233 /* JaleoUITests.swift */; };
+		1C8DFD282B52202D003B7233 /* JaleoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD272B52202D003B7233 /* JaleoUITestsLaunchTests.swift */; };
+		1C8DFD352B522287003B7233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD342B522287003B7233 /* GoogleService-Info.plist */; };
+		1C8DFD362B522287003B7233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD342B522287003B7233 /* GoogleService-Info.plist */; };
+		1C8DFD372B522287003B7233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD342B522287003B7233 /* GoogleService-Info.plist */; };
+		1C8DFD3A2B522348003B7233 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD392B522348003B7233 /* FirebaseAnalytics */; };
+		1C8DFD3C2B522348003B7233 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD3B2B522348003B7233 /* FirebaseAnalyticsSwift */; };
+		1C8DFD3E2B522348003B7233 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD3D2B522348003B7233 /* FirebaseAuth */; };
+		1C8DFD402B522348003B7233 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD3F2B522348003B7233 /* FirebaseCrashlytics */; };
+		1C8DFD422B522348003B7233 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD412B522348003B7233 /* FirebaseDatabase */; };
+		1C8DFD442B522348003B7233 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD432B522348003B7233 /* FirebaseDatabaseSwift */; };
+		1C8DFD462B522348003B7233 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD452B522348003B7233 /* FirebaseMessaging */; };
+		1C8DFD4D2B522A31003B7233 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD4C2B522A31003B7233 /* SignInEmailView.swift */; };
+		1C8DFD4F2B522A5D003B7233 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD4E2B522A5D003B7233 /* LoginView.swift */; };
+		1C8DFD512B5233EF003B7233 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD502B5233EF003B7233 /* AuthenticationManager.swift */; };
+		1C8DFD532B523AF4003B7233 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD522B523AF4003B7233 /* RootView.swift */; };
+		1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD542B523EB1003B7233 /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1C8DFD182B52202D003B7233 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C8DFCFF2B522023003B7233 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C8DFD062B522023003B7233;
+			remoteInfo = Jaleo;
+		};
+		1C8DFD222B52202D003B7233 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C8DFCFF2B522023003B7233 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C8DFD062B522023003B7233;
+			remoteInfo = Jaleo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C8DFD072B522023003B7233 /* Jaleo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jaleo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C8DFD0A2B522023003B7233 /* JaleoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoApp.swift; sourceTree = "<group>"; };
+		1C8DFD0C2B522023003B7233 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1C8DFD0E2B52202C003B7233 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1C8DFD112B52202C003B7233 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1C8DFD172B52202D003B7233 /* JaleoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JaleoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C8DFD1B2B52202D003B7233 /* JaleoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoTests.swift; sourceTree = "<group>"; };
+		1C8DFD212B52202D003B7233 /* JaleoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JaleoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C8DFD252B52202D003B7233 /* JaleoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoUITests.swift; sourceTree = "<group>"; };
+		1C8DFD272B52202D003B7233 /* JaleoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1C8DFD342B522287003B7233 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1C8DFD4C2B522A31003B7233 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
+		1C8DFD4E2B522A5D003B7233 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		1C8DFD502B5233EF003B7233 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		1C8DFD522B523AF4003B7233 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1C8DFD542B523EB1003B7233 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C8DFD042B522023003B7233 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C8DFD442B522348003B7233 /* FirebaseDatabaseSwift in Frameworks */,
+				1C8DFD422B522348003B7233 /* FirebaseDatabase in Frameworks */,
+				1C8DFD462B522348003B7233 /* FirebaseMessaging in Frameworks */,
+				1C8DFD3C2B522348003B7233 /* FirebaseAnalyticsSwift in Frameworks */,
+				1C8DFD402B522348003B7233 /* FirebaseCrashlytics in Frameworks */,
+				1C8DFD3E2B522348003B7233 /* FirebaseAuth in Frameworks */,
+				1C8DFD3A2B522348003B7233 /* FirebaseAnalytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C8DFD142B52202D003B7233 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C8DFD1E2B52202D003B7233 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C8DFCFE2B522023003B7233 = {
+			isa = PBXGroup;
+			children = (
+				1C8DFD092B522023003B7233 /* Jaleo */,
+				1C8DFD1A2B52202D003B7233 /* JaleoTests */,
+				1C8DFD242B52202D003B7233 /* JaleoUITests */,
+				1C8DFD082B522023003B7233 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1C8DFD082B522023003B7233 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C8DFD072B522023003B7233 /* Jaleo.app */,
+				1C8DFD172B52202D003B7233 /* JaleoTests.xctest */,
+				1C8DFD212B52202D003B7233 /* JaleoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C8DFD092B522023003B7233 /* Jaleo */ = {
+			isa = PBXGroup;
+			children = (
+				1C8DFD342B522287003B7233 /* GoogleService-Info.plist */,
+				1C8DFD0A2B522023003B7233 /* JaleoApp.swift */,
+				1C8DFD0C2B522023003B7233 /* ContentView.swift */,
+				1C8DFD0E2B52202C003B7233 /* Assets.xcassets */,
+				1C8DFD472B5225C2003B7233 /* Login */,
+				1C8DFD102B52202C003B7233 /* Preview Content */,
+			);
+			path = Jaleo;
+			sourceTree = "<group>";
+		};
+		1C8DFD102B52202C003B7233 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1C8DFD112B52202C003B7233 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1C8DFD1A2B52202D003B7233 /* JaleoTests */ = {
+			isa = PBXGroup;
+			children = (
+				1C8DFD1B2B52202D003B7233 /* JaleoTests.swift */,
+			);
+			path = JaleoTests;
+			sourceTree = "<group>";
+		};
+		1C8DFD242B52202D003B7233 /* JaleoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1C8DFD252B52202D003B7233 /* JaleoUITests.swift */,
+				1C8DFD272B52202D003B7233 /* JaleoUITestsLaunchTests.swift */,
+			);
+			path = JaleoUITests;
+			sourceTree = "<group>";
+		};
+		1C8DFD472B5225C2003B7233 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1C8DFD4C2B522A31003B7233 /* SignInEmailView.swift */,
+				1C8DFD4E2B522A5D003B7233 /* LoginView.swift */,
+				1C8DFD502B5233EF003B7233 /* AuthenticationManager.swift */,
+				1C8DFD522B523AF4003B7233 /* RootView.swift */,
+				1C8DFD542B523EB1003B7233 /* SettingsView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C8DFD062B522023003B7233 /* Jaleo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C8DFD2B2B52202D003B7233 /* Build configuration list for PBXNativeTarget "Jaleo" */;
+			buildPhases = (
+				1C8DFD032B522023003B7233 /* Sources */,
+				1C8DFD042B522023003B7233 /* Frameworks */,
+				1C8DFD052B522023003B7233 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Jaleo;
+			packageProductDependencies = (
+				1C8DFD392B522348003B7233 /* FirebaseAnalytics */,
+				1C8DFD3B2B522348003B7233 /* FirebaseAnalyticsSwift */,
+				1C8DFD3D2B522348003B7233 /* FirebaseAuth */,
+				1C8DFD3F2B522348003B7233 /* FirebaseCrashlytics */,
+				1C8DFD412B522348003B7233 /* FirebaseDatabase */,
+				1C8DFD432B522348003B7233 /* FirebaseDatabaseSwift */,
+				1C8DFD452B522348003B7233 /* FirebaseMessaging */,
+			);
+			productName = Jaleo;
+			productReference = 1C8DFD072B522023003B7233 /* Jaleo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1C8DFD162B52202D003B7233 /* JaleoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C8DFD2E2B52202D003B7233 /* Build configuration list for PBXNativeTarget "JaleoTests" */;
+			buildPhases = (
+				1C8DFD132B52202D003B7233 /* Sources */,
+				1C8DFD142B52202D003B7233 /* Frameworks */,
+				1C8DFD152B52202D003B7233 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C8DFD192B52202D003B7233 /* PBXTargetDependency */,
+			);
+			name = JaleoTests;
+			productName = JaleoTests;
+			productReference = 1C8DFD172B52202D003B7233 /* JaleoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1C8DFD202B52202D003B7233 /* JaleoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C8DFD312B52202D003B7233 /* Build configuration list for PBXNativeTarget "JaleoUITests" */;
+			buildPhases = (
+				1C8DFD1D2B52202D003B7233 /* Sources */,
+				1C8DFD1E2B52202D003B7233 /* Frameworks */,
+				1C8DFD1F2B52202D003B7233 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C8DFD232B52202D003B7233 /* PBXTargetDependency */,
+			);
+			name = JaleoUITests;
+			productName = JaleoUITests;
+			productReference = 1C8DFD212B52202D003B7233 /* JaleoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C8DFCFF2B522023003B7233 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					1C8DFD062B522023003B7233 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					1C8DFD162B52202D003B7233 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 1C8DFD062B522023003B7233;
+					};
+					1C8DFD202B52202D003B7233 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 1C8DFD062B522023003B7233;
+					};
+				};
+			};
+			buildConfigurationList = 1C8DFD022B522023003B7233 /* Build configuration list for PBXProject "Jaleo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1C8DFCFE2B522023003B7233;
+			packageReferences = (
+				1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 1C8DFD082B522023003B7233 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C8DFD062B522023003B7233 /* Jaleo */,
+				1C8DFD162B52202D003B7233 /* JaleoTests */,
+				1C8DFD202B52202D003B7233 /* JaleoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C8DFD052B522023003B7233 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C8DFD122B52202C003B7233 /* Preview Assets.xcassets in Resources */,
+				1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */,
+				1C8DFD352B522287003B7233 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C8DFD152B52202D003B7233 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C8DFD362B522287003B7233 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C8DFD1F2B52202D003B7233 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C8DFD372B522287003B7233 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C8DFD032B522023003B7233 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */,
+				1C8DFD0D2B522023003B7233 /* ContentView.swift in Sources */,
+				1C8DFD0B2B522023003B7233 /* JaleoApp.swift in Sources */,
+				1C8DFD532B523AF4003B7233 /* RootView.swift in Sources */,
+				1C8DFD4F2B522A5D003B7233 /* LoginView.swift in Sources */,
+				1C8DFD512B5233EF003B7233 /* AuthenticationManager.swift in Sources */,
+				1C8DFD4D2B522A31003B7233 /* SignInEmailView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C8DFD132B52202D003B7233 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C8DFD1C2B52202D003B7233 /* JaleoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C8DFD1D2B52202D003B7233 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C8DFD282B52202D003B7233 /* JaleoUITestsLaunchTests.swift in Sources */,
+				1C8DFD262B52202D003B7233 /* JaleoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C8DFD192B52202D003B7233 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C8DFD062B522023003B7233 /* Jaleo */;
+			targetProxy = 1C8DFD182B52202D003B7233 /* PBXContainerItemProxy */;
+		};
+		1C8DFD232B52202D003B7233 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C8DFD062B522023003B7233 /* Jaleo */;
+			targetProxy = 1C8DFD222B52202D003B7233 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1C8DFD292B52202D003B7233 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1C8DFD2A2B52202D003B7233 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C8DFD2C2B52202D003B7233 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Jaleo/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hailey.Jaleo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1C8DFD2D2B52202D003B7233 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Jaleo/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hailey.Jaleo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1C8DFD2F2B52202D003B7233 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hailey.JaleoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jaleo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Jaleo";
+			};
+			name = Debug;
+		};
+		1C8DFD302B52202D003B7233 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hailey.JaleoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jaleo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Jaleo";
+			};
+			name = Release;
+		};
+		1C8DFD322B52202D003B7233 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hailey.JaleoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Jaleo;
+			};
+			name = Debug;
+		};
+		1C8DFD332B52202D003B7233 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hailey.JaleoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Jaleo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C8DFD022B522023003B7233 /* Build configuration list for PBXProject "Jaleo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C8DFD292B52202D003B7233 /* Debug */,
+				1C8DFD2A2B52202D003B7233 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C8DFD2B2B52202D003B7233 /* Build configuration list for PBXNativeTarget "Jaleo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C8DFD2C2B52202D003B7233 /* Debug */,
+				1C8DFD2D2B52202D003B7233 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C8DFD2E2B52202D003B7233 /* Build configuration list for PBXNativeTarget "JaleoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C8DFD2F2B52202D003B7233 /* Debug */,
+				1C8DFD302B52202D003B7233 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C8DFD312B52202D003B7233 /* Build configuration list for PBXNativeTarget "JaleoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C8DFD322B52202D003B7233 /* Debug */,
+				1C8DFD332B52202D003B7233 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.19.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1C8DFD392B522348003B7233 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		1C8DFD3B2B522348003B7233 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		1C8DFD3D2B522348003B7233 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		1C8DFD3F2B522348003B7233 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		1C8DFD412B522348003B7233 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		1C8DFD432B522348003B7233 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		1C8DFD452B522348003B7233 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1C8DFCFF2B522023003B7233 /* Project object */;
+}
