@@ -23,12 +23,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct YourApp: App {
   // register app delegate for Firebase setup
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+  @State private var isAuthenticated: Bool = false
 
   var body: some Scene {
     WindowGroup {
-      NavigationStack {
-        LoginView()
-      }
+        // Use RootView as the main entry point
+        RootView()
+            .onAppear {
+                // Check authentication status
+                let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+                isAuthenticated = authUser != nil
+            }
     }
   }
 }
