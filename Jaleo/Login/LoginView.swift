@@ -10,6 +10,8 @@ import SwiftUI
 struct LoginView: View {
     
     @Binding var showSignInView: Bool
+    @ObservedObject var viewModel: SignInEmailViewModel
+
     
     var body: some View {
         VStack {
@@ -32,13 +34,21 @@ struct LoginView: View {
         }
         .padding()
         .navigationTitle("Sign in")
+        .alert("Login Error", isPresented: Binding<Bool>.init(get: { viewModel.loginError != nil }, set: { _ in viewModel.loginError = nil })) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text(viewModel.loginError ?? "")
+        }
+
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
+        let viewModel = SignInEmailViewModel()
+
         NavigationStack {
-            LoginView(showSignInView: .constant(false))
+            LoginView(showSignInView: .constant(false), viewModel: viewModel)
         }
         
     }

@@ -12,11 +12,16 @@ final class SignInEmailViewModel: ObservableObject {
     
     @Published var email = ""
     @Published var password = ""
+    @Published var signUpSuccess = false
+    @Published var loginError: String?
+
     
     func signUp() async throws {
         guard !email.isEmpty, !password.isEmpty else {
             print("No email or password found.")
             return
+            
+            signUpSuccess = true
         }
     
         let returnedUserData = try await AuthenticationManager.shared.createUser(email: email, password: password)
@@ -27,8 +32,13 @@ final class SignInEmailViewModel: ObservableObject {
             print("No email or password found.")
             return
         }
-    
+
         let returnedUserData = try await AuthenticationManager.shared.signInUser(email: email, password: password)
+
+        guard returnedUserData.isEmailVerified else {
+            loginError = "Your email address is not verified. Please check your email."
+            return
+        }
     }
     
 }
@@ -85,6 +95,12 @@ struct SignInEmailView: View {
         }
         .navigationTitle("Sign in with email")
         .padding()
+        .alert("Verification Email Sent", isPresented: $viewModel.signUpSuccess) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("Please check your email to verify your account.")
+        }
+
         
     }
         

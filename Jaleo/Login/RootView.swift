@@ -10,6 +10,7 @@ import SwiftUI
 struct RootView: View {
     
     @State private var showSignInView: Bool = false
+    @StateObject private var signInViewModel = SignInEmailViewModel() // Add this line
     
     var body: some View {
         
@@ -24,7 +25,7 @@ struct RootView: View {
         }
         .fullScreenCover(isPresented: $showSignInView) {
             NavigationStack {
-                LoginView(showSignInView: $showSignInView)
+                LoginView(showSignInView: $showSignInView, viewModel: signInViewModel)
             }
         }
     }
