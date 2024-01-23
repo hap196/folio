@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A90FF2B5455CE0048405E /* SurveyView.swift */; };
 		1C8DFD0B2B522023003B7233 /* JaleoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0A2B522023003B7233 /* JaleoApp.swift */; };
 		1C8DFD0D2B522023003B7233 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0C2B522023003B7233 /* ContentView.swift */; };
 		1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0E2B52202C003B7233 /* Assets.xcassets */; };
@@ -21,14 +22,16 @@
 		1C8DFD422B522348003B7233 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD412B522348003B7233 /* FirebaseDatabase */; };
 		1C8DFD442B522348003B7233 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD432B522348003B7233 /* FirebaseDatabaseSwift */; };
 		1C8DFD462B522348003B7233 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD452B522348003B7233 /* FirebaseMessaging */; };
-		1C8DFD4D2B522A31003B7233 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD4C2B522A31003B7233 /* SignInEmailView.swift */; };
-		1C8DFD4F2B522A5D003B7233 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD4E2B522A5D003B7233 /* LoginView.swift */; };
+		1C8DFD4F2B522A5D003B7233 /* StartingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD4E2B522A5D003B7233 /* StartingView.swift */; };
 		1C8DFD512B5233EF003B7233 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD502B5233EF003B7233 /* AuthenticationManager.swift */; };
 		1C8DFD532B523AF4003B7233 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD522B523AF4003B7233 /* RootView.swift */; };
 		1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD542B523EB1003B7233 /* SettingsView.swift */; };
 		1C8DFD572B524F3F003B7233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */; };
 		1C8DFD582B524F3F003B7233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */; };
 		1C8DFD592B524F3F003B7233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */; };
+		1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221C32B5F232D00FBC7E4 /* SignInView.swift */; };
+		1CC221C62B5F29D400FBC7E4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221C52B5F29D400FBC7E4 /* SignUpView.swift */; };
+		1CC221C82B5F2B2300FBC7E4 /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221C72B5F2B2300FBC7E4 /* SignInEmailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C6A90FF2B5455CE0048405E /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		1C8DFD072B522023003B7233 /* Jaleo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jaleo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8DFD0A2B522023003B7233 /* JaleoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoApp.swift; sourceTree = "<group>"; };
 		1C8DFD0C2B522023003B7233 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,12 +63,14 @@
 		1C8DFD212B52202D003B7233 /* JaleoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JaleoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8DFD252B52202D003B7233 /* JaleoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoUITests.swift; sourceTree = "<group>"; };
 		1C8DFD272B52202D003B7233 /* JaleoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1C8DFD4C2B522A31003B7233 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
-		1C8DFD4E2B522A5D003B7233 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		1C8DFD4E2B522A5D003B7233 /* StartingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingView.swift; sourceTree = "<group>"; };
 		1C8DFD502B5233EF003B7233 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		1C8DFD522B523AF4003B7233 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1C8DFD542B523EB1003B7233 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1CC221C32B5F232D00FBC7E4 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		1CC221C52B5F29D400FBC7E4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		1CC221C72B5F2B2300FBC7E4 /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,11 +166,14 @@
 		1C8DFD472B5225C2003B7233 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				1C8DFD4C2B522A31003B7233 /* SignInEmailView.swift */,
-				1C8DFD4E2B522A5D003B7233 /* LoginView.swift */,
+				1C8DFD4E2B522A5D003B7233 /* StartingView.swift */,
 				1C8DFD502B5233EF003B7233 /* AuthenticationManager.swift */,
 				1C8DFD522B523AF4003B7233 /* RootView.swift */,
 				1C8DFD542B523EB1003B7233 /* SettingsView.swift */,
+				1C6A90FF2B5455CE0048405E /* SurveyView.swift */,
+				1CC221C32B5F232D00FBC7E4 /* SignInView.swift */,
+				1CC221C52B5F29D400FBC7E4 /* SignUpView.swift */,
+				1CC221C72B5F2B2300FBC7E4 /* SignInEmailViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -314,13 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */,
 				1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */,
 				1C8DFD0D2B522023003B7233 /* ContentView.swift in Sources */,
 				1C8DFD0B2B522023003B7233 /* JaleoApp.swift in Sources */,
 				1C8DFD532B523AF4003B7233 /* RootView.swift in Sources */,
-				1C8DFD4F2B522A5D003B7233 /* LoginView.swift in Sources */,
+				1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */,
+				1CC221C62B5F29D400FBC7E4 /* SignUpView.swift in Sources */,
+				1CC221C82B5F2B2300FBC7E4 /* SignInEmailViewModel.swift in Sources */,
+				1C8DFD4F2B522A5D003B7233 /* StartingView.swift in Sources */,
 				1C8DFD512B5233EF003B7233 /* AuthenticationManager.swift in Sources */,
-				1C8DFD4D2B522A31003B7233 /* SignInEmailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

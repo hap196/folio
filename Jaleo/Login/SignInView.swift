@@ -1,5 +1,5 @@
 //
-//  SignUpView.swift
+//  SignInView.swift
 //  Jaleo
 //
 //  Created by Hailey Pan on 1/22/24.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct SignUpView: View {
+struct SignInView: View {
     @StateObject private var viewModel = SignInEmailViewModel()
-    @Binding var showSignUpView: Bool  // Assuming you have a mechanism to toggle this view
+    @Binding var showSignInView: Bool
 
     var body: some View {
         VStack {
@@ -23,19 +23,19 @@ struct SignUpView: View {
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10)
 
-            // Sign Up Button
+            // Sign In Button
             Button(action: {
                 Task {
                     do {
-                        try await viewModel.signUp()
-                        showSignUpView = false
-                        print("Signed up successfully")
+                        try await viewModel.signIn()
+                       // showSignInView = false
+                        print("Signed in successfully")
                     } catch {
-                        print("Sign up error \(error)")
+                        print("Sign in error \(error)")
                     }
                 }
             }) {
-                Text("Sign up")
+                Text("Sign in")
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(height: 55)
@@ -45,34 +45,28 @@ struct SignUpView: View {
             }
 
             // Error Messages
-            if viewModel.weakPasswordError {
-                Text("The password must be 6 characters long or more.")
+            if viewModel.emailVerificationError {
+                Text("Email not verified")
                     .foregroundColor(.red)
-            }
-
-            if viewModel.invalidEmailError {
-                Text("The email address is badly formatted.")
+            } else if let loginError = viewModel.loginError, !viewModel.emailVerificationError {
+                Text(loginError)
                     .foregroundColor(.red)
             }
 
             Spacer()
         }
-        .navigationTitle("Sign up")
+        .navigationTitle("Sign in")
         .padding()
-        .alert("Verification Required", isPresented: $viewModel.showVerificationAlert) {
-            Button("OK") {
-                // Close the alert and maybe toggle to sign-in view
-                viewModel.showVerificationAlert = false
-                showSignUpView = false
-            }
+        .alert("Login Error", isPresented: Binding<Bool>.init(get: { viewModel.loginError != nil }, set: { _ in viewModel.loginError = nil })) {
+            Button("OK", role: .cancel) { }
         } message: {
-            Text("Please verify your email. Check your inbox for the verification link.")
+            Text(viewModel.loginError ?? "")
         }
     }
 }
 
-struct SignUpView_Previews: PreviewProvider {
+struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView(showSignUpView: .constant(true))
+        SignInView(showSignInView: .constant(true))
     }
 }

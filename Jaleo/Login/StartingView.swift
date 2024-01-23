@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct StartingView: View {
     
     @Binding var showSignInView: Bool
     @ObservedObject var viewModel: SignInEmailViewModel
@@ -16,10 +16,25 @@ struct LoginView: View {
     var body: some View {
         VStack {
             NavigationLink {
-                SignInEmailView(showSignInView: $showSignInView)
+                SurveyView(showSignInView: $showSignInView)
             } label: {
                 
-                Text("Sign in with email ")
+                Text("Get started")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(height:55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            
+            }
+            
+            NavigationLink {
+                //SignInEmailView(showSignInView: $showSignInView)
+                SignInView(showSignInView: $showSignInView)
+            } label: {
+                
+                Text("I already have an account")
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(height:55)
@@ -43,12 +58,12 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct StartingView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = SignInEmailViewModel()
 
         NavigationStack {
-            LoginView(showSignInView: .constant(false), viewModel: viewModel)
+            StartingView(showSignInView: .constant(false), viewModel: viewModel)
         }
         
     }

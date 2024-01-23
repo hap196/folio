@@ -8,32 +8,42 @@
 import SwiftUI
 
 struct RootView: View {
-    
     @State private var showSignInView: Bool = false
-    @StateObject private var signInViewModel = SignInEmailViewModel() // Add this line
-    
+    @StateObject private var signInViewModel = SignInEmailViewModel()
+
     var body: some View {
-        
         ZStack {
-            NavigationStack {
+            if signInViewModel.isEmailVerified {
+                // Show the main content of your app here
                 SettingsView(showSignInView: $showSignInView)
+            } else {
+                // Show the login view
+                StartingView(showSignInView: $showSignInView, viewModel: signInViewModel)
             }
-        }
-        .onAppear {
-            let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
-            self.showSignInView = authUser == nil
         }
         .fullScreenCover(isPresented: $showSignInView) {
             NavigationStack {
-                LoginView(showSignInView: $showSignInView, viewModel: signInViewModel)
+                StartingView(showSignInView: $showSignInView, viewModel: signInViewModel)
             }
         }
+        .onAppear {
+            Task {
+                do {
+                    let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
+                    signInViewModel.isEmailVerified = authUser.isEmailVerified
+                    self.showSignInView = !(authUser != nil && authUser.isEmailVerified)
+                } catch {
+                    self.showSignInView = true
+                }
+            }
+        }
+
     }
-    
 }
-    
+
 struct RootView_previews: PreviewProvider {
     static var previews: some View {
         RootView()
     }
 }
+
