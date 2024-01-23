@@ -63,26 +63,21 @@ final class SignInEmailViewModel: ObservableObject {
         }
 
         do {
-                let returnedUserData = try await AuthenticationManager.shared.signInUser(email: email, password: password)
+            let returnedUserData = try await AuthenticationManager.shared.signInUser(email: email, password: password)
 
-                guard returnedUserData.isEmailVerified else {
-                    loginError = "Your email address is not verified. Please check your email."
-                    emailVerificationError = true
-                    return
-                }
-                // Additional code for successful sign in
-            } catch let error as NSError {
-                if error.domain == "AuthError" && error.code == 1001 {
-                    loginError = "Please verify your email address."
-                    emailVerificationError = true
-                } else {
-                    loginError = "Account doesn't exist."
-                    emailVerificationError = false
-                }
+            // If the signInUser method succeeds, the user is authenticated.
+            // You can still inform the user if their email is not verified.
+            isEmailVerified = returnedUserData.isEmailVerified
+            if !returnedUserData.isEmailVerified {
+                loginError = "Your email address is not verified. Please check your email."
+                emailVerificationError = true
             }
-            
+        } catch let error as NSError {
+            // Handle specific or general errors
+            loginError = error.localizedDescription
+            emailVerificationError = false
+        }
     }
-    
-    
+
 
 }

@@ -20,8 +20,7 @@ struct SignInView: View {
                 Task {
                     do {
                         try await viewModel.signIn()
-                        // Update isAuthenticated state based on the result
-                        isAuthenticated = viewModel.isEmailVerified
+                        isAuthenticated = true  // Set isAuthenticated to true if signIn succeeds
                         print("Signed in successfully")
                     } catch {
                         print("Sign in error \(error)")
