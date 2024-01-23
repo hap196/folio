@@ -9,10 +9,27 @@ import SwiftUI
 
 struct SignUpView: View {
     @StateObject private var viewModel = SignInEmailViewModel()
-    @Binding var showSignUpView: Bool  // Assuming you have a mechanism to toggle this view
+    @Binding var showSignUpView: Bool
+    @Binding var signupSuccessful: Bool
+
 
     var body: some View {
         VStack {
+            
+            HStack {
+                // Custom back button
+                Button(action: {
+                    // Action to dismiss this view
+                    showSignUpView = false
+                }) {
+                    Image(systemName: "arrow.backward") // System icon for back arrow
+                        .foregroundColor(.blue)
+                        .padding()
+                }
+
+                Spacer()
+            }
+            
             TextField("Email...", text: $viewModel.email)
                 .padding()
                 .background(Color.gray.opacity(0.4))
@@ -23,28 +40,26 @@ struct SignUpView: View {
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10)
 
-            // Sign Up Button
-            Button(action: {
+            Button("Sign up") {
                 Task {
                     do {
                         try await viewModel.signUp()
-                        showSignUpView = false
                         print("Signed up successfully")
+                        if viewModel.signUpSuccess {
+                            signupSuccessful = true
+                        }
                     } catch {
-                        print("Sign up error \(error)")
+                        print("Sign up error: \(error)")
                     }
                 }
-            }) {
-                Text("Sign up")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
             }
+            .font(.headline)
+            .foregroundColor(.white)
+            .frame(height: 55)
+            .frame(maxWidth: .infinity)
+            .background(Color.blue)
+            .cornerRadius(10)
 
-            // Error Messages
             if viewModel.weakPasswordError {
                 Text("The password must be 6 characters long or more.")
                     .foregroundColor(.red)
@@ -56,23 +71,27 @@ struct SignUpView: View {
             }
 
             Spacer()
+            
+            // Navigation link that will be activated on successful sign up
+            NavigationLink(destination: HomeView(), isActive: $viewModel.signUpSuccess) {
+                EmptyView()
+            }
         }
         .navigationTitle("Sign up")
+        .navigationBarBackButtonHidden(true) // Hides the default back button
         .padding()
-        .alert("Verification Required", isPresented: $viewModel.showVerificationAlert) {
-            Button("OK") {
-                // Close the alert and maybe toggle to sign-in view
-                viewModel.showVerificationAlert = false
-                showSignUpView = false
-            }
-        } message: {
-            Text("Please verify your email. Check your inbox for the verification link.")
-        }
+//        .alert("Verification Required", isPresented: $viewModel.showVerificationAlert) {
+//            Button("OK", role: .cancel) {}
+//        } message: {
+//            Text("Please verify your email. Check your inbox for the verification link. You can verify your email later in Settings.")
+//        }
     }
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView(showSignUpView: .constant(true))
+        NavigationView {
+            SignUpView(showSignUpView: .constant(true), signupSuccessful: .constant(false))
+        }
     }
 }

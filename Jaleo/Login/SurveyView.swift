@@ -22,6 +22,16 @@ struct SurveyView: View {
     @State private var name: String = ""
     @State private var email: String = ""
     
+    @State private var showSignUpView = false
+    @State private var signupSuccessful = false
+
+    private var showSignUpBinding: Binding<Bool> {
+            Binding(
+                get: { self.showSignUpView && !self.signupSuccessful },
+                set: { self.showSignUpView = $0 }
+            )
+        }
+    
     @StateObject private var viewModel = SignInEmailViewModel()
     @Binding var showSignInView: Bool
 
@@ -59,6 +69,16 @@ struct SurveyView: View {
             }
             .padding()
         }
+        // Present SignUpView when it's time to sign up and the signup isn't successful yet
+                    .fullScreenCover(isPresented: showSignUpBinding) {
+                        SignUpView(showSignUpView: $showSignUpView, signupSuccessful: $signupSuccessful)
+                    }
+
+                    // Present HomeView when the signup is successful
+                    .fullScreenCover(isPresented: $signupSuccessful) {
+                        HomeView()  // Replace with your actual HomeView
+                    }
+
 
     }
 
@@ -93,36 +113,17 @@ struct SurveyView: View {
     private var detailsStepView: some View {
         // View for entering name and email
         VStack {
-            TextField("Email...", text: $viewModel.email)
+            TextField("Stuff...", text: $viewModel.email)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10)
             
-            SecureField("Password...", text: $viewModel.password)
+            SecureField("Stuff...", text: $viewModel.password)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10)
             
-            // Sign Up Button
-            Button(action: {
-                Task {
-                    do {
-                        try await viewModel.signUp()
-                       // showSignInView = false
-                        print("Signed up successfully")
-                    } catch {
-                        print("Sign up error")
-                    }
-                }
-            }) {
-            Text("Sign up")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
+            
         }
         .padding()
     }
@@ -149,9 +150,7 @@ struct SurveyView: View {
         case .major:
             currentStep = .details  // Proceed to details step instead of showing sign up view
         case .details:
-            // Now you would show the sign up view after collecting survey details
-            SignUpView(showSignUpView: $showSignInView)
-            //showSignInView = true
+            showSignUpView = true
             print("Survey Submitted")
         }
     }

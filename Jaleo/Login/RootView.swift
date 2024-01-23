@@ -10,6 +10,7 @@ import SwiftUI
 struct RootView: View {
     @State private var showSignInView: Bool = false
     @StateObject private var signInViewModel = SignInEmailViewModel()
+    
 
     var body: some View {
         ZStack {
