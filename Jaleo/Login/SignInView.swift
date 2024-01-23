@@ -1,15 +1,8 @@
-//
-//  SignInView.swift
-//  Jaleo
-//
-//  Created by Hailey Pan on 1/22/24.
-//
-
 import SwiftUI
 
 struct SignInView: View {
     @StateObject private var viewModel = SignInEmailViewModel()
-    @Binding var showSignInView: Bool
+    @Binding var isAuthenticated: Bool
 
     var body: some View {
         VStack {
@@ -23,12 +16,12 @@ struct SignInView: View {
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10)
 
-            // Sign In Button
             Button(action: {
                 Task {
                     do {
                         try await viewModel.signIn()
-                       // showSignInView = false
+                        // Update isAuthenticated state based on the result
+                        isAuthenticated = viewModel.isEmailVerified
                         print("Signed in successfully")
                     } catch {
                         print("Sign in error \(error)")
@@ -44,7 +37,6 @@ struct SignInView: View {
                     .cornerRadius(10)
             }
 
-            // Error Messages
             if viewModel.emailVerificationError {
                 Text("Email not verified")
                     .foregroundColor(.red)
@@ -57,7 +49,7 @@ struct SignInView: View {
         }
         .navigationTitle("Sign in")
         .padding()
-        .alert("Login Error", isPresented: Binding<Bool>.init(get: { viewModel.loginError != nil }, set: { _ in viewModel.loginError = nil })) {
+        .alert("Login Error", isPresented: Binding<Bool>(get: { viewModel.loginError != nil }, set: { _ in viewModel.loginError = nil })) {
             Button("OK", role: .cancel) { }
         } message: {
             Text(viewModel.loginError ?? "")
@@ -67,6 +59,6 @@ struct SignInView: View {
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView(showSignInView: .constant(true))
+        SignInView(isAuthenticated: .constant(false))
     }
 }

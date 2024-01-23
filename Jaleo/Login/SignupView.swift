@@ -10,8 +10,7 @@ import SwiftUI
 struct SignUpView: View {
     @StateObject private var viewModel = SignInEmailViewModel()
     @Binding var showSignUpView: Bool
-    @Binding var signupSuccessful: Bool
-
+    @Binding var isAuthenticated: Bool
 
     var body: some View {
         VStack {
@@ -46,7 +45,7 @@ struct SignUpView: View {
                         try await viewModel.signUp()
                         print("Signed up successfully")
                         if viewModel.signUpSuccess {
-                            signupSuccessful = true
+                            isAuthenticated = true
                         }
                     } catch {
                         print("Sign up error: \(error)")
@@ -91,7 +90,7 @@ struct SignUpView: View {
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SignUpView(showSignUpView: .constant(true), signupSuccessful: .constant(false))
+            SignUpView(showSignUpView: .constant(true), isAuthenticated: .constant(false))
         }
     }
 }

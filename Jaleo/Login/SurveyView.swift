@@ -24,6 +24,7 @@ struct SurveyView: View {
     
     @State private var showSignUpView = false
     @State private var signupSuccessful = false
+    @Binding var isAuthenticated: Bool
 
     private var showSignUpBinding: Binding<Bool> {
             Binding(
@@ -69,10 +70,10 @@ struct SurveyView: View {
             }
             .padding()
         }
-        // Present SignUpView when it's time to sign up and the signup isn't successful yet
-                    .fullScreenCover(isPresented: showSignUpBinding) {
-                        SignUpView(showSignUpView: $showSignUpView, signupSuccessful: $signupSuccessful)
-                    }
+        .fullScreenCover(isPresented: $showSignUpView) {
+            SignUpView(showSignUpView: $showSignUpView, isAuthenticated: $isAuthenticated)
+        }
+
 
                     // Present HomeView when the signup is successful
                     .fullScreenCover(isPresented: $signupSuccessful) {
