@@ -53,6 +53,8 @@ struct SignInView: View {
         } message: {
             Text(viewModel.loginError ?? "")
         }
+        .background(LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .bottom, endPoint: .top))
+                .edgesIgnoringSafeArea(.all)
     }
 }
 

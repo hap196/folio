@@ -14,6 +14,7 @@ struct SignUpView: View {
 
     var body: some View {
         VStack {
+            Spacer()
             
             HStack {
                 // Custom back button
@@ -79,6 +80,8 @@ struct SignUpView: View {
         .navigationTitle("Sign up")
         .navigationBarBackButtonHidden(true) // Hides the default back button
         .padding()
+        .gradientBackground()
+        
 //        .alert("Verification Required", isPresented: $viewModel.showVerificationAlert) {
 //            Button("OK", role: .cancel) {}
 //        } message: {

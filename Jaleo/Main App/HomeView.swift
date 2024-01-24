@@ -23,5 +23,6 @@ struct HomeView: View {
             TabBar(selectedTab: $selectedTab)
         }
         .edgesIgnoringSafeArea(.bottom)
+        .gradientBackground()
     }
 }

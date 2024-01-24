@@ -5,39 +5,48 @@ struct StartingView: View {
     @StateObject private var viewModel = SignInEmailViewModel()
     @State private var showSurveyView = false
     @State private var showSignInView = false
-    
 
     var body: some View {
-        VStack {
-            Button("Get started") {
-                showSurveyView = true
-            }
-            .sheet(isPresented: $showSurveyView) {
-                SurveyView(isAuthenticated: $isAuthenticated, showSignInView: $showSignInView)
-            }
+        // Use ZStack to place the gradient background behind all content
+        ZStack {
+            // Apply the gradient to fill the entire background
+            LinearGradient(gradient: Gradient(colors: [Color("000000"), Color("333333")]), startPoint: .bottom, endPoint: .top)
+                .edgesIgnoringSafeArea(.all) // Ensure it covers the whole screen
 
-            Button("I already have an account") {
-                showSignInView = true
-            }
-            .sheet(isPresented: $showSignInView) {
-                SignInView(isAuthenticated: $isAuthenticated)
-            }
+            // Your main content
+            VStack {
+                Spacer() // This will push your buttons to the middle of the screen
 
-            Spacer()
+                Button("Get started") {
+                    showSurveyView = true
+                }
+                .sheet(isPresented: $showSurveyView) {
+                    SurveyView(isAuthenticated: $isAuthenticated, showSignInView: $showSignInView)
+                }
+
+                Button("I already have an account") {
+                    showSignInView = true
+                }
+                .sheet(isPresented: $showSignInView) {
+                    SignInView(isAuthenticated: $isAuthenticated)
+                }
+
+                Spacer() // This will push your buttons to the middle of the screen
+            }
+            .padding()
+            .alert("Login Error", isPresented: Binding<Bool>(get: { viewModel.loginError != nil }, set: { _ in viewModel.loginError = nil })) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(viewModel.loginError ?? "")
+            }
         }
-        .padding()
         .navigationTitle("Sign in")
-        .alert("Login Error", isPresented: Binding<Bool>(get: { viewModel.loginError != nil }, set: { _ in viewModel.loginError = nil })) {
-            Button("OK", role: .cancel) { }
-        } message: {
-            Text(viewModel.loginError ?? "")
-        }
+        .gradientBackground()
     }
 }
 
 struct StartingView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = SignInEmailViewModel()
         StartingView(isAuthenticated: .constant(false))
     }
 }

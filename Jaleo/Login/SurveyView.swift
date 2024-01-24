@@ -37,7 +37,9 @@ struct SurveyView: View {
     @Binding var showSignInView: Bool
 
     var body: some View {
+        
         VStack {
+            Spacer() // Pushes content to center/middle
             // Progress Bar
             ProgressView(value: progressValue(), total: 4)
                 .padding()
@@ -69,16 +71,20 @@ struct SurveyView: View {
                 }
             }
             .padding()
+            
+            Spacer() // Pushes all content to the center/middle
+            
         }
+        
         .fullScreenCover(isPresented: $showSignUpView) {
             SignUpView(showSignUpView: $showSignUpView, isAuthenticated: $isAuthenticated)
         }
-
-
-                    // Present HomeView when the signup is successful
-                    .fullScreenCover(isPresented: $signupSuccessful) {
-                        HomeView()  // Replace with your actual HomeView
-                    }
+        // Present HomeView when the signup is successful
+        .fullScreenCover(isPresented: $signupSuccessful) {
+//          HomeView()  // Replace with your actual HomeView
+            SettingsView(isAuthenticated: $isAuthenticated)
+        }
+        .gradientBackground()
 
 
     }

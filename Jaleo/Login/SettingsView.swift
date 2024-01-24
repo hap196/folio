@@ -53,6 +53,7 @@ struct SettingsView: View {
     @Binding var isAuthenticated: Bool  // Changed from showSignInView
     
     var body: some View {
+        
         List {
             Button("Logout") {
                 Task {

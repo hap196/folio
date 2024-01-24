@@ -36,6 +36,7 @@
 		1CC221CE2B605FAE00FBC7E4 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221CD2B605FAE00FBC7E4 /* ChatView.swift */; };
 		1CC221D02B605FEB00FBC7E4 /* OpportunitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221CF2B605FEB00FBC7E4 /* OpportunitiesView.swift */; };
 		1CC221D32B60625400FBC7E4 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221D22B60625400FBC7E4 /* NavBar.swift */; };
+		1CD942322B61511E0022D119 /* BackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD942312B61511E0022D119 /* BackgroundModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		1CC221CD2B605FAE00FBC7E4 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		1CC221CF2B605FEB00FBC7E4 /* OpportunitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesView.swift; sourceTree = "<group>"; };
 		1CC221D22B60625400FBC7E4 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		1CD942312B61511E0022D119 /* BackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				1C8DFD0E2B52202C003B7233 /* Assets.xcassets */,
 				1C8DFD0A2B522023003B7233 /* JaleoApp.swift */,
 				1C8DFD522B523AF4003B7233 /* RootView.swift */,
+				1CD9422F2B6150F40022D119 /* Reusable Views */,
 				1CC221D12B60623B00FBC7E4 /* Main App */,
 				1C8DFD472B5225C2003B7233 /* Login */,
 				1C8DFD102B52202C003B7233 /* Preview Content */,
@@ -196,6 +199,14 @@
 				1CC221CF2B605FEB00FBC7E4 /* OpportunitiesView.swift */,
 			);
 			path = "Main App";
+			sourceTree = "<group>";
+		};
+		1CD9422F2B6150F40022D119 /* Reusable Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CD942312B61511E0022D119 /* BackgroundModifier.swift */,
+			);
+			path = "Reusable Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +367,7 @@
 				1CC221C82B5F2B2300FBC7E4 /* SignInEmailViewModel.swift in Sources */,
 				1CC221D32B60625400FBC7E4 /* NavBar.swift in Sources */,
 				1C8DFD4F2B522A5D003B7233 /* StartingView.swift in Sources */,
+				1CD942322B61511E0022D119 /* BackgroundModifier.swift in Sources */,
 				1C8DFD512B5233EF003B7233 /* AuthenticationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
