@@ -39,6 +39,14 @@
 		1CD942322B61511E0022D119 /* BackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD942312B61511E0022D119 /* BackgroundModifier.swift */; };
 		1CD942382B61F0DF0022D119 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1CD942372B61F0DF0022D119 /* FirebaseFirestore */; };
 		1CD9423A2B61F0E70022D119 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1CD942392B61F0E70022D119 /* FirebaseFirestoreSwift */; };
+		1CD9423D2B6212520022D119 /* CoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD9423C2B6212520022D119 /* CoursesView.swift */; };
+		1CD9423F2B62125E0022D119 /* ExtracurricularsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD9423E2B62125E0022D119 /* ExtracurricularsView.swift */; };
+		1CD942412B62126B0022D119 /* TestScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD942402B62126B0022D119 /* TestScoresView.swift */; };
+		1CD942432B6212810022D119 /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD942422B6212810022D119 /* AwardsView.swift */; };
+		1CD942472B62138D0022D119 /* AddCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD942462B62138D0022D119 /* AddCourseView.swift */; };
+		1CD942492B6213AB0022D119 /* AddExtracurricularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD942482B6213AB0022D119 /* AddExtracurricularView.swift */; };
+		1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD9424A2B6213B60022D119 /* AddTestScoreView.swift */; };
+		1CD9424D2B6213D30022D119 /* AddAwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD9424C2B6213D30022D119 /* AddAwardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +91,14 @@
 		1CC221CF2B605FEB00FBC7E4 /* OpportunitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesView.swift; sourceTree = "<group>"; };
 		1CC221D22B60625400FBC7E4 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		1CD942312B61511E0022D119 /* BackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundModifier.swift; sourceTree = "<group>"; };
+		1CD9423C2B6212520022D119 /* CoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesView.swift; sourceTree = "<group>"; };
+		1CD9423E2B62125E0022D119 /* ExtracurricularsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtracurricularsView.swift; sourceTree = "<group>"; };
+		1CD942402B62126B0022D119 /* TestScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScoresView.swift; sourceTree = "<group>"; };
+		1CD942422B6212810022D119 /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
+		1CD942462B62138D0022D119 /* AddCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseView.swift; sourceTree = "<group>"; };
+		1CD942482B6213AB0022D119 /* AddExtracurricularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExtracurricularView.swift; sourceTree = "<group>"; };
+		1CD9424A2B6213B60022D119 /* AddTestScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTestScoreView.swift; sourceTree = "<group>"; };
+		1CD9424C2B6213D30022D119 /* AddAwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAwardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,9 +214,9 @@
 		1CC221D12B60623B00FBC7E4 /* Main App */ = {
 			isa = PBXGroup;
 			children = (
+				1CD9423B2B6212370022D119 /* Portfolio Views */,
 				1CC221D22B60625400FBC7E4 /* NavBar.swift */,
 				1CC221C92B603BD400FBC7E4 /* HomeView.swift */,
-				1CC221CB2B605F6100FBC7E4 /* PortfolioView.swift */,
 				1CC221CD2B605FAE00FBC7E4 /* ChatView.swift */,
 				1CC221CF2B605FEB00FBC7E4 /* OpportunitiesView.swift */,
 			);
@@ -227,6 +243,38 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CD9423B2B6212370022D119 /* Portfolio Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CD942452B6213680022D119 /* Add Views */,
+				1CD942442B62135C0022D119 /* Edit Views */,
+				1CC221CB2B605F6100FBC7E4 /* PortfolioView.swift */,
+			);
+			path = "Portfolio Views";
+			sourceTree = "<group>";
+		};
+		1CD942442B62135C0022D119 /* Edit Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CD9423C2B6212520022D119 /* CoursesView.swift */,
+				1CD9423E2B62125E0022D119 /* ExtracurricularsView.swift */,
+				1CD942402B62126B0022D119 /* TestScoresView.swift */,
+				1CD942422B6212810022D119 /* AwardsView.swift */,
+			);
+			path = "Edit Views";
+			sourceTree = "<group>";
+		};
+		1CD942452B6213680022D119 /* Add Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CD942462B62138D0022D119 /* AddCourseView.swift */,
+				1CD942482B6213AB0022D119 /* AddExtracurricularView.swift */,
+				1CD9424A2B6213B60022D119 /* AddTestScoreView.swift */,
+				1CD9424C2B6213D30022D119 /* AddAwardView.swift */,
+			);
+			path = "Add Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,19 +425,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */,
+				1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */,
 				1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */,
 				1C8DFD0B2B522023003B7233 /* JaleoApp.swift in Sources */,
 				1C8DFD532B523AF4003B7233 /* RootView.swift in Sources */,
+				1CD942472B62138D0022D119 /* AddCourseView.swift in Sources */,
 				1CC221CE2B605FAE00FBC7E4 /* ChatView.swift in Sources */,
+				1CD942432B6212810022D119 /* AwardsView.swift in Sources */,
+				1CD942412B62126B0022D119 /* TestScoresView.swift in Sources */,
 				1CC221CA2B603BD400FBC7E4 /* HomeView.swift in Sources */,
 				1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */,
 				1CC221CC2B605F6200FBC7E4 /* PortfolioView.swift in Sources */,
 				1CC221C62B5F29D400FBC7E4 /* SignUpView.swift in Sources */,
 				1CC221D02B605FEB00FBC7E4 /* OpportunitiesView.swift in Sources */,
 				1CC221C82B5F2B2300FBC7E4 /* SignInEmailViewModel.swift in Sources */,
+				1CD9423D2B6212520022D119 /* CoursesView.swift in Sources */,
 				1CC221D32B60625400FBC7E4 /* NavBar.swift in Sources */,
+				1CD942492B6213AB0022D119 /* AddExtracurricularView.swift in Sources */,
+				1CD9423F2B62125E0022D119 /* ExtracurricularsView.swift in Sources */,
 				1C8DFD4F2B522A5D003B7233 /* StartingView.swift in Sources */,
 				1CD942322B61511E0022D119 /* BackgroundModifier.swift in Sources */,
+				1CD9424D2B6213D30022D119 /* AddAwardView.swift in Sources */,
 				1C8DFD512B5233EF003B7233 /* AuthenticationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
