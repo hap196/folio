@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class JaleoUITestsLaunchTests: XCTestCase {
+final class FolioUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A90FF2B5455CE0048405E /* SurveyView.swift */; };
-		1C8DFD0B2B522023003B7233 /* JaleoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0A2B522023003B7233 /* JaleoApp.swift */; };
+		1C8DFD0B2B522023003B7233 /* FolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0A2B522023003B7233 /* FolioApp.swift */; };
 		1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0E2B52202C003B7233 /* Assets.xcassets */; };
 		1C8DFD122B52202C003B7233 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD112B52202C003B7233 /* Preview Assets.xcassets */; };
-		1C8DFD1C2B52202D003B7233 /* JaleoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD1B2B52202D003B7233 /* JaleoTests.swift */; };
-		1C8DFD262B52202D003B7233 /* JaleoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD252B52202D003B7233 /* JaleoUITests.swift */; };
-		1C8DFD282B52202D003B7233 /* JaleoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD272B52202D003B7233 /* JaleoUITestsLaunchTests.swift */; };
+		1C8DFD1C2B52202D003B7233 /* FolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD1B2B52202D003B7233 /* FolioTests.swift */; };
+		1C8DFD262B52202D003B7233 /* FolioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD252B52202D003B7233 /* FolioUITests.swift */; };
+		1C8DFD282B52202D003B7233 /* FolioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD272B52202D003B7233 /* FolioUITestsLaunchTests.swift */; };
 		1C8DFD3A2B522348003B7233 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD392B522348003B7233 /* FirebaseAnalytics */; };
 		1C8DFD3C2B522348003B7233 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD3B2B522348003B7233 /* FirebaseAnalyticsSwift */; };
 		1C8DFD3E2B522348003B7233 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1C8DFD3D2B522348003B7233 /* FirebaseAuth */; };
@@ -68,15 +68,15 @@
 
 /* Begin PBXFileReference section */
 		1C6A90FF2B5455CE0048405E /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
-		1C8DFD072B522023003B7233 /* Jaleo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jaleo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C8DFD0A2B522023003B7233 /* JaleoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoApp.swift; sourceTree = "<group>"; };
+		1C8DFD072B522023003B7233 /* Folio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Folio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C8DFD0A2B522023003B7233 /* FolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioApp.swift; sourceTree = "<group>"; };
 		1C8DFD0E2B52202C003B7233 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C8DFD112B52202C003B7233 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1C8DFD172B52202D003B7233 /* JaleoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JaleoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C8DFD1B2B52202D003B7233 /* JaleoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoTests.swift; sourceTree = "<group>"; };
-		1C8DFD212B52202D003B7233 /* JaleoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JaleoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C8DFD252B52202D003B7233 /* JaleoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoUITests.swift; sourceTree = "<group>"; };
-		1C8DFD272B52202D003B7233 /* JaleoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaleoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1C8DFD172B52202D003B7233 /* FolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C8DFD1B2B52202D003B7233 /* FolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioTests.swift; sourceTree = "<group>"; };
+		1C8DFD212B52202D003B7233 /* FolioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FolioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C8DFD252B52202D003B7233 /* FolioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioUITests.swift; sourceTree = "<group>"; };
+		1C8DFD272B52202D003B7233 /* FolioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1C8DFD4E2B522A5D003B7233 /* StartingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingView.swift; sourceTree = "<group>"; };
 		1C8DFD502B5233EF003B7233 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		1C8DFD522B523AF4003B7233 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -138,9 +138,9 @@
 		1C8DFCFE2B522023003B7233 = {
 			isa = PBXGroup;
 			children = (
-				1C8DFD092B522023003B7233 /* Jaleo */,
-				1C8DFD1A2B52202D003B7233 /* JaleoTests */,
-				1C8DFD242B52202D003B7233 /* JaleoUITests */,
+				1C8DFD092B522023003B7233 /* Folio */,
+				1C8DFD1A2B52202D003B7233 /* FolioTests */,
+				1C8DFD242B52202D003B7233 /* FolioUITests */,
 				1C8DFD082B522023003B7233 /* Products */,
 				1CD942362B61F0DF0022D119 /* Frameworks */,
 			);
@@ -149,27 +149,27 @@
 		1C8DFD082B522023003B7233 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1C8DFD072B522023003B7233 /* Jaleo.app */,
-				1C8DFD172B52202D003B7233 /* JaleoTests.xctest */,
-				1C8DFD212B52202D003B7233 /* JaleoUITests.xctest */,
+				1C8DFD072B522023003B7233 /* Folio.app */,
+				1C8DFD172B52202D003B7233 /* FolioTests.xctest */,
+				1C8DFD212B52202D003B7233 /* FolioUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1C8DFD092B522023003B7233 /* Jaleo */ = {
+		1C8DFD092B522023003B7233 /* Folio */ = {
 			isa = PBXGroup;
 			children = (
 				1CD942332B616FEA0022D119 /* Images */,
 				1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */,
 				1C8DFD0E2B52202C003B7233 /* Assets.xcassets */,
-				1C8DFD0A2B522023003B7233 /* JaleoApp.swift */,
+				1C8DFD0A2B522023003B7233 /* FolioApp.swift */,
 				1C8DFD522B523AF4003B7233 /* RootView.swift */,
 				1CD9422F2B6150F40022D119 /* Reusable Views */,
 				1CC221D12B60623B00FBC7E4 /* Main App */,
 				1C8DFD472B5225C2003B7233 /* Login */,
 				1C8DFD102B52202C003B7233 /* Preview Content */,
 			);
-			path = Jaleo;
+			path = Folio;
 			sourceTree = "<group>";
 		};
 		1C8DFD102B52202C003B7233 /* Preview Content */ = {
@@ -180,21 +180,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1C8DFD1A2B52202D003B7233 /* JaleoTests */ = {
+		1C8DFD1A2B52202D003B7233 /* FolioTests */ = {
 			isa = PBXGroup;
 			children = (
-				1C8DFD1B2B52202D003B7233 /* JaleoTests.swift */,
+				1C8DFD1B2B52202D003B7233 /* FolioTests.swift */,
 			);
-			path = JaleoTests;
+			path = FolioTests;
 			sourceTree = "<group>";
 		};
-		1C8DFD242B52202D003B7233 /* JaleoUITests */ = {
+		1C8DFD242B52202D003B7233 /* FolioUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1C8DFD252B52202D003B7233 /* JaleoUITests.swift */,
-				1C8DFD272B52202D003B7233 /* JaleoUITestsLaunchTests.swift */,
+				1C8DFD252B52202D003B7233 /* FolioUITests.swift */,
+				1C8DFD272B52202D003B7233 /* FolioUITestsLaunchTests.swift */,
 			);
-			path = JaleoUITests;
+			path = FolioUITests;
 			sourceTree = "<group>";
 		};
 		1C8DFD472B5225C2003B7233 /* Login */ = {
@@ -280,9 +280,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1C8DFD062B522023003B7233 /* Jaleo */ = {
+		1C8DFD062B522023003B7233 /* Folio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1C8DFD2B2B52202D003B7233 /* Build configuration list for PBXNativeTarget "Jaleo" */;
+			buildConfigurationList = 1C8DFD2B2B52202D003B7233 /* Build configuration list for PBXNativeTarget "Folio" */;
 			buildPhases = (
 				1C8DFD032B522023003B7233 /* Sources */,
 				1C8DFD042B522023003B7233 /* Frameworks */,
@@ -292,7 +292,7 @@
 			);
 			dependencies = (
 			);
-			name = Jaleo;
+			name = Folio;
 			packageProductDependencies = (
 				1C8DFD392B522348003B7233 /* FirebaseAnalytics */,
 				1C8DFD3B2B522348003B7233 /* FirebaseAnalyticsSwift */,
@@ -305,12 +305,12 @@
 				1CD942392B61F0E70022D119 /* FirebaseFirestoreSwift */,
 			);
 			productName = Jaleo;
-			productReference = 1C8DFD072B522023003B7233 /* Jaleo.app */;
+			productReference = 1C8DFD072B522023003B7233 /* Folio.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1C8DFD162B52202D003B7233 /* JaleoTests */ = {
+		1C8DFD162B52202D003B7233 /* FolioTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1C8DFD2E2B52202D003B7233 /* Build configuration list for PBXNativeTarget "JaleoTests" */;
+			buildConfigurationList = 1C8DFD2E2B52202D003B7233 /* Build configuration list for PBXNativeTarget "FolioTests" */;
 			buildPhases = (
 				1C8DFD132B52202D003B7233 /* Sources */,
 				1C8DFD142B52202D003B7233 /* Frameworks */,
@@ -321,14 +321,14 @@
 			dependencies = (
 				1C8DFD192B52202D003B7233 /* PBXTargetDependency */,
 			);
-			name = JaleoTests;
+			name = FolioTests;
 			productName = JaleoTests;
-			productReference = 1C8DFD172B52202D003B7233 /* JaleoTests.xctest */;
+			productReference = 1C8DFD172B52202D003B7233 /* FolioTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1C8DFD202B52202D003B7233 /* JaleoUITests */ = {
+		1C8DFD202B52202D003B7233 /* FolioUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1C8DFD312B52202D003B7233 /* Build configuration list for PBXNativeTarget "JaleoUITests" */;
+			buildConfigurationList = 1C8DFD312B52202D003B7233 /* Build configuration list for PBXNativeTarget "FolioUITests" */;
 			buildPhases = (
 				1C8DFD1D2B52202D003B7233 /* Sources */,
 				1C8DFD1E2B52202D003B7233 /* Frameworks */,
@@ -339,9 +339,9 @@
 			dependencies = (
 				1C8DFD232B52202D003B7233 /* PBXTargetDependency */,
 			);
-			name = JaleoUITests;
+			name = FolioUITests;
 			productName = JaleoUITests;
-			productReference = 1C8DFD212B52202D003B7233 /* JaleoUITests.xctest */;
+			productReference = 1C8DFD212B52202D003B7233 /* FolioUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -367,7 +367,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1C8DFD022B522023003B7233 /* Build configuration list for PBXProject "Jaleo" */;
+			buildConfigurationList = 1C8DFD022B522023003B7233 /* Build configuration list for PBXProject "Folio" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -383,9 +383,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1C8DFD062B522023003B7233 /* Jaleo */,
-				1C8DFD162B52202D003B7233 /* JaleoTests */,
-				1C8DFD202B52202D003B7233 /* JaleoUITests */,
+				1C8DFD062B522023003B7233 /* Folio */,
+				1C8DFD162B52202D003B7233 /* FolioTests */,
+				1C8DFD202B52202D003B7233 /* FolioUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -427,7 +427,7 @@
 				1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */,
 				1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */,
 				1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */,
-				1C8DFD0B2B522023003B7233 /* JaleoApp.swift in Sources */,
+				1C8DFD0B2B522023003B7233 /* FolioApp.swift in Sources */,
 				1C8DFD532B523AF4003B7233 /* RootView.swift in Sources */,
 				1CD942472B62138D0022D119 /* AddCourseView.swift in Sources */,
 				1CC221CE2B605FAE00FBC7E4 /* ChatView.swift in Sources */,
@@ -454,7 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C8DFD1C2B52202D003B7233 /* JaleoTests.swift in Sources */,
+				1C8DFD1C2B52202D003B7233 /* FolioTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,8 +462,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C8DFD282B52202D003B7233 /* JaleoUITestsLaunchTests.swift in Sources */,
-				1C8DFD262B52202D003B7233 /* JaleoUITests.swift in Sources */,
+				1C8DFD282B52202D003B7233 /* FolioUITestsLaunchTests.swift in Sources */,
+				1C8DFD262B52202D003B7233 /* FolioUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,12 +472,12 @@
 /* Begin PBXTargetDependency section */
 		1C8DFD192B52202D003B7233 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1C8DFD062B522023003B7233 /* Jaleo */;
+			target = 1C8DFD062B522023003B7233 /* Folio */;
 			targetProxy = 1C8DFD182B52202D003B7233 /* PBXContainerItemProxy */;
 		};
 		1C8DFD232B52202D003B7233 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1C8DFD062B522023003B7233 /* Jaleo */;
+			target = 1C8DFD062B522023003B7233 /* Folio */;
 			targetProxy = 1C8DFD222B52202D003B7233 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -609,9 +609,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Jaleo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Folio/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=iphoneos*]" = Folio;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -622,8 +624,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hailey.Jaleo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = hailey.Folio;
+				PRODUCT_NAME = Folio;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -637,9 +639,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Jaleo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Folio/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -650,8 +653,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hailey.Jaleo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = hailey.Folio;
+				PRODUCT_NAME = Folio;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -673,7 +676,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jaleo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Jaleo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Folio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Folio";
 			};
 			name = Debug;
 		};
@@ -692,7 +695,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jaleo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Jaleo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Folio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Folio";
 			};
 			name = Release;
 		};
@@ -733,7 +736,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1C8DFD022B522023003B7233 /* Build configuration list for PBXProject "Jaleo" */ = {
+		1C8DFD022B522023003B7233 /* Build configuration list for PBXProject "Folio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C8DFD292B52202D003B7233 /* Debug */,
@@ -742,7 +745,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1C8DFD2B2B52202D003B7233 /* Build configuration list for PBXNativeTarget "Jaleo" */ = {
+		1C8DFD2B2B52202D003B7233 /* Build configuration list for PBXNativeTarget "Folio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C8DFD2C2B52202D003B7233 /* Debug */,
@@ -751,7 +754,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1C8DFD2E2B52202D003B7233 /* Build configuration list for PBXNativeTarget "JaleoTests" */ = {
+		1C8DFD2E2B52202D003B7233 /* Build configuration list for PBXNativeTarget "FolioTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C8DFD2F2B52202D003B7233 /* Debug */,
@@ -760,7 +763,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1C8DFD312B52202D003B7233 /* Build configuration list for PBXNativeTarget "JaleoUITests" */ = {
+		1C8DFD312B52202D003B7233 /* Build configuration list for PBXNativeTarget "FolioUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C8DFD322B52202D003B7233 /* Debug */,
