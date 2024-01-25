@@ -8,6 +8,8 @@
 // SignInEmailViewModel.swift
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 // Handles both sign in and sign up
 @MainActor
@@ -23,6 +25,18 @@ final class SignInEmailViewModel: ObservableObject {
     @Published var weakPasswordError = false
     @Published var invalidEmailError = false
 
+    // Add properties for grade, school, and major
+    var grade: String = ""
+    var school: String = ""
+    var major: String = ""
+    
+    // Add an initializer
+        init(grade: String = "", school: String = "", major: String = "") {
+            self.grade = grade
+            self.school = school
+            self.major = major
+        }
+    
     func signUp() async throws {
         // Reset error states
         weakPasswordError = false
@@ -39,6 +53,7 @@ final class SignInEmailViewModel: ObservableObject {
             signUpSuccess = true
             verificationEmailSent = true
             showVerificationAlert = true
+            
         } catch let error as NSError {
             if error.domain == "FIRAuthErrorDomain" {
                 switch error.code {
@@ -54,6 +69,12 @@ final class SignInEmailViewModel: ObservableObject {
                 }
             }
         }
+        
+        // After successful sign-up, store additional user info
+        if signUpSuccess {
+            await storeUserInfo()
+        }
+
     }
     
     func signIn() async throws {
@@ -78,6 +99,18 @@ final class SignInEmailViewModel: ObservableObject {
             emailVerificationError = false
         }
     }
+    
+    private func storeUserInfo() async {
+            guard let userId = Auth.auth().currentUser?.uid else { return }
+            let db = Firestore.firestore()
 
+            let userInfo = ["grade": grade, "school": school, "major": major]
+            do {
+                try await db.collection("Users").document(userId).setData(userInfo)
+                print("User info stored successfully")
+            } catch {
+                print("Error storing user info: \(error)")
+            }
+        }
 
 }

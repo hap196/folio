@@ -40,9 +40,27 @@ struct SurveyView: View {
         
         VStack {
             Spacer() // Pushes content to center/middle
-            // Progress Bar
-            ProgressView(value: progressValue(), total: 4)
-                .padding()
+            
+            HStack {
+                if currentStep != .grade {
+                    Button(action: {
+                        goBack()
+                    }) {
+                        Label("", systemImage: "arrow.backward") // Create a Label with image and text
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                }
+                
+                // Progress Bar
+                ProgressView(value: progressValue(), total: 4)
+                    .scaleEffect(x: 1, y: 5, anchor: .center) // This scales the height by 2 times
+                    .padding()
+                    .cornerRadius(10)
+                
+            }
+            
+            Spacer()
 
             // Survey Step Content
             switch currentStep {
@@ -56,34 +74,40 @@ struct SurveyView: View {
                 detailsStepView
             }
 
-            // Navigation Buttons
-            HStack {
-                if currentStep != .grade {
-                    Button("Back") {
-                        goBack()
-                    }
-                }
+            Spacer()
+            Spacer()
 
-                Spacer()
-
-                Button(currentStep == .details ? "Submit" : "Next") {
-                    goToNextStep()
-                }
+            // Navigation Button
+            Button(action: {
+                goToNextStep()
+            }) {
+                Text("Continue")
+                    .bold()
+                    .frame(maxWidth: .infinity)
             }
-            .padding()
-            
+            .buttonStyle(BlueButtonStyle())
+
             Spacer() // Pushes all content to the center/middle
             
         }
         
+//        .fullScreenCover(isPresented: $showSignUpView) {
+//            SignUpView(showSignUpView: $showSignUpView, isAuthenticated: $isAuthenticated)
+//        }
         .fullScreenCover(isPresented: $showSignUpView) {
-            SignUpView(showSignUpView: $showSignUpView, isAuthenticated: $isAuthenticated)
+            SignUpView(
+                viewModel: SignInEmailViewModel(grade: grade, school: school, major: major),
+                showSignUpView: $showSignUpView,
+                isAuthenticated: $isAuthenticated
+            )
         }
+
         // Present HomeView when the signup is successful
         .fullScreenCover(isPresented: $signupSuccessful) {
 //          HomeView()  // Replace with your actual HomeView
             SettingsView(isAuthenticated: $isAuthenticated)
         }
+        .padding(.horizontal) // Apply horizontal padding to the entire VStack
         .gradientBackground()
 
 
@@ -100,6 +124,7 @@ struct SurveyView: View {
             Text("12th").tag("12th")
         }
         .pickerStyle(.segmented)
+        
     }
 
     private var schoolStepView: some View {

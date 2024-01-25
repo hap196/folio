@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseFirestore
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -14,6 +15,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     print("Firebase launched successfully!")
     FirebaseApp.configure()
+      
+    // create database
+    let db = Firestore.firestore()
 
     return true
   }

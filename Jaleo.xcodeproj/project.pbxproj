@@ -37,6 +37,8 @@
 		1CC221D02B605FEB00FBC7E4 /* OpportunitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221CF2B605FEB00FBC7E4 /* OpportunitiesView.swift */; };
 		1CC221D32B60625400FBC7E4 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221D22B60625400FBC7E4 /* NavBar.swift */; };
 		1CD942322B61511E0022D119 /* BackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD942312B61511E0022D119 /* BackgroundModifier.swift */; };
+		1CD942382B61F0DF0022D119 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1CD942372B61F0DF0022D119 /* FirebaseFirestore */; };
+		1CD9423A2B61F0E70022D119 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1CD942392B61F0E70022D119 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +95,10 @@
 				1C8DFD462B522348003B7233 /* FirebaseMessaging in Frameworks */,
 				1C8DFD3C2B522348003B7233 /* FirebaseAnalyticsSwift in Frameworks */,
 				1C8DFD402B522348003B7233 /* FirebaseCrashlytics in Frameworks */,
+				1CD942382B61F0DF0022D119 /* FirebaseFirestore in Frameworks */,
 				1C8DFD3E2B522348003B7233 /* FirebaseAuth in Frameworks */,
 				1C8DFD3A2B522348003B7233 /* FirebaseAnalytics in Frameworks */,
+				1CD9423A2B61F0E70022D119 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +126,7 @@
 				1C8DFD1A2B52202D003B7233 /* JaleoTests */,
 				1C8DFD242B52202D003B7233 /* JaleoUITests */,
 				1C8DFD082B522023003B7233 /* Products */,
+				1CD942362B61F0DF0022D119 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +143,7 @@
 		1C8DFD092B522023003B7233 /* Jaleo */ = {
 			isa = PBXGroup;
 			children = (
+				1CD942332B616FEA0022D119 /* Images */,
 				1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */,
 				1C8DFD0E2B52202C003B7233 /* Assets.xcassets */,
 				1C8DFD0A2B522023003B7233 /* JaleoApp.swift */,
@@ -209,6 +215,20 @@
 			path = "Reusable Views";
 			sourceTree = "<group>";
 		};
+		1CD942332B616FEA0022D119 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		1CD942362B61F0DF0022D119 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,6 +253,8 @@
 				1C8DFD412B522348003B7233 /* FirebaseDatabase */,
 				1C8DFD432B522348003B7233 /* FirebaseDatabaseSwift */,
 				1C8DFD452B522348003B7233 /* FirebaseMessaging */,
+				1CD942372B61F0DF0022D119 /* FirebaseFirestore */,
+				1CD942392B61F0E70022D119 /* FirebaseFirestoreSwift */,
 			);
 			productName = Jaleo;
 			productReference = 1C8DFD072B522023003B7233 /* Jaleo.app */;
@@ -739,6 +761,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		1CD942372B61F0DF0022D119 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		1CD942392B61F0E70022D119 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C8DFD382B522348003B7233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

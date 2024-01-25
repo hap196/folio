@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @StateObject private var viewModel = SignInEmailViewModel()
+//    @StateObject private var viewModel = SignInEmailViewModel()
+    @ObservedObject var viewModel: SignInEmailViewModel
     @Binding var showSignUpView: Bool
     @Binding var isAuthenticated: Bool
 
     var body: some View {
         VStack {
-            Spacer()
             
             HStack {
                 // Custom back button
@@ -29,16 +29,20 @@ struct SignUpView: View {
 
                 Spacer()
             }
+            .padding(.top, 50)
+
             
             TextField("Email...", text: $viewModel.email)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10)
+                .foregroundColor(.white.opacity(0.7))
 
             SecureField("Password...", text: $viewModel.password)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10)
+                .foregroundColor(.white)
 
             Button("Sign up") {
                 Task {
@@ -59,6 +63,7 @@ struct SignUpView: View {
             .frame(maxWidth: .infinity)
             .background(Color.blue)
             .cornerRadius(10)
+            .padding(.top, 20)
 
             if viewModel.weakPasswordError {
                 Text("The password must be 6 characters long or more.")
@@ -93,7 +98,10 @@ struct SignUpView: View {
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SignUpView(showSignUpView: .constant(true), isAuthenticated: .constant(false))
+            // Create an instance of SignInEmailViewModel with default values
+            SignUpView(viewModel: SignInEmailViewModel(), showSignUpView: .constant(true), isAuthenticated: .constant(false))
         }
     }
 }
+
+
