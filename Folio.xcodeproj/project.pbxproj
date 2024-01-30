@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C261D3A2B62CDC2000D2C4C /* PortfolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D392B62CDC2000D2C4C /* PortfolioViewModel.swift */; };
 		1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A90FF2B5455CE0048405E /* SurveyView.swift */; };
 		1C8DFD0B2B522023003B7233 /* FolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0A2B522023003B7233 /* FolioApp.swift */; };
 		1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0E2B52202C003B7233 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		1CD942492B6213AB0022D119 /* AddExtracurricularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD942482B6213AB0022D119 /* AddExtracurricularView.swift */; };
 		1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD9424A2B6213B60022D119 /* AddTestScoreView.swift */; };
 		1CD9424D2B6213D30022D119 /* AddAwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD9424C2B6213D30022D119 /* AddAwardView.swift */; };
+		1CD942502B62C3C90022D119 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD9424F2B62C3C90022D119 /* Course.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C261D392B62CDC2000D2C4C /* PortfolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewModel.swift; sourceTree = "<group>"; };
 		1C6A90FF2B5455CE0048405E /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		1C8DFD072B522023003B7233 /* Folio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Folio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8DFD0A2B522023003B7233 /* FolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioApp.swift; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		1CD942482B6213AB0022D119 /* AddExtracurricularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExtracurricularView.swift; sourceTree = "<group>"; };
 		1CD9424A2B6213B60022D119 /* AddTestScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTestScoreView.swift; sourceTree = "<group>"; };
 		1CD9424C2B6213D30022D119 /* AddAwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAwardView.swift; sourceTree = "<group>"; };
+		1CD9424F2B62C3C90022D119 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +252,7 @@
 		1CD9423B2B6212370022D119 /* Portfolio Views */ = {
 			isa = PBXGroup;
 			children = (
+				1CD9424E2B62C3B10022D119 /* Portfolio Data Models */,
 				1CD942452B6213680022D119 /* Add Views */,
 				1CD942442B62135C0022D119 /* Edit Views */,
 				1CC221CB2B605F6100FBC7E4 /* PortfolioView.swift */,
@@ -275,6 +280,15 @@
 				1CD9424C2B6213D30022D119 /* AddAwardView.swift */,
 			);
 			path = "Add Views";
+			sourceTree = "<group>";
+		};
+		1CD9424E2B62C3B10022D119 /* Portfolio Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				1CD9424F2B62C3C90022D119 /* Course.swift */,
+				1C261D392B62CDC2000D2C4C /* PortfolioViewModel.swift */,
+			);
+			path = "Portfolio Data Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,9 +438,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CD942502B62C3C90022D119 /* Course.swift in Sources */,
 				1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */,
 				1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */,
 				1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */,
+				1C261D3A2B62CDC2000D2C4C /* PortfolioViewModel.swift in Sources */,
 				1C8DFD0B2B522023003B7233 /* FolioApp.swift in Sources */,
 				1C8DFD532B523AF4003B7233 /* RootView.swift in Sources */,
 				1CD942472B62138D0022D119 /* AddCourseView.swift in Sources */,
