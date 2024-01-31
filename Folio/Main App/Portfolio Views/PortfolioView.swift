@@ -63,9 +63,14 @@ struct PortfolioView: View {
                                                 ScrollView {
                                                     VStack(alignment: .leading, spacing: 12) {
                                                         ForEach(SectionType.allCases, id: \.self) { sectionType in
-                                                            CollapsibleSectionCardView(title: sectionType.rawValue, sectionType: sectionType, selectedYear: selectedYear, viewModel: viewModel)
-                                                                .padding(.vertical, 5)
+                                                            CollapsibleSectionCardView(
+                                                                title: sectionType.rawValue,
+                                                                sectionType: sectionType,
+                                                                viewModel: viewModel,
+                                                                selectedYear: years[selectedYear] // Convert the index to a year string
+                                                            )
                                                         }
+
                                                     }
                                                     .scrollIndicators(.hidden)
                                                 }
@@ -120,8 +125,11 @@ import SwiftUI
 struct CollapsibleSectionCardView: View {
     let title: String
     let sectionType: SectionType
-    let selectedYear: Int
-    @ObservedObject var viewModel: PortfolioViewModel
+//    let selectedYear: Int
+//    @ObservedObject var viewModel: PortfolioViewModel
+//    
+    let viewModel: PortfolioViewModel
+    let selectedYear: String
 
     @State private var isCollapsed: Bool = false
     @State private var navigateToEditView = false
@@ -199,19 +207,18 @@ struct CollapsibleSectionCardView: View {
 
     @ViewBuilder
     private func viewForSectionType(_ sectionType: SectionType, isEditMode: Bool) -> some View {
-        let yearString = ["9th", "10th", "11th", "12th"][selectedYear] // Convert index to year string
-
         switch sectionType {
         case .Courses:
-            isEditMode ? AnyView(CoursesView()) : AnyView(AddCourseView(selectedYear: yearString))
+            isEditMode ? AnyView(CoursesView(viewModel: viewModel, selectedYear: selectedYear)) : AnyView(AddCourseView(selectedYear: selectedYear))
         case .Extracurriculars:
-            isEditMode ? AnyView(ExtracurricularsView()) : AnyView(AddExtracurricularView(selectedYear: yearString))
+            isEditMode ? AnyView(ExtracurricularsView(viewModel: viewModel, selectedYear: selectedYear)) : AnyView(AddExtracurricularView(selectedYear: selectedYear))
         case .Awards:
-            isEditMode ? AnyView(AwardsView()) : AnyView(AddAwardView(selectedYear: yearString))
+            isEditMode ? AnyView(AwardsView(viewModel: viewModel, selectedYear: selectedYear)) : AnyView(AddAwardView(selectedYear: selectedYear))
         case .TestScores:
-            isEditMode ? AnyView(TestScoresView()) : AnyView(AddTestScoreView(selectedYear: yearString))
+            isEditMode ? AnyView(TestScoresView(viewModel: viewModel, selectedYear: selectedYear)) : AnyView(AddTestScoreView(selectedYear: selectedYear))
         }
     }
+
 }
 
 enum SectionType: String, CaseIterable {

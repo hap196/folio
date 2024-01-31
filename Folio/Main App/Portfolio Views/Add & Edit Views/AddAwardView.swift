@@ -19,27 +19,17 @@ struct AddAwardView: View {
 
     var body: some View {
             ZStack {
-                // Background and layout similar to AddCourseView
-                // ...
 
                 VStack {
                     TextField("Award Name", text: $awardName)
-                        // Style the TextField
-                        // ...
 
                     TextField("Year Received", text: $yearReceived)
-                        // Style the TextField
-                        // ...
 
                     TextField("Description (Optional)", text: $description)
-                        // Style the TextField
-                        // ...
 
                     Button("Save") {
                         saveAward()
                     }
-                    // Style the Button
-                    // ...
                 }
                 .padding()
             }

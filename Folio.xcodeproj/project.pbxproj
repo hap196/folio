@@ -11,6 +11,10 @@
 		1C261D3C2B6A07EB000D2C4C /* Extracurricular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D3B2B6A07EB000D2C4C /* Extracurricular.swift */; };
 		1C261D3E2B6A082A000D2C4C /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D3D2B6A082A000D2C4C /* Award.swift */; };
 		1C261D402B6A083C000D2C4C /* TestScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D3F2B6A083C000D2C4C /* TestScore.swift */; };
+		1C261D432B6A25E7000D2C4C /* EditCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D422B6A25E7000D2C4C /* EditCourseView.swift */; };
+		1C261D452B6A25F4000D2C4C /* EditExtracurricularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D442B6A25F4000D2C4C /* EditExtracurricularView.swift */; };
+		1C261D472B6A25FF000D2C4C /* EditTestScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D462B6A25FF000D2C4C /* EditTestScoreView.swift */; };
+		1C261D492B6A2611000D2C4C /* EditAwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D482B6A2611000D2C4C /* EditAwardView.swift */; };
 		1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A90FF2B5455CE0048405E /* SurveyView.swift */; };
 		1C8DFD0B2B522023003B7233 /* FolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0A2B522023003B7233 /* FolioApp.swift */; };
 		1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0E2B52202C003B7233 /* Assets.xcassets */; };
@@ -76,6 +80,10 @@
 		1C261D3B2B6A07EB000D2C4C /* Extracurricular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extracurricular.swift; sourceTree = "<group>"; };
 		1C261D3D2B6A082A000D2C4C /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		1C261D3F2B6A083C000D2C4C /* TestScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScore.swift; sourceTree = "<group>"; };
+		1C261D422B6A25E7000D2C4C /* EditCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCourseView.swift; sourceTree = "<group>"; };
+		1C261D442B6A25F4000D2C4C /* EditExtracurricularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExtracurricularView.swift; sourceTree = "<group>"; };
+		1C261D462B6A25FF000D2C4C /* EditTestScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTestScoreView.swift; sourceTree = "<group>"; };
+		1C261D482B6A2611000D2C4C /* EditAwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAwardView.swift; sourceTree = "<group>"; };
 		1C6A90FF2B5455CE0048405E /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		1C8DFD072B522023003B7233 /* Folio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Folio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8DFD0A2B522023003B7233 /* FolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioApp.swift; sourceTree = "<group>"; };
@@ -145,6 +153,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C261D412B6A25C5000D2C4C /* Item Edit Views */ = {
+			isa = PBXGroup;
+			children = (
+				1C261D422B6A25E7000D2C4C /* EditCourseView.swift */,
+				1C261D442B6A25F4000D2C4C /* EditExtracurricularView.swift */,
+				1C261D462B6A25FF000D2C4C /* EditTestScoreView.swift */,
+				1C261D482B6A2611000D2C4C /* EditAwardView.swift */,
+			);
+			path = "Item Edit Views";
+			sourceTree = "<group>";
+		};
 		1C8DFCFE2B522023003B7233 = {
 			isa = PBXGroup;
 			children = (
@@ -259,25 +278,26 @@
 			isa = PBXGroup;
 			children = (
 				1CD9424E2B62C3B10022D119 /* Portfolio Data Models */,
-				1CD942452B6213680022D119 /* Add Views */,
-				1CD942442B62135C0022D119 /* Edit Views */,
+				1CD942452B6213680022D119 /* Add & Edit Views */,
+				1CD942442B62135C0022D119 /* List Edit Views */,
 				1CC221CB2B605F6100FBC7E4 /* PortfolioView.swift */,
 			);
 			path = "Portfolio Views";
 			sourceTree = "<group>";
 		};
-		1CD942442B62135C0022D119 /* Edit Views */ = {
+		1CD942442B62135C0022D119 /* List Edit Views */ = {
 			isa = PBXGroup;
 			children = (
+				1C261D412B6A25C5000D2C4C /* Item Edit Views */,
 				1CD9423C2B6212520022D119 /* CoursesView.swift */,
 				1CD9423E2B62125E0022D119 /* ExtracurricularsView.swift */,
 				1CD942402B62126B0022D119 /* TestScoresView.swift */,
 				1CD942422B6212810022D119 /* AwardsView.swift */,
 			);
-			path = "Edit Views";
+			path = "List Edit Views";
 			sourceTree = "<group>";
 		};
-		1CD942452B6213680022D119 /* Add Views */ = {
+		1CD942452B6213680022D119 /* Add & Edit Views */ = {
 			isa = PBXGroup;
 			children = (
 				1CD942462B62138D0022D119 /* AddCourseView.swift */,
@@ -285,7 +305,7 @@
 				1CD9424A2B6213B60022D119 /* AddTestScoreView.swift */,
 				1CD9424C2B6213D30022D119 /* AddAwardView.swift */,
 			);
-			path = "Add Views";
+			path = "Add & Edit Views";
 			sourceTree = "<group>";
 		};
 		1CD9424E2B62C3B10022D119 /* Portfolio Data Models */ = {
@@ -465,6 +485,7 @@
 				1CC221C62B5F29D400FBC7E4 /* SignUpView.swift in Sources */,
 				1CC221D02B605FEB00FBC7E4 /* OpportunitiesView.swift in Sources */,
 				1CC221C82B5F2B2300FBC7E4 /* SignInEmailViewModel.swift in Sources */,
+				1C261D492B6A2611000D2C4C /* EditAwardView.swift in Sources */,
 				1CD9423D2B6212520022D119 /* CoursesView.swift in Sources */,
 				1C261D3C2B6A07EB000D2C4C /* Extracurricular.swift in Sources */,
 				1CC221D32B60625400FBC7E4 /* NavBar.swift in Sources */,
@@ -473,8 +494,11 @@
 				1CD9423F2B62125E0022D119 /* ExtracurricularsView.swift in Sources */,
 				1C8DFD4F2B522A5D003B7233 /* StartingView.swift in Sources */,
 				1CD942322B61511E0022D119 /* BackgroundModifier.swift in Sources */,
+				1C261D472B6A25FF000D2C4C /* EditTestScoreView.swift in Sources */,
 				1CD9424D2B6213D30022D119 /* AddAwardView.swift in Sources */,
+				1C261D452B6A25F4000D2C4C /* EditExtracurricularView.swift in Sources */,
 				1C8DFD512B5233EF003B7233 /* AuthenticationManager.swift in Sources */,
+				1C261D432B6A25E7000D2C4C /* EditCourseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

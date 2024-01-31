@@ -19,27 +19,17 @@ struct AddTestScoreView: View {
     
     var body: some View {
             ZStack {
-                // Background and layout similar to AddCourseView
-                // ...
 
                 VStack {
                     TextField("Test Name", text: $testName)
-                        // Style the TextField
-                        // ...
 
                     TextField("Score", text: $score)
-                        // Style the TextField
-                        // ...
 
                     DatePicker("Date Taken", selection: $dateTaken, displayedComponents: .date)
-                        // Style the DatePicker
-                        // ...
 
                     Button("Save") {
                         saveTestScore()
                     }
-                    // Style the Button
-                    // ...
                 }
                 .padding()
             }

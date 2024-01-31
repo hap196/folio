@@ -19,27 +19,18 @@ struct AddExtracurricularView: View {
 
     var body: some View {
         ZStack {
-            // Background and layout similar to AddCourseView
-            // ...
 
             VStack {
                 TextField("Extracurricular Name", text: $extracurricularName)
-                    // Style the TextField
-                    // ...
 
                 TextField("Description", text: $description)
-                    // Style the TextField
-                    // ...
-
+                
                 TextField("Years Participated (comma-separated)", text: $yearsParticipated)
-                    // Style the TextField
-                    // ...
-
+                    
                 Button("Save") {
                     saveExtracurricular()
                 }
-                // Style the Button
-                // ...
+                
             }
             .padding()
         }

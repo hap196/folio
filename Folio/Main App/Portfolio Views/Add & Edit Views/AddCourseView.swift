@@ -19,7 +19,7 @@ struct AddCourseView: View {
             
             VStack(alignment: .leading) {
                 HStack {
-                    // Header "Add course"
+
                     Text("Add course")
                         .font(.title)
                         .fontWeight(.bold)
@@ -29,8 +29,7 @@ struct AddCourseView: View {
                 .padding(.horizontal) // Apply horizontal padding to the header HStack
                 
                 Divider()
-                
-                // Text labels and input fields including pickers
+            
                 Group {
                     Text("Course name")
                         .foregroundColor(.white)
@@ -87,9 +86,7 @@ struct AddCourseView: View {
                     )
                 }
                 
-                // Save button
                 Button(action: {
-                    // Save action
                     self.saveCourse()
                 }) {
                     Text("Save")
@@ -127,5 +124,7 @@ struct AddCourseView: View {
                 }
             }
         }
+    
+    
 
 }
