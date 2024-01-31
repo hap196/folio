@@ -12,7 +12,7 @@ struct PortfolioView: View {
         NavigationView {
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom)
-                        .edgesIgnoringSafeArea(.all)
+                    .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 10) {
                     PortfolioHeaderView()
@@ -58,47 +58,49 @@ struct PortfolioView: View {
                     .padding(.horizontal)
                     
                     // Section cards
-                                        TabView(selection: $selectedYear) {
-                                            ForEach(0..<years.count) { yearIndex in
-                                                ScrollView {
-                                                    VStack(alignment: .leading, spacing: 12) {
-                                                        ForEach(SectionType.allCases, id: \.self) { sectionType in
-                                                            CollapsibleSectionCardView(
-                                                                title: sectionType.rawValue,
-                                                                sectionType: sectionType,
-                                                                viewModel: viewModel,
-                                                                selectedYear: years[selectedYear] // Convert the index to a year string
-                                                            )
-                                                        }
-
-                                                    }
-                                                    .scrollIndicators(.hidden)
-                                                }
-                                                .tag(yearIndex)
-                                                .padding(.horizontal, 15)
-                                                .scrollIndicators(.hidden)
-                                            }
-                                        }
-                                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                                        .onChange(of: selectedYear) { newValue in
-                                            fetchDataForSelectedYear()
-                                        }
-                                        Spacer()
-                                    }
-                                    .padding(.top, 40)
-                                    .onAppear {
-                                        fetchDataForSelectedYear()
+                    TabView(selection: $selectedYear) {
+                        ForEach(0..<years.count) { yearIndex in
+                            ScrollView {
+                                VStack(alignment: .leading, spacing: 12) {
+                                    ForEach(SectionType.allCases, id: \.self) { sectionType in
+                                        CollapsibleSectionCardView(
+                                            title: sectionType.rawValue,
+                                            sectionType: sectionType,
+                                            viewModel: viewModel,
+                                            selectedYear: years[selectedYear] // Convert the index to a year string
+                                        )
                                     }
                                 }
+                                .scrollIndicators(.hidden)
                             }
+                            .tag(yearIndex)
+                            .padding(.horizontal, 15)
+                            .scrollIndicators(.hidden)
                         }
-    
+                    }
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                    .onChange(of: selectedYear) { newValue in
+                        fetchDataForSelectedYear()
+                    }
+                    .onAppear {
+                        fetchDataForSelectedYear()
+                    }
+
+                    Spacer()
+                }
+                .padding(.top, 40)
+                .onAppear {
+                    fetchDataForSelectedYear()
+                }
+            }
+        }
+    }
+
     private func fetchDataForSelectedYear() {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         viewModel.fetchDataForYear(userId: userId, year: years[selectedYear])
     }
 
-    // Namespace for Matched Geometry Effect
     @Namespace private var namespace
 }
 
@@ -120,14 +122,9 @@ struct PortfolioHeaderView: View {
     }
 }
 
-import SwiftUI
-
 struct CollapsibleSectionCardView: View {
     let title: String
     let sectionType: SectionType
-//    let selectedYear: Int
-//    @ObservedObject var viewModel: PortfolioViewModel
-//    
     let viewModel: PortfolioViewModel
     let selectedYear: String
 
@@ -139,7 +136,14 @@ struct CollapsibleSectionCardView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Button(action: {
-                    withAnimation { self.isCollapsed.toggle() }
+                    withAnimation {
+                        self.isCollapsed.toggle()
+                        if !isCollapsed {
+                            // Assuming you have access to the user ID here
+                            let userId = Auth.auth().currentUser?.uid ?? ""
+                            viewModel.fetchDataForSection(userId: userId, year: selectedYear, sectionType: sectionType)
+                        }
+                    }
                 }) {
                     Image(systemName: isCollapsed ? "chevron.down" : "chevron.up")
                         .foregroundColor(.white)
@@ -207,6 +211,9 @@ struct CollapsibleSectionCardView: View {
 
     @ViewBuilder
     private func viewForSectionType(_ sectionType: SectionType, isEditMode: Bool) -> some View {
+        // Return views for each section type
+        // Example: if sectionType == .Courses, return a CoursesView
+        // You'll need to implement these view components based on your app's structure
         switch sectionType {
         case .Courses:
             isEditMode ? AnyView(CoursesView(viewModel: viewModel, selectedYear: selectedYear)) : AnyView(AddCourseView(selectedYear: selectedYear))
@@ -218,8 +225,8 @@ struct CollapsibleSectionCardView: View {
             isEditMode ? AnyView(TestScoresView(viewModel: viewModel, selectedYear: selectedYear)) : AnyView(AddTestScoreView(selectedYear: selectedYear))
         }
     }
-
 }
+
 
 enum SectionType: String, CaseIterable {
     case Courses = "Courses"

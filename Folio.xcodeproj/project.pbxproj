@@ -15,6 +15,8 @@
 		1C261D452B6A25F4000D2C4C /* EditExtracurricularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D442B6A25F4000D2C4C /* EditExtracurricularView.swift */; };
 		1C261D472B6A25FF000D2C4C /* EditTestScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D462B6A25FF000D2C4C /* EditTestScoreView.swift */; };
 		1C261D492B6A2611000D2C4C /* EditAwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D482B6A2611000D2C4C /* EditAwardView.swift */; };
+		1C261D4C2B6A47A1000D2C4C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D4B2B6A47A1000D2C4C /* ChatMessage.swift */; };
+		1C261D4E2B6A4830000D2C4C /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D4D2B6A4830000D2C4C /* MessagesView.swift */; };
 		1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A90FF2B5455CE0048405E /* SurveyView.swift */; };
 		1C8DFD0B2B522023003B7233 /* FolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0A2B522023003B7233 /* FolioApp.swift */; };
 		1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0E2B52202C003B7233 /* Assets.xcassets */; };
@@ -84,6 +86,8 @@
 		1C261D442B6A25F4000D2C4C /* EditExtracurricularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExtracurricularView.swift; sourceTree = "<group>"; };
 		1C261D462B6A25FF000D2C4C /* EditTestScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTestScoreView.swift; sourceTree = "<group>"; };
 		1C261D482B6A2611000D2C4C /* EditAwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAwardView.swift; sourceTree = "<group>"; };
+		1C261D4B2B6A47A1000D2C4C /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		1C261D4D2B6A4830000D2C4C /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		1C6A90FF2B5455CE0048405E /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		1C8DFD072B522023003B7233 /* Folio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Folio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8DFD0A2B522023003B7233 /* FolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioApp.swift; sourceTree = "<group>"; };
@@ -164,6 +168,23 @@
 			path = "Item Edit Views";
 			sourceTree = "<group>";
 		};
+		1C261D4A2B6A4788000D2C4C /* Chat Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CC221CD2B605FAE00FBC7E4 /* ChatView.swift */,
+				1C261D4B2B6A47A1000D2C4C /* ChatMessage.swift */,
+				1C261D4D2B6A4830000D2C4C /* MessagesView.swift */,
+			);
+			path = "Chat Views";
+			sourceTree = "<group>";
+		};
+		1C261D502B6A4B5C000D2C4C /* Server */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
 		1C8DFCFE2B522023003B7233 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +209,7 @@
 		1C8DFD092B522023003B7233 /* Folio */ = {
 			isa = PBXGroup;
 			children = (
+				1C261D502B6A4B5C000D2C4C /* Server */,
 				1CD942332B616FEA0022D119 /* Images */,
 				1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */,
 				1C8DFD0E2B52202C003B7233 /* Assets.xcassets */,
@@ -243,10 +265,10 @@
 		1CC221D12B60623B00FBC7E4 /* Main App */ = {
 			isa = PBXGroup;
 			children = (
+				1C261D4A2B6A4788000D2C4C /* Chat Views */,
 				1CD9423B2B6212370022D119 /* Portfolio Views */,
 				1CC221D22B60625400FBC7E4 /* NavBar.swift */,
 				1CC221C92B603BD400FBC7E4 /* HomeView.swift */,
-				1CC221CD2B605FAE00FBC7E4 /* ChatView.swift */,
 				1CC221CF2B605FEB00FBC7E4 /* OpportunitiesView.swift */,
 			);
 			path = "Main App";
@@ -469,6 +491,7 @@
 			files = (
 				1CD942502B62C3C90022D119 /* Course.swift in Sources */,
 				1C261D3E2B6A082A000D2C4C /* Award.swift in Sources */,
+				1C261D4E2B6A4830000D2C4C /* MessagesView.swift in Sources */,
 				1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */,
 				1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */,
 				1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */,
@@ -494,6 +517,7 @@
 				1CD9423F2B62125E0022D119 /* ExtracurricularsView.swift in Sources */,
 				1C8DFD4F2B522A5D003B7233 /* StartingView.swift in Sources */,
 				1CD942322B61511E0022D119 /* BackgroundModifier.swift in Sources */,
+				1C261D4C2B6A47A1000D2C4C /* ChatMessage.swift in Sources */,
 				1C261D472B6A25FF000D2C4C /* EditTestScoreView.swift in Sources */,
 				1CD9424D2B6213D30022D119 /* AddAwardView.swift in Sources */,
 				1C261D452B6A25F4000D2C4C /* EditExtracurricularView.swift in Sources */,
