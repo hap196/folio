@@ -1,8 +1,12 @@
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 struct PortfolioView: View {
     @State private var selectedYear = 0
     let years = ["9th", "10th", "11th", "12th"]
+    
+    @ObservedObject var viewModel = PortfolioViewModel()
 
     var body: some View {
         NavigationView {
@@ -54,30 +58,41 @@ struct PortfolioView: View {
                     .padding(.horizontal)
                     
                     // Section cards
-                    TabView(selection: $selectedYear) {
-                        ForEach(0..<years.count) { yearIndex in
-                            ScrollView {
-                                VStack(alignment: .leading, spacing: 12) {
-                                    ForEach(SectionType.allCases, id: \.self) { sectionType in
-                                        CollapsibleSectionCardView(title: sectionType.rawValue, sectionType: sectionType, selectedYear: selectedYear)
-                                            .padding(.vertical, 5)
+                                        TabView(selection: $selectedYear) {
+                                            ForEach(0..<years.count) { yearIndex in
+                                                ScrollView {
+                                                    VStack(alignment: .leading, spacing: 12) {
+                                                        ForEach(SectionType.allCases, id: \.self) { sectionType in
+                                                            CollapsibleSectionCardView(title: sectionType.rawValue, sectionType: sectionType, selectedYear: selectedYear, viewModel: viewModel)
+                                                                .padding(.vertical, 5)
+                                                        }
+                                                    }
+                                                    .scrollIndicators(.hidden)
+                                                }
+                                                .tag(yearIndex)
+                                                .padding(.horizontal, 15)
+                                                .scrollIndicators(.hidden)
+                                            }
+                                        }
+                                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                                        .onChange(of: selectedYear) { newValue in
+                                            fetchDataForSelectedYear()
+                                        }
+                                        Spacer()
+                                    }
+                                    .padding(.top, 40)
+                                    .onAppear {
+                                        fetchDataForSelectedYear()
                                     }
                                 }
-                                .scrollIndicators(.hidden)
-                                
                             }
-                            .tag(yearIndex)
-                            .padding(.horizontal, 15)
-                            .scrollIndicators(.hidden)
                         }
-                    }
-                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                    Spacer()
-                }
-                .padding(.top, 40)
-            }
-        }
+    
+    private func fetchDataForSelectedYear() {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        viewModel.fetchDataForYear(userId: userId, year: years[selectedYear])
     }
+
     // Namespace for Matched Geometry Effect
     @Namespace private var namespace
 }
@@ -88,22 +103,25 @@ struct PortfolioHeaderView: View {
             Image(systemName: "doc.append")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 25, height: 25) // Made slightly smaller
+                .frame(width: 25, height: 25)
                 .padding(.leading, 20)
                 .foregroundColor(.white)
             Text("My Portfolio")
-                .font(.headline) // Smaller font size compared to .title
-                .fontWeight(.bold) // Bold font weight
+                .font(.headline)
+                .fontWeight(.bold)
                 .foregroundColor(.white)
             Spacer()
         }
     }
 }
 
+import SwiftUI
+
 struct CollapsibleSectionCardView: View {
     let title: String
     let sectionType: SectionType
     let selectedYear: Int
+    @ObservedObject var viewModel: PortfolioViewModel
 
     @State private var isCollapsed: Bool = false
     @State private var navigateToEditView = false
@@ -112,7 +130,6 @@ struct CollapsibleSectionCardView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                // Chevron button for collapsing
                 Button(action: {
                     withAnimation { self.isCollapsed.toggle() }
                 }) {
@@ -127,7 +144,6 @@ struct CollapsibleSectionCardView: View {
 
                 Spacer()
 
-                // Edit button
                 Button(action: {
                     navigateToEditView = true
                 }) {
@@ -135,7 +151,6 @@ struct CollapsibleSectionCardView: View {
                         .foregroundColor(.white)
                 }
 
-                // Add button
                 Button(action: {
                     navigateToAddView = true
                 }) {
@@ -145,17 +160,32 @@ struct CollapsibleSectionCardView: View {
             }
             .padding(.vertical, 10)
 
-            // Navigation links are hidden and only activated when the state changes
             NavigationLink(destination: viewForSectionType(sectionType, isEditMode: true), isActive: $navigateToEditView) { EmptyView() }
             NavigationLink(destination: viewForSectionType(sectionType, isEditMode: false), isActive: $navigateToAddView) { EmptyView() }
 
             if !isCollapsed {
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(sectionType.items, id: \.self) { item in
-                        Text(item)
-                            .padding(.vertical, 8)
-                            .foregroundColor(.white)
-                        Divider() // Divider line between items
+                    switch sectionType {
+                    case .Courses:
+                        ForEach(viewModel.courses, id: \.id) { course in
+                            Text(course.name).foregroundColor(Color.gray)
+                            Divider()
+                        }
+                    case .Extracurriculars:
+                        ForEach(viewModel.extracurriculars, id: \.id) { extracurricular in
+                            Text(extracurricular.name).foregroundColor(Color.gray)
+                            Divider()
+                        }
+                    case .Awards:
+                        ForEach(viewModel.awards, id: \.id) { award in
+                            Text(award.name).foregroundColor(Color.gray)
+                            Divider()
+                        }
+                    case .TestScores:
+                        ForEach(viewModel.testScores, id: \.id) { testScore in
+                            Text(testScore.testName).foregroundColor(Color.gray)
+                            Divider()
+                        }
                     }
                 }
             }
@@ -166,6 +196,7 @@ struct CollapsibleSectionCardView: View {
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.2), radius: 7, x: 0, y: 7)
     }
+
     @ViewBuilder
     private func viewForSectionType(_ sectionType: SectionType, isEditMode: Bool) -> some View {
         let yearString = ["9th", "10th", "11th", "12th"][selectedYear] // Convert index to year string
@@ -183,24 +214,13 @@ struct CollapsibleSectionCardView: View {
     }
 }
 
-
 enum SectionType: String, CaseIterable {
     case Courses = "Courses"
     case Extracurriculars = "Extracurriculars"
     case Awards = "Awards"
     case TestScores = "Test Scores"
-
-    var items: [String] {
-        switch self {
-        case .Courses: return ["Generic Science Class", "Generic Math Class", "Physical Education"]
-        case .Extracurriculars: return ["Volunteering", "Arbitrary Extracurricular 1", "Clubs"]
-        case .Awards: return ["Arbitrary Award 1", "Arbitrary Award 2"]
-        case .TestScores: return ["Arbitrary Test 1: Score"]
-        }
-    }
 }
 
-// Dummy extension for custom colors
 extension Color {
     static let customLightBackground = Color.gray.opacity(0.1)
     static let customDarkBackground = Color.gray.opacity(0.2)
