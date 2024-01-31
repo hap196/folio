@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1C261D3A2B62CDC2000D2C4C /* PortfolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D392B62CDC2000D2C4C /* PortfolioViewModel.swift */; };
+		1C261D3C2B6A07EB000D2C4C /* Extracurricular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D3B2B6A07EB000D2C4C /* Extracurricular.swift */; };
+		1C261D3E2B6A082A000D2C4C /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D3D2B6A082A000D2C4C /* Award.swift */; };
+		1C261D402B6A083C000D2C4C /* TestScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D3F2B6A083C000D2C4C /* TestScore.swift */; };
 		1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A90FF2B5455CE0048405E /* SurveyView.swift */; };
 		1C8DFD0B2B522023003B7233 /* FolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0A2B522023003B7233 /* FolioApp.swift */; };
 		1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0E2B52202C003B7233 /* Assets.xcassets */; };
@@ -70,6 +73,9 @@
 
 /* Begin PBXFileReference section */
 		1C261D392B62CDC2000D2C4C /* PortfolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewModel.swift; sourceTree = "<group>"; };
+		1C261D3B2B6A07EB000D2C4C /* Extracurricular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extracurricular.swift; sourceTree = "<group>"; };
+		1C261D3D2B6A082A000D2C4C /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
+		1C261D3F2B6A083C000D2C4C /* TestScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScore.swift; sourceTree = "<group>"; };
 		1C6A90FF2B5455CE0048405E /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		1C8DFD072B522023003B7233 /* Folio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Folio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8DFD0A2B522023003B7233 /* FolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioApp.swift; sourceTree = "<group>"; };
@@ -287,6 +293,9 @@
 			children = (
 				1CD9424F2B62C3C90022D119 /* Course.swift */,
 				1C261D392B62CDC2000D2C4C /* PortfolioViewModel.swift */,
+				1C261D3B2B6A07EB000D2C4C /* Extracurricular.swift */,
+				1C261D3D2B6A082A000D2C4C /* Award.swift */,
+				1C261D3F2B6A083C000D2C4C /* TestScore.swift */,
 			);
 			path = "Portfolio Data Models";
 			sourceTree = "<group>";
@@ -439,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CD942502B62C3C90022D119 /* Course.swift in Sources */,
+				1C261D3E2B6A082A000D2C4C /* Award.swift in Sources */,
 				1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */,
 				1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */,
 				1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */,
@@ -456,8 +466,10 @@
 				1CC221D02B605FEB00FBC7E4 /* OpportunitiesView.swift in Sources */,
 				1CC221C82B5F2B2300FBC7E4 /* SignInEmailViewModel.swift in Sources */,
 				1CD9423D2B6212520022D119 /* CoursesView.swift in Sources */,
+				1C261D3C2B6A07EB000D2C4C /* Extracurricular.swift in Sources */,
 				1CC221D32B60625400FBC7E4 /* NavBar.swift in Sources */,
 				1CD942492B6213AB0022D119 /* AddExtracurricularView.swift in Sources */,
+				1C261D402B6A083C000D2C4C /* TestScore.swift in Sources */,
 				1CD9423F2B62125E0022D119 /* ExtracurricularsView.swift in Sources */,
 				1C8DFD4F2B522A5D003B7233 /* StartingView.swift in Sources */,
 				1CD942322B61511E0022D119 /* BackgroundModifier.swift in Sources */,

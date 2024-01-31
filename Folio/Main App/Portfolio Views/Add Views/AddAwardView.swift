@@ -6,29 +6,57 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import FirebaseAuth
 
 struct AddAwardView: View {
-    
+    @Environment(\.presentationMode) var presentationMode
+    @State private var awardName: String = ""
+    @State private var yearReceived: String = ""
+    @State private var description: String = ""
+
     var body: some View {
-        HStack {
-            // Back button
-            Button(action: {
-                // Pop the view off the navigation stack
-            }) {
-                Image(systemName: "arrow.left")
-                    .foregroundColor(.white)
+            ZStack {
+                // Background and layout similar to AddCourseView
+                // ...
+
+                VStack {
+                    TextField("Award Name", text: $awardName)
+                        // Style the TextField
+                        // ...
+
+                    TextField("Year Received", text: $yearReceived)
+                        // Style the TextField
+                        // ...
+
+                    TextField("Description (Optional)", text: $description)
+                        // Style the TextField
+                        // ...
+
+                    Button("Save") {
+                        saveAward()
+                    }
+                    // Style the Button
+                    // ...
+                }
+                .padding()
             }
-            Spacer()
-            // Title in the center
-            Text("Add new award")
-                .font(.headline)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-            Spacer()
-            // Spacer on the right to center the title
-            Image(systemName: "arrow.left")
-                .foregroundColor(.clear)
         }
-        .padding()
+
+
+    private func saveAward() {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+
+        let newAward = Award(name: awardName, yearReceived: yearReceived, description: description)
+        let userDocRef = Firestore.firestore().collection("Users").document(userId)
+        userDocRef.collection("Awards").document(newAward.id).setData(newAward.dictionary) { error in
+            if let error = error {
+                // Handle error
+                print("Error adding award: \(error.localizedDescription)")
+            } else {
+                // Dismiss the view
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
 }
