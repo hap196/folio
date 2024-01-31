@@ -103,6 +103,7 @@
 		1C8DFD522B523AF4003B7233 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1C8DFD542B523EB1003B7233 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1CB97EE22B6A4E2900DAD30C /* server.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = server.js; sourceTree = "<group>"; };
 		1CC221C32B5F232D00FBC7E4 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		1CC221C52B5F29D400FBC7E4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1CC221C72B5F2B2300FBC7E4 /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 		1C261D502B6A4B5C000D2C4C /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				1CB97EE22B6A4E2900DAD30C /* server.js */,
 			);
 			path = Server;
 			sourceTree = "<group>";

@@ -35,7 +35,48 @@ struct ChatView: View {
         messages.append(newMessage)
         messageText = ""
 
-        // Here you would add the code to send the message to your server
-        // and receive the response from the ChatGPT API
+        // URL of Node.js server's /message endpoint
+        guard let url = URL(string: "http://localhost:3000/message") else { return }
+
+        // Create a URLRequest
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        // Create a dictionary with the user's message
+        let messageDictionary: [String: String] = ["message": newMessage.text]
+
+        // Convert the dictionary to JSON data
+        if let jsonData = try? JSONSerialization.data(withJSONObject: messageDictionary, options: []) {
+            request.httpBody = jsonData
+        }
+
+        // Create a URLSession task to send the message to the server
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data, error == nil {
+                do {
+                    // Parse the JSON data
+                    if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: String],
+                       let serverMessage = jsonResponse["reply"] {
+                        // Append the server's response to messages
+                        DispatchQueue.main.async {
+                            messages.append(ChatMessage(text: serverMessage, isSentByCurrentUser: false))
+                        }
+                    }
+                } catch {
+                    print("Error parsing the JSON response")
+                }
+            } else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+            }
+        }
+        .resume()
+    }
+
+}
+
+struct ChatView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChatView()
     }
 }
