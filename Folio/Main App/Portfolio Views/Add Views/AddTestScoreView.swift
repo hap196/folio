@@ -15,6 +15,8 @@ struct AddTestScoreView: View {
     @State private var score: String = ""
     @State private var dateTaken = Date()
 
+    var selectedYear: String
+    
     var body: some View {
             ZStack {
                 // Background and layout similar to AddCourseView
@@ -45,18 +47,19 @@ struct AddTestScoreView: View {
 
 
     private func saveTestScore() {
-        guard let userId = Auth.auth().currentUser?.uid else { return }
+            guard let userId = Auth.auth().currentUser?.uid else { return }
 
-        let newTestScore = TestScore(testName: testName, score: score, dateTaken: dateTaken)
-        let userDocRef = Firestore.firestore().collection("Users").document(userId)
-        userDocRef.collection("TestScores").document(newTestScore.id).setData(newTestScore.dictionary) { error in
-            if let error = error {
-                // Handle error
-                print("Error adding test score: \(error.localizedDescription)")
-            } else {
-                // Dismiss the view
-                self.presentationMode.wrappedValue.dismiss()
+            let newTestScore = TestScore(testName: testName, score: score, dateTaken: dateTaken)
+            let userDocRef = Firestore.firestore().collection("Users").document(userId)
+            // Update the Firestore path to include the selected year
+            userDocRef.collection(selectedYear).document("TestScores").collection("Items").document(newTestScore.id).setData(newTestScore.dictionary) { error in
+                if let error = error {
+                    // Handle error
+                    print("Error adding test score: \(error.localizedDescription)")
+                } else {
+                    // Dismiss the view
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }
         }
-    }
 }

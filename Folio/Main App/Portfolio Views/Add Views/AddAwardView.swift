@@ -14,6 +14,8 @@ struct AddAwardView: View {
     @State private var awardName: String = ""
     @State private var yearReceived: String = ""
     @State private var description: String = ""
+    
+    var selectedYear: String
 
     var body: some View {
             ZStack {
@@ -45,18 +47,19 @@ struct AddAwardView: View {
 
 
     private func saveAward() {
-        guard let userId = Auth.auth().currentUser?.uid else { return }
+            guard let userId = Auth.auth().currentUser?.uid else { return }
 
-        let newAward = Award(name: awardName, yearReceived: yearReceived, description: description)
-        let userDocRef = Firestore.firestore().collection("Users").document(userId)
-        userDocRef.collection("Awards").document(newAward.id).setData(newAward.dictionary) { error in
-            if let error = error {
-                // Handle error
-                print("Error adding award: \(error.localizedDescription)")
-            } else {
-                // Dismiss the view
-                self.presentationMode.wrappedValue.dismiss()
+            let newAward = Award(name: awardName, yearReceived: yearReceived, description: description)
+            let userDocRef = Firestore.firestore().collection("Users").document(userId)
+            // Update the Firestore path to include the selected year
+            userDocRef.collection(selectedYear).document("Awards").collection("Items").document(newAward.id).setData(newAward.dictionary) { error in
+                if let error = error {
+                    // Handle error
+                    print("Error adding award: \(error.localizedDescription)")
+                } else {
+                    // Dismiss the view
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }
         }
-    }
 }

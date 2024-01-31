@@ -9,6 +9,8 @@ struct AddCourseView: View {
     let courseLevels = ["Regular", "Honors", "AP", "IB", "Dual Enrollment"]
     let grades = ["A", "B", "C", "D", "F", "P", "NP", "Other"]
     
+    var selectedYear: String // Passed from PortfolioView
+    
     var body: some View {
         ZStack {
             // Background gradient
@@ -105,23 +107,25 @@ struct AddCourseView: View {
         }
     }
     
-        @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentationMode
     
     private func saveCourse() {
-                guard let userId = Auth.auth().currentUser?.uid else { return }
-        
-                let newCourse = Course(name: courseName, level: selectedCourseLevel, grade: selectedGrade)
-                let userDocRef = Firestore.firestore().collection("Users").document(userId)
-                userDocRef.collection("Courses").document(newCourse.id).setData(newCourse.dictionary) { error in
-                    if let error = error {
-                        // Handle the error by showing an alert to the user
-                        print("Error adding course: \(error.localizedDescription)")
-                        } else {
-                            // The course was added successfully
-                            // Perform any actions needed after saving, e.g., dismiss the view
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                    }
+            guard let userId = Auth.auth().currentUser?.uid else { return }
+            
+            let newCourse = Course(name: courseName, level: selectedCourseLevel, grade: selectedGrade)
+            let userDocRef = Firestore.firestore().collection("Users").document(userId)
+            
+            // Update the Firestore path to include the selected year
+            userDocRef.collection(selectedYear).document("Courses").collection("Items").document(newCourse.id).setData(newCourse.dictionary) { error in
+                if let error = error {
+                    // Handle the error by showing an alert to the user
+                    print("Error adding course: \(error.localizedDescription)")
+                } else {
+                    // The course was added successfully
+                    // Perform any actions needed after saving, e.g., dismiss the view
+                    self.presentationMode.wrappedValue.dismiss()
                 }
+            }
+        }
 
 }

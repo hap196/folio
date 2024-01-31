@@ -167,18 +167,20 @@ struct CollapsibleSectionCardView: View {
         .shadow(color: Color.black.opacity(0.2), radius: 7, x: 0, y: 7)
     }
     @ViewBuilder
-        private func viewForSectionType(_ sectionType: SectionType, isEditMode: Bool) -> some View {
-            switch sectionType {
-            case .Courses:
-                isEditMode ? AnyView(CoursesView()) : AnyView(AddCourseView())
-            case .Extracurriculars:
-                isEditMode ? AnyView(ExtracurricularsView()) : AnyView(AddExtracurricularView())
-            case .Awards:
-                isEditMode ? AnyView(AwardsView()) : AnyView(AddAwardView())
-            case .TestScores:
-                isEditMode ? AnyView(TestScoresView()) : AnyView(AddTestScoreView())
-            }
+    private func viewForSectionType(_ sectionType: SectionType, isEditMode: Bool) -> some View {
+        let yearString = ["9th", "10th", "11th", "12th"][selectedYear] // Convert index to year string
+
+        switch sectionType {
+        case .Courses:
+            isEditMode ? AnyView(CoursesView()) : AnyView(AddCourseView(selectedYear: yearString))
+        case .Extracurriculars:
+            isEditMode ? AnyView(ExtracurricularsView()) : AnyView(AddExtracurricularView(selectedYear: yearString))
+        case .Awards:
+            isEditMode ? AnyView(AwardsView()) : AnyView(AddAwardView(selectedYear: yearString))
+        case .TestScores:
+            isEditMode ? AnyView(TestScoresView()) : AnyView(AddTestScoreView(selectedYear: yearString))
         }
+    }
 }
 
 

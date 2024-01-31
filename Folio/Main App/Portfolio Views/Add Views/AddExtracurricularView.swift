@@ -9,56 +9,58 @@ import SwiftUI
 import FirebaseFirestore
 import FirebaseAuth
 
-
 struct AddExtracurricularView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var extracurricularName: String = ""
     @State private var description: String = ""
     @State private var yearsParticipated: String = ""
 
+    var selectedYear: String // Passed from PortfolioView
+
     var body: some View {
-            ZStack {
-                // Background and layout similar to AddCourseView
-                // ...
+        ZStack {
+            // Background and layout similar to AddCourseView
+            // ...
 
-                VStack {
-                    TextField("Extracurricular Name", text: $extracurricularName)
-                        // Style the TextField
-                        // ...
-
-                    TextField("Description", text: $description)
-                        // Style the TextField
-                        // ...
-
-                    TextField("Years Participated (comma-separated)", text: $yearsParticipated)
-                        // Style the TextField
-                        // ...
-
-                    Button("Save") {
-                        saveExtracurricular()
-                    }
-                    // Style the Button
+            VStack {
+                TextField("Extracurricular Name", text: $extracurricularName)
+                    // Style the TextField
                     // ...
+
+                TextField("Description", text: $description)
+                    // Style the TextField
+                    // ...
+
+                TextField("Years Participated (comma-separated)", text: $yearsParticipated)
+                    // Style the TextField
+                    // ...
+
+                Button("Save") {
+                    saveExtracurricular()
                 }
-                .padding()
+                // Style the Button
+                // ...
             }
+            .padding()
         }
+    }
 
     private func saveExtracurricular() {
-            guard let userId = Auth.auth().currentUser?.uid else { return }
+        guard let userId = Auth.auth().currentUser?.uid else { return }
 
-            let yearsArray = yearsParticipated.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespacesAndNewlines) }
-            let newExtracurricular = Extracurricular(name: extracurricularName, description: description, yearsParticipated: yearsArray)
+        let yearsArray = yearsParticipated.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespacesAndNewlines) }
+        let newExtracurricular = Extracurricular(name: extracurricularName, description: description, yearsParticipated: yearsArray)
 
-            let userDocRef = Firestore.firestore().collection("Users").document(userId)
-            userDocRef.collection("Extracurriculars").document(newExtracurricular.id).setData(newExtracurricular.dictionary) { error in
-                if let error = error {
-                    // Handle error
-                    print("Error adding extracurricular: \(error.localizedDescription)")
-                } else {
-                    self.presentationMode.wrappedValue.dismiss()
-                }
+        let userDocRef = Firestore.firestore().collection("Users").document(userId)
+        // Update the Firestore path to include the selected year
+        userDocRef.collection(selectedYear).document("Extracurriculars").collection("Items").document(newExtracurricular.id).setData(newExtracurricular.dictionary) { error in
+            if let error = error {
+                // Handle error
+                print("Error adding extracurricular: \(error.localizedDescription)")
+            } else {
+                self.presentationMode.wrappedValue.dismiss()
             }
         }
+    }
 }
 
