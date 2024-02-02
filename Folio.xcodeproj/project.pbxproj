@@ -38,6 +38,11 @@
 		1C8DFD572B524F3F003B7233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */; };
 		1C8DFD582B524F3F003B7233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */; };
 		1C8DFD592B524F3F003B7233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */; };
+		1CB97EE72B6AD60C00DAD30C /* Opportunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB97EE62B6AD60C00DAD30C /* Opportunity.swift */; };
+		1CB97EE92B6AD6DC00DAD30C /* OpportunitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB97EE82B6AD6DC00DAD30C /* OpportunitiesViewModel.swift */; };
+		1CB97EEB2B6AD6FC00DAD30C /* opportunities.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CB97EEA2B6AD6FC00DAD30C /* opportunities.json */; };
+		1CB97EED2B6AE9F600DAD30C /* OpportunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB97EEC2B6AE9F600DAD30C /* OpportunityCard.swift */; };
+		1CB97EF02B6AF5A800DAD30C /* OpportunityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB97EEF2B6AF5A800DAD30C /* OpportunityDetailsView.swift */; };
 		1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221C32B5F232D00FBC7E4 /* SignInView.swift */; };
 		1CC221C62B5F29D400FBC7E4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221C52B5F29D400FBC7E4 /* SignUpView.swift */; };
 		1CC221C82B5F2B2300FBC7E4 /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221C72B5F2B2300FBC7E4 /* SignInEmailViewModel.swift */; };
@@ -104,6 +109,11 @@
 		1C8DFD542B523EB1003B7233 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1CB97EE22B6A4E2900DAD30C /* server.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = server.js; sourceTree = "<group>"; };
+		1CB97EE62B6AD60C00DAD30C /* Opportunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opportunity.swift; sourceTree = "<group>"; };
+		1CB97EE82B6AD6DC00DAD30C /* OpportunitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesViewModel.swift; sourceTree = "<group>"; };
+		1CB97EEA2B6AD6FC00DAD30C /* opportunities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = opportunities.json; sourceTree = "<group>"; };
+		1CB97EEC2B6AE9F600DAD30C /* OpportunityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityCard.swift; sourceTree = "<group>"; };
+		1CB97EEF2B6AF5A800DAD30C /* OpportunityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityDetailsView.swift; sourceTree = "<group>"; };
 		1CC221C32B5F232D00FBC7E4 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		1CC221C52B5F29D400FBC7E4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1CC221C72B5F2B2300FBC7E4 /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
@@ -264,14 +274,35 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		1CB97EE32B6AD1A300DAD30C /* Opportunity Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CB97EEE2B6AF55400DAD30C /* Data model */,
+				1CB97EEA2B6AD6FC00DAD30C /* opportunities.json */,
+				1CC221CF2B605FEB00FBC7E4 /* OpportunitiesView.swift */,
+				1CB97EE82B6AD6DC00DAD30C /* OpportunitiesViewModel.swift */,
+				1CB97EEC2B6AE9F600DAD30C /* OpportunityCard.swift */,
+				1CB97EEF2B6AF5A800DAD30C /* OpportunityDetailsView.swift */,
+			);
+			path = "Opportunity Views";
+			sourceTree = "<group>";
+		};
+		1CB97EEE2B6AF55400DAD30C /* Data model */ = {
+			isa = PBXGroup;
+			children = (
+				1CB97EE62B6AD60C00DAD30C /* Opportunity.swift */,
+			);
+			path = "Data model";
+			sourceTree = "<group>";
+		};
 		1CC221D12B60623B00FBC7E4 /* Main App */ = {
 			isa = PBXGroup;
 			children = (
+				1CB97EE32B6AD1A300DAD30C /* Opportunity Views */,
 				1C261D4A2B6A4788000D2C4C /* Chat Views */,
 				1CD9423B2B6212370022D119 /* Portfolio Views */,
 				1CC221D22B60625400FBC7E4 /* NavBar.swift */,
 				1CC221C92B603BD400FBC7E4 /* HomeView.swift */,
-				1CC221CF2B605FEB00FBC7E4 /* OpportunitiesView.swift */,
 			);
 			path = "Main App";
 			sourceTree = "<group>";
@@ -464,6 +495,7 @@
 			files = (
 				1C8DFD122B52202C003B7233 /* Preview Assets.xcassets in Resources */,
 				1C8DFD572B524F3F003B7233 /* GoogleService-Info.plist in Resources */,
+				1CB97EEB2B6AD6FC00DAD30C /* opportunities.json in Resources */,
 				1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,10 +525,12 @@
 			files = (
 				1CD942502B62C3C90022D119 /* Course.swift in Sources */,
 				1C261D3E2B6A082A000D2C4C /* Award.swift in Sources */,
+				1CB97EE92B6AD6DC00DAD30C /* OpportunitiesViewModel.swift in Sources */,
 				1C261D4E2B6A4830000D2C4C /* MessagesView.swift in Sources */,
 				1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */,
 				1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */,
 				1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */,
+				1CB97EF02B6AF5A800DAD30C /* OpportunityDetailsView.swift in Sources */,
 				1C261D3A2B62CDC2000D2C4C /* PortfolioViewModel.swift in Sources */,
 				1C8DFD0B2B522023003B7233 /* FolioApp.swift in Sources */,
 				1C8DFD532B523AF4003B7233 /* RootView.swift in Sources */,
@@ -508,6 +542,7 @@
 				1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */,
 				1CC221CC2B605F6200FBC7E4 /* PortfolioView.swift in Sources */,
 				1CC221C62B5F29D400FBC7E4 /* SignUpView.swift in Sources */,
+				1CB97EE72B6AD60C00DAD30C /* Opportunity.swift in Sources */,
 				1CC221D02B605FEB00FBC7E4 /* OpportunitiesView.swift in Sources */,
 				1CC221C82B5F2B2300FBC7E4 /* SignInEmailViewModel.swift in Sources */,
 				1C261D492B6A2611000D2C4C /* EditAwardView.swift in Sources */,
@@ -515,6 +550,7 @@
 				1C261D3C2B6A07EB000D2C4C /* Extracurricular.swift in Sources */,
 				1CC221D32B60625400FBC7E4 /* NavBar.swift in Sources */,
 				1CD942492B6213AB0022D119 /* AddExtracurricularView.swift in Sources */,
+				1CB97EED2B6AE9F600DAD30C /* OpportunityCard.swift in Sources */,
 				1C261D402B6A083C000D2C4C /* TestScore.swift in Sources */,
 				1CD9423F2B62125E0022D119 /* ExtracurricularsView.swift in Sources */,
 				1C8DFD4F2B522A5D003B7233 /* StartingView.swift in Sources */,

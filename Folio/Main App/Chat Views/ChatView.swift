@@ -5,30 +5,45 @@ struct ChatView: View {
     @State private var messages: [ChatMessage] = []
 
     var body: some View {
-        VStack {
-            // Messages list
-            ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
-                    ForEach(messages) { message in
-                        MessageView(message: message)
+        NavigationView {
+            
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
+                
+                VStack(spacing: 10) {
+                    
+                    ChatHeaderView()
+                    
+                    // Messages list
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 10) {
+                            ForEach(messages) { message in
+                                MessageView(message: message)
+                            }
+                        }
                     }
-                }
-            }
 
-            // Message input field
-            HStack {
-                TextField("Type a message", text: $messageText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(minHeight: CGFloat(30))
+                    // Message input field
+                    HStack {
+                        TextField("Type a message", text: $messageText)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .frame(minHeight: CGFloat(30))
 
-                Button("Send") {
-                    sendMessage()
+                        Button("Send") {
+                            sendMessage()
+                        }
+                        .disabled(messageText.isEmpty)
+                    }
+                    .padding()
                 }
-                .disabled(messageText.isEmpty)
+                
             }
-            .padding()
+            
         }
+        
     }
+        
 
     private func sendMessage() {
         let newMessage = ChatMessage(text: messageText, isSentByCurrentUser: true)
@@ -75,8 +90,20 @@ struct ChatView: View {
 
 }
 
-struct ChatView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatView()
+struct ChatHeaderView: View {
+    var body: some View {
+        HStack {
+            Image(systemName: "doc.append")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 25, height: 25)
+                .padding(.leading, 20)
+                .foregroundColor(.white)
+            Text("Chat")
+                .font(.headline)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+            Spacer()
+        }
     }
 }

@@ -88,7 +88,7 @@ struct PortfolioView: View {
 
                     Spacer()
                 }
-                .padding(.top, 40)
+                
                 .onAppear {
                     fetchDataForSelectedYear()
                 }
