@@ -65,4 +65,11 @@ class OpportunitiesViewModel: ObservableObject {
             }
         }
     }
+    
+    // Method to get 6 random opportunities
+    // Using this in place of recommended opportunities for now
+    func getRandomOpportunity() -> Opportunity? {
+        return opportunities.randomElement()
+    }
+
 }

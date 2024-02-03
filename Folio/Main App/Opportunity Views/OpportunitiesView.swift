@@ -1,6 +1,6 @@
 //
 //  OpportunitiesView.swift
-//  Jaleo
+//  Folio
 //
 //  Created by Hailey Pan on 1/23/24.
 //
@@ -19,6 +19,8 @@ struct OpportunitiesView: View {
     @State private var searchText = ""
     @State private var isSearching = false
 
+    @State private var randomOpportunities = [Opportunity]()
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -89,11 +91,11 @@ struct OpportunitiesView: View {
                                                             .padding(.top)
 
                                                         // 2x2 grid for "Start Browsing"
-                                                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-                                                            CategoryButton(title: "Internships", color: Color.white.opacity(0.95), textColor: .black)
-                                                            CategoryButton(title: "Competitions", color: Color.white.opacity(0.95), textColor: .black)
-                                                            CategoryButton(title: "Volunteering", color: Color.white.opacity(0.95), textColor: .black)
-                                                            CategoryButton(title: "Scholarships", color: Color.white.opacity(0.95), textColor: .black)
+                                                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
+                                                            CategoryButton(title: "Internships", color: Color.white.opacity(0.95), textColor: .black, viewModel: viewModel)
+                                                            CategoryButton(title: "Competitions", color: Color.white.opacity(0.95), textColor: .black, viewModel: viewModel)
+                                                            CategoryButton(title: "Volunteering", color: Color.white.opacity(0.95), textColor: .black, viewModel: viewModel)
+                                                            CategoryButton(title: "Scholarships", color: Color.white.opacity(0.95), textColor: .black, viewModel: viewModel)
                                                         }
                                                         .padding(.bottom)
 
@@ -102,22 +104,81 @@ struct OpportunitiesView: View {
                                                             .font(.system(size: 19, weight: .bold)) // Smaller font size
                                                             .foregroundColor(.white)
                                                             .padding(.top)
+                                                            .padding(.leading, 5)
+                                                            .padding(.bottom)
 
                                                         // Horizontal ScrollView for "Picked for You"
                                                         ScrollView(.horizontal, showsIndicators: false) {
-                                                            HStack(spacing: 20) {
-                                                                ForEach(viewModel.opportunities) { opportunity in
-                                                                    NavigationLink(destination: OpportunityDetailsView(opportunity: opportunity)) {
-                                                                        OpportunityCard(opportunity: opportunity)
+                                                            HStack(spacing: 5) {
+                                                                ForEach(0..<6, id: \.self) { _ in
+                                                                    if let opportunity = viewModel.getRandomOpportunity() {
+                                                                        NavigationLink(destination: OpportunityDetailsView(opportunity: opportunity)) {
+                                                                            OpportunityCard(opportunity: opportunity)
+                                                                        }
                                                                     }
                                                                 }
+                                                                .padding(.trailing, 10)
+                                                                
                                                             }
+                                                            
                                                         }
-                                                        .frame(height: 200) // Adjust based on content size
+                                                        .frame(height: 200)
+                                                        
+                                                        // Subheading "Picked for You"
+                                                        Text("New Postings")
+                                                            .font(.system(size: 19, weight: .bold)) // Smaller font size
+                                                            .foregroundColor(.white)
+                                                            .padding(.top)
+                                                            .padding(.leading, 5)
+                                                            .padding(.bottom)
+
+                                                        // Horizontal ScrollView for "Picked for You"
+                                                        ScrollView(.horizontal, showsIndicators: false) {
+                                                            HStack(spacing: 5) {
+                                                                ForEach(0..<6, id: \.self) { _ in
+                                                                    if let opportunity = viewModel.getRandomOpportunity() {
+                                                                        NavigationLink(destination: OpportunityDetailsView(opportunity: opportunity)) {
+                                                                            OpportunityCard(opportunity: opportunity)
+                                                                        }
+                                                                    }
+                                                                }
+                                                                .padding(.trailing, 10)
+                                                                
+                                                            }
+                                                            
+                                                        }
+                                                        .frame(height: 200)
+                                                        
+                                                        // Subheading "Picked for You"
+                                                        Text("New Postings")
+                                                            .font(.system(size: 19, weight: .bold)) // Smaller font size
+                                                            .foregroundColor(.white)
+                                                            .padding(.top)
+                                                            .padding(.leading, 5)
+                                                            .padding(.bottom)
+
+                                                        // Horizontal ScrollView for "Picked for You"
+                                                        ScrollView(.horizontal, showsIndicators: false) {
+                                                            HStack(spacing: 5) {
+                                                                ForEach(0..<6, id: \.self) { _ in
+                                                                    if let opportunity = viewModel.getRandomOpportunity() {
+                                                                        NavigationLink(destination: OpportunityDetailsView(opportunity: opportunity)) {
+                                                                            OpportunityCard(opportunity: opportunity)
+                                                                        }
+                                                                    }
+                                                                }
+                                                                .padding(.trailing, 10)
+                                                                
+                                                            }
+                                                            
+                                                        }
+                                                        .frame(height: 200)
+                                                        
                                                     }
-                                                    .padding(.horizontal)
-                                                
+                                                    .padding(.vertical, 15)
+                                                    .padding(.trailing, 20)
                                                 }
+                                                .padding(.leading, 20)
                                             }
                                         }
 
@@ -132,19 +193,21 @@ struct OpportunitiesView: View {
 struct CategoryButton: View {
     let title: String
     let color: Color
-    let textColor: Color // Added text color parameter
+    let textColor: Color
+    @ObservedObject var viewModel: OpportunitiesViewModel // Pass your view model
 
     var body: some View {
-        Button(action: {}) {
+        NavigationLink(destination: FilteredOpportunitiesView(opportunities: viewModel.opportunities, categoryType: title)) {
             Text(title)
                 .bold()
-                .foregroundColor(textColor) // Use the text color parameter
+                .foregroundColor(textColor)
                 .frame(width: 150, height: 80)
                 .background(color)
                 .cornerRadius(8)
         }
     }
 }
+
 
 struct OpportunitiesHeaderView: View {
     var body: some View {

@@ -39,23 +39,19 @@ struct SurveyView: View {
     var body: some View {
         
         VStack {
-            Spacer() // Pushes content to center/middle
-            
+
             HStack {
-                if currentStep != .grade {
                     Button(action: {
                         goBack()
                     }) {
                         Label("", systemImage: "arrow.backward") // Create a Label with image and text
-                            .foregroundColor(.white)
-                            .padding()
+                            .foregroundColor(.blue)
+                            .padding([.top, .horizontal])
                     }
-                }
                 
-                // Progress Bar
                 ProgressView(value: progressValue(), total: 4)
-                    .scaleEffect(x: 1, y: 5, anchor: .center) // This scales the height by 2 times
-                    .padding()
+                    .scaleEffect(x: 1, y: 2, anchor: .center)
+                    .padding([.top, .horizontal])
                     .cornerRadius(10)
                 
             }
@@ -78,6 +74,9 @@ struct SurveyView: View {
             Spacer()
 
             // Navigation Button
+            Divider()
+                .padding(.vertical)
+
             Button(action: {
                 goToNextStep()
             }) {
@@ -114,43 +113,65 @@ struct SurveyView: View {
     }
 
     private var gradeStepView: some View {
-        // View for selecting grade (9th, 10th, 11th, 12th)
-        // Use Picker, List, or buttons to set the 'grade' state
-        // Example:
-        Picker("Grade", selection: $grade) {
-            Text("9th").tag("9th")
-            Text("10th").tag("10th")
-            Text("11th").tag("11th")
-            Text("12th").tag("12th")
+        VStack(spacing: 10) {
+            Text("What grade are you in?")
+                        .font(.headline)
+                        .padding(.bottom, 5)
+            ForEach(["9th", "10th", "11th", "12th"], id: \.self) { gradeOption in
+                Button(action: {
+                    grade = gradeOption
+                }) {
+                    Text(gradeOption)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(grade == gradeOption ? Color.blue : Color.gray.opacity(0.4))
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+            }
         }
-        .pickerStyle(.segmented)
-        
+        .padding()
     }
 
+
     private var schoolStepView: some View {
-        // View for entering school (use TextField or similar)
-        TextField("School", text: $school)
-            .textFieldStyle(.roundedBorder)
-            .padding()
+        VStack {
+            Text("What school do you go to?")
+                .font(.headline)
+                .padding(.bottom, 5)
+
+            TextField("School", text: $school)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+        }
     }
 
     private var majorStepView: some View {
-        // View for selecting or entering major
-        // Use Picker, Dropdown, or TextField
-        TextField("Major", text: $major)
-            .textFieldStyle(.roundedBorder)
-            .padding()
+        VStack {
+            Text("What major are you interested in pursuing?")
+                .font(.headline)
+                .padding(.bottom, 5)
+
+            TextField("Major", text: $major)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+        }
     }
+
 
     private var detailsStepView: some View {
         // View for entering name and email
         VStack {
-            TextField("Stuff...", text: $viewModel.email)
+            Text("What's your name?")
+                .font(.headline)
+                .padding(.bottom, 5)
+            
+            TextField("First name", text: $viewModel.email)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10)
             
-            SecureField("Stuff...", text: $viewModel.password)
+            SecureField("Last name", text: $viewModel.password)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10)

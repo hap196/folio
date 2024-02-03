@@ -43,6 +43,7 @@
 		1CB97EEB2B6AD6FC00DAD30C /* opportunities.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CB97EEA2B6AD6FC00DAD30C /* opportunities.json */; };
 		1CB97EED2B6AE9F600DAD30C /* OpportunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB97EEC2B6AE9F600DAD30C /* OpportunityCard.swift */; };
 		1CB97EF02B6AF5A800DAD30C /* OpportunityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB97EEF2B6AF5A800DAD30C /* OpportunityDetailsView.swift */; };
+		1CB97EF42B6C81C400DAD30C /* FilteredOpportunitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB97EF32B6C81C400DAD30C /* FilteredOpportunitiesView.swift */; };
 		1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221C32B5F232D00FBC7E4 /* SignInView.swift */; };
 		1CC221C62B5F29D400FBC7E4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221C52B5F29D400FBC7E4 /* SignUpView.swift */; };
 		1CC221C82B5F2B2300FBC7E4 /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC221C72B5F2B2300FBC7E4 /* SignInEmailViewModel.swift */; };
@@ -114,6 +115,7 @@
 		1CB97EEA2B6AD6FC00DAD30C /* opportunities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = opportunities.json; sourceTree = "<group>"; };
 		1CB97EEC2B6AE9F600DAD30C /* OpportunityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityCard.swift; sourceTree = "<group>"; };
 		1CB97EEF2B6AF5A800DAD30C /* OpportunityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityDetailsView.swift; sourceTree = "<group>"; };
+		1CB97EF32B6C81C400DAD30C /* FilteredOpportunitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredOpportunitiesView.swift; sourceTree = "<group>"; };
 		1CC221C32B5F232D00FBC7E4 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		1CC221C52B5F29D400FBC7E4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1CC221C72B5F2B2300FBC7E4 /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				1CB97EE82B6AD6DC00DAD30C /* OpportunitiesViewModel.swift */,
 				1CB97EEC2B6AE9F600DAD30C /* OpportunityCard.swift */,
 				1CB97EEF2B6AF5A800DAD30C /* OpportunityDetailsView.swift */,
+				1CB97EF32B6C81C400DAD30C /* FilteredOpportunitiesView.swift */,
 			);
 			path = "Opportunity Views";
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				1CD942432B6212810022D119 /* AwardsView.swift in Sources */,
 				1CD942412B62126B0022D119 /* TestScoresView.swift in Sources */,
 				1CC221CA2B603BD400FBC7E4 /* HomeView.swift in Sources */,
+				1CB97EF42B6C81C400DAD30C /* FilteredOpportunitiesView.swift in Sources */,
 				1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */,
 				1CC221CC2B605F6200FBC7E4 /* PortfolioView.swift in Sources */,
 				1CC221C62B5F29D400FBC7E4 /* SignUpView.swift in Sources */,
