@@ -17,7 +17,7 @@
 		1C261D472B6A25FF000D2C4C /* EditTestScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D462B6A25FF000D2C4C /* EditTestScoreView.swift */; };
 		1C261D492B6A2611000D2C4C /* EditAwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D482B6A2611000D2C4C /* EditAwardView.swift */; };
 		1C261D4C2B6A47A1000D2C4C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D4B2B6A47A1000D2C4C /* ChatMessage.swift */; };
-		1C261D4E2B6A4830000D2C4C /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D4D2B6A4830000D2C4C /* MessagesView.swift */; };
+		1C261D4E2B6A4830000D2C4C /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D4D2B6A4830000D2C4C /* MessageView.swift */; };
 		1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A90FF2B5455CE0048405E /* SurveyView.swift */; };
 		1C8DFD0B2B522023003B7233 /* FolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0A2B522023003B7233 /* FolioApp.swift */; };
 		1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD0E2B52202C003B7233 /* Assets.xcassets */; };
@@ -95,7 +95,7 @@
 		1C261D462B6A25FF000D2C4C /* EditTestScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTestScoreView.swift; sourceTree = "<group>"; };
 		1C261D482B6A2611000D2C4C /* EditAwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAwardView.swift; sourceTree = "<group>"; };
 		1C261D4B2B6A47A1000D2C4C /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
-		1C261D4D2B6A4830000D2C4C /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		1C261D4D2B6A4830000D2C4C /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		1C6A90FF2B5455CE0048405E /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		1C8DFD072B522023003B7233 /* Folio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Folio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8DFD0A2B522023003B7233 /* FolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolioApp.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 			children = (
 				1CC221CD2B605FAE00FBC7E4 /* ChatView.swift */,
 				1C261D4B2B6A47A1000D2C4C /* ChatMessage.swift */,
-				1C261D4D2B6A4830000D2C4C /* MessagesView.swift */,
+				1C261D4D2B6A4830000D2C4C /* MessageView.swift */,
 			);
 			path = "Chat Views";
 			sourceTree = "<group>";
@@ -532,7 +532,7 @@
 				1CD942502B62C3C90022D119 /* Course.swift in Sources */,
 				1C261D3E2B6A082A000D2C4C /* Award.swift in Sources */,
 				1CB97EE92B6AD6DC00DAD30C /* OpportunitiesViewModel.swift in Sources */,
-				1C261D4E2B6A4830000D2C4C /* MessagesView.swift in Sources */,
+				1C261D4E2B6A4830000D2C4C /* MessageView.swift in Sources */,
 				1C1CC5422B6FACF900152B16 /* SafariView.swift in Sources */,
 				1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */,
 				1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */,

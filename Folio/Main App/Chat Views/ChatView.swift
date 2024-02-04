@@ -3,47 +3,79 @@ import SwiftUI
 struct ChatView: View {
     @State private var messageText: String = ""
     @State private var messages: [ChatMessage] = []
+    let prompts: [(action: String, description: String)] = [
+        ("Get ideas", "for impactful environmental projects"),
+        ("Provide feedback", "on how to improve my portfolio"),
+        ("Find extracurriculars", "focused on sustainability"),
+        ("Recommend colleges", "with leading environmental programs")
+    ]
 
     var body: some View {
         NavigationView {
-            
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom)
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 10) {
-                    
                     ChatHeaderView()
                     
                     // Messages list
                     ScrollView {
                         VStack(alignment: .leading, spacing: 10) {
-                            ForEach(messages) { message in
+                            ForEach(messages, id: \.id) { message in
                                 MessageView(message: message)
                             }
                         }
+                    }
+                    .padding()
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(prompts, id: \.action) { prompt in
+                                Button(action: {
+                                    messageText = "\(prompt.action) \(prompt.description)"
+                                }) {
+                                    VStack(alignment: .leading) {
+                                        Text(prompt.action)
+                                            .bold()
+                                            .foregroundColor(.white)
+                                        Text(prompt.description)
+                                            .foregroundColor(.white)
+                                            .lineLimit(2)
+                                    }
+                                    .padding()
+                                    .background(Color.gray.opacity(0.2))
+                                    .cornerRadius(20)
+                                    .fixedSize(horizontal: false, vertical: true) 
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
                     }
 
                     // Message input field
                     HStack {
                         TextField("Type a message", text: $messageText)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .frame(minHeight: CGFloat(30))
+                            .padding(10)
+                            .background(Color.clear)
+                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
+                            .foregroundColor(.white)
 
-                        Button("Send") {
+                        Button(action: {
                             sendMessage()
+                        }) {
+                            Image(systemName: "paperplane.fill")
+                                .font(.system(size: 22))
+                                .foregroundColor(.white)
                         }
                         .disabled(messageText.isEmpty)
+                        .padding(.horizontal)
                     }
                     .padding()
                 }
-                
             }
-            
         }
-        
     }
-        
 
     private func sendMessage() {
         let newMessage = ChatMessage(text: messageText, isSentByCurrentUser: true)
@@ -87,7 +119,6 @@ struct ChatView: View {
         }
         .resume()
     }
-
 }
 
 struct ChatHeaderView: View {
