@@ -1,10 +1,3 @@
-//
-//  ExtracurricularsView.swift
-//  Jaleo
-//
-//  Created by Hailey Pan on 1/24/24.
-//
-
 import SwiftUI
 import FirebaseFirestore
 import FirebaseAuth
@@ -12,23 +5,26 @@ import FirebaseAuth
 struct ExtracurricularsView: View {
     @ObservedObject var viewModel: PortfolioViewModel
     let selectedYear: String
+    let title: String
 
     var body: some View {
         NavigationView {
-            List(viewModel.extracurriculars) { extracurricular in
-                NavigationLink(destination: EditExtracurricularView(extracurricular: extracurricular) { updatedExtracurricular in
-                    saveExtracurricular(updatedExtracurricular)
-                }) {
-                    HStack {
-                        Text(extracurricular.name)
-                        Spacer()
-                        Image(systemName: "pencil")
+            VStack(spacing: 0) {
+                Divider()
+                List(viewModel.extracurriculars) { extracurricular in
+                    NavigationLink(destination: EditExtracurricularView(extracurricular: extracurricular, onSave: saveExtracurricular)) {
+                        HStack {
+                            Text(extracurricular.name)
+                            Spacer()
+                            Image(systemName: "pencil")
+                        }
                     }
                 }
+                .listStyle(PlainListStyle())
             }
-            .navigationBarTitle("Extracurriculars")
             .onAppear(perform: loadExtracurriculars)
         }
+        .navigationBarTitle(title + " - " + selectedYear + " grade", displayMode: .inline)
     }
 
     private func loadExtracurriculars() {
@@ -49,4 +45,5 @@ struct ExtracurricularsView: View {
         }
     }
 }
+
     

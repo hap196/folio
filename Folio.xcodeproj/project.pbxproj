@@ -339,7 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				1CD9424E2B62C3B10022D119 /* Portfolio Data Models */,
-				1CD942452B6213680022D119 /* Add & Edit Views */,
+				1CD942452B6213680022D119 /* Add Views */,
 				1CD942442B62135C0022D119 /* List Edit Views */,
 				1CC221CB2B605F6100FBC7E4 /* PortfolioView.swift */,
 			);
@@ -358,7 +358,7 @@
 			path = "List Edit Views";
 			sourceTree = "<group>";
 		};
-		1CD942452B6213680022D119 /* Add & Edit Views */ = {
+		1CD942452B6213680022D119 /* Add Views */ = {
 			isa = PBXGroup;
 			children = (
 				1CD942462B62138D0022D119 /* AddCourseView.swift */,
@@ -366,7 +366,7 @@
 				1CD9424A2B6213B60022D119 /* AddTestScoreView.swift */,
 				1CD9424C2B6213D30022D119 /* AddAwardView.swift */,
 			);
-			path = "Add & Edit Views";
+			path = "Add Views";
 			sourceTree = "<group>";
 		};
 		1CD9424E2B62C3B10022D119 /* Portfolio Data Models */ = {

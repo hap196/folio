@@ -216,15 +216,16 @@ struct CollapsibleSectionCardView: View {
         // You'll need to implement these view components based on your app's structure
         switch sectionType {
         case .Courses:
-            isEditMode ? AnyView(CoursesView(viewModel: viewModel, selectedYear: selectedYear)) : AnyView(AddCourseView(selectedYear: selectedYear))
+            isEditMode ? AnyView(CoursesView(viewModel: viewModel, selectedYear: selectedYear, title: "Courses")) : AnyView(AddCourseView(selectedYear: selectedYear))
         case .Extracurriculars:
-            isEditMode ? AnyView(ExtracurricularsView(viewModel: viewModel, selectedYear: selectedYear)) : AnyView(AddExtracurricularView(selectedYear: selectedYear))
+            isEditMode ? AnyView(ExtracurricularsView(viewModel: viewModel, selectedYear: selectedYear, title: "Extracurriculars")) : AnyView(AddExtracurricularView(selectedYear: selectedYear))
         case .Awards:
-            isEditMode ? AnyView(AwardsView(viewModel: viewModel, selectedYear: selectedYear)) : AnyView(AddAwardView(selectedYear: selectedYear))
+            isEditMode ? AnyView(AwardsView(viewModel: viewModel, selectedYear: selectedYear, title: "Awards")) : AnyView(AddAwardView(selectedYear: selectedYear))
         case .TestScores:
-            isEditMode ? AnyView(TestScoresView(viewModel: viewModel, selectedYear: selectedYear)) : AnyView(AddTestScoreView(selectedYear: selectedYear))
+            isEditMode ? AnyView(TestScoresView(viewModel: viewModel, selectedYear: selectedYear, title: "Test Scores")) : AnyView(AddTestScoreView(selectedYear: selectedYear))
         }
     }
+
 }
 
 

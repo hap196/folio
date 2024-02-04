@@ -5,23 +5,26 @@ import FirebaseAuth
 struct AwardsView: View {
     @ObservedObject var viewModel: PortfolioViewModel
     let selectedYear: String
+    let title: String
 
     var body: some View {
         NavigationView {
-            List(viewModel.awards) { award in
-                NavigationLink(destination: EditAwardView(award: award) { updatedAward in
-                    saveAward(updatedAward)
-                }) {
-                    HStack {
-                        Text(award.name)
-                        Spacer()
-                        Image(systemName: "pencil")
+            VStack(spacing: 0) {
+                Divider()
+                List(viewModel.awards) { award in
+                    NavigationLink(destination: EditAwardView(award: award, onSave: saveAward)) {
+                        HStack {
+                            Text(award.name)
+                            Spacer()
+                            Image(systemName: "pencil")
+                        }
                     }
                 }
+                .listStyle(PlainListStyle())
             }
-            .navigationBarTitle("Awards")
             .onAppear(perform: loadAwards)
         }
+        .navigationBarTitle(title + " - " + selectedYear + " grade", displayMode: .inline)
     }
 
     private func loadAwards() {
@@ -42,3 +45,5 @@ struct AwardsView: View {
         }
     }
 }
+
+
