@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1CC5422B6FACF900152B16 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1CC5412B6FACF900152B16 /* SafariView.swift */; };
 		1C261D3A2B62CDC2000D2C4C /* PortfolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D392B62CDC2000D2C4C /* PortfolioViewModel.swift */; };
 		1C261D3C2B6A07EB000D2C4C /* Extracurricular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D3B2B6A07EB000D2C4C /* Extracurricular.swift */; };
 		1C261D3E2B6A082A000D2C4C /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D3D2B6A082A000D2C4C /* Award.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C1CC5412B6FACF900152B16 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		1C261D392B62CDC2000D2C4C /* PortfolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewModel.swift; sourceTree = "<group>"; };
 		1C261D3B2B6A07EB000D2C4C /* Extracurricular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extracurricular.swift; sourceTree = "<group>"; };
 		1C261D3D2B6A082A000D2C4C /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				1CB97EEC2B6AE9F600DAD30C /* OpportunityCard.swift */,
 				1CB97EEF2B6AF5A800DAD30C /* OpportunityDetailsView.swift */,
 				1CB97EF32B6C81C400DAD30C /* FilteredOpportunitiesView.swift */,
+				1C1CC5412B6FACF900152B16 /* SafariView.swift */,
 			);
 			path = "Opportunity Views";
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				1C261D3E2B6A082A000D2C4C /* Award.swift in Sources */,
 				1CB97EE92B6AD6DC00DAD30C /* OpportunitiesViewModel.swift in Sources */,
 				1C261D4E2B6A4830000D2C4C /* MessagesView.swift in Sources */,
+				1C1CC5422B6FACF900152B16 /* SafariView.swift in Sources */,
 				1CC221C42B5F232D00FBC7E4 /* SignInView.swift in Sources */,
 				1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */,
 				1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */,
