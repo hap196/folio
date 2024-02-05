@@ -32,10 +32,10 @@ struct OpportunitiesView: View {
                     HStack {
                         TextField("Search...", text: $searchText)
                             .padding(7)
-                            .padding(.leading, 30) // add padding to make room for the icon
-                            .background(Color(.gray).opacity(0.25)) // Semi-transparent background
+                            .padding(.leading, 30)
+                            .background(Color(.gray).opacity(0.25))
                             .cornerRadius(10)
-                            .foregroundColor(.white.opacity(0.7)) // Muted white text
+                            .foregroundColor(.customGray)
                             .overlay(
                                 HStack {
                                     Image(systemName: "magnifyingglass")
@@ -57,7 +57,7 @@ struct OpportunitiesView: View {
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                             }
                             .foregroundColor(.customTurquoise)
-                            .padding(.trailing, 10)
+                            .padding(.trailing, 20)
                             .transition(.move(edge: .trailing))
                             .animation(.default)
                         }
@@ -69,22 +69,21 @@ struct OpportunitiesView: View {
                     // Content
                                         ZStack {
                                             if isSearching {
-                                                // Search Results
-                                                List(viewModel.opportunities.filter({ searchText.isEmpty ? true : $0.title.localizedCaseInsensitiveContains(searchText) })) { opportunity in
-                                                    NavigationLink(destination: OpportunityDetailsView(opportunity: opportunity)) {
-                                                        Text(opportunity.title)
-                                                            .foregroundColor(.customTurquoise) // Muted white text
-                                                    }
-                                                    .listRowBackground(Color.clear) // Semi-transparent background for list rows
-                                                }
-                                                .listStyle(PlainListStyle())
+                                                if !searchText.isEmpty {
+                                                            List(viewModel.opportunities.filter({ $0.title.localizedCaseInsensitiveContains(searchText) })) { opportunity in
+                                                                NavigationLink(destination: OpportunityDetailsView(opportunity: opportunity)) {
+                                                                    Text(opportunity.title)
+                                                                        .foregroundColor(.customTurquoise) // Assuming custom color definition exists
+                                                                }
+                                                                .listRowBackground(Color.clear)
+                                                            }
+                                                            .listStyle(PlainListStyle())
+                                                        }
                                             } else {
-                                                // Browsing Page Content
                                                 ScrollView {
                                                     VStack(alignment: .leading, spacing: 20) {
-                                                        // Subheading "Start Browsing"
                                                         Text("Start Browsing")
-                                                            .font(.system(size: 19, weight: .bold)) // Smaller font size
+                                                            .font(.system(size: 19, weight: .bold))
                                                             .foregroundColor(.customGray)
                                                             .padding(.top)
 
@@ -97,15 +96,15 @@ struct OpportunitiesView: View {
                                                         }
                                                         .padding(.bottom)
 
-                                                        // Subheading "Picked for You"
+                                                        
                                                         Text("Picked for You")
-                                                            .font(.system(size: 19, weight: .bold)) // Smaller font size
+                                                            .font(.system(size: 19, weight: .bold))
                                                             .foregroundColor(.customGray)
                                                             .padding(.top)
                                                             .padding(.leading, 5)
                                                             .padding(.bottom)
 
-                                                        // Horizontal ScrollView for "Picked for You"
+                                                        
                                                         ScrollView(.horizontal, showsIndicators: false) {
                                                             HStack(spacing: 5) {
                                                                 ForEach(0..<6, id: \.self) { _ in
@@ -122,15 +121,14 @@ struct OpportunitiesView: View {
                                                         }
                                                         .frame(height: 200)
                                                         
-                                                        // Subheading "Picked for You"
+                                                        
                                                         Text("New Postings")
-                                                            .font(.system(size: 19, weight: .bold)) // Smaller font size
+                                                            .font(.system(size: 19, weight: .bold))
                                                             .foregroundColor(.customGray)
                                                             .padding(.top)
                                                             .padding(.leading, 5)
                                                             .padding(.bottom)
 
-                                                        // Horizontal ScrollView for "Picked for You"
                                                         ScrollView(.horizontal, showsIndicators: false) {
                                                             HStack(spacing: 5) {
                                                                 ForEach(0..<6, id: \.self) { _ in
@@ -147,15 +145,13 @@ struct OpportunitiesView: View {
                                                         }
                                                         .frame(height: 200)
                                                         
-                                                        // Subheading "Picked for You"
                                                         Text("New Postings")
-                                                            .font(.system(size: 19, weight: .bold)) // Smaller font size
+                                                            .font(.system(size: 19, weight: .bold))
                                                             .foregroundColor(.customGray)
                                                             .padding(.top)
                                                             .padding(.leading, 5)
                                                             .padding(.bottom)
 
-                                                        // Horizontal ScrollView for "Picked for You"
                                                         ScrollView(.horizontal, showsIndicators: false) {
                                                             HStack(spacing: 5) {
                                                                 ForEach(0..<6, id: \.self) { _ in
@@ -192,7 +188,7 @@ struct CategoryButton: View {
     let title: String
     let color: Color
     let textColor: Color
-    @ObservedObject var viewModel: OpportunitiesViewModel // Pass your view model
+    @ObservedObject var viewModel: OpportunitiesViewModel
 
     var body: some View {
         NavigationLink(destination: FilteredOpportunitiesView(opportunities: viewModel.opportunities, categoryType: title)) {
@@ -216,7 +212,7 @@ struct OpportunitiesHeaderView: View {
                 .frame(width: 25, height: 25)
                 .padding(.leading, 20)
                 .foregroundColor(.customGray)
-            Text("Opportunities")
+            Text("Ventures")
                 .font(.headline)
                 .fontWeight(.bold)
                 .foregroundColor(.customGray)

@@ -37,84 +37,87 @@ struct SurveyView: View {
     @Binding var showSignInView: Bool
 
     var body: some View {
-        ZStack {
-            VStack {
-                
-                HStack {
-                    Button(action: {
-                        goBack()
-                    }) {
-                        Label("", systemImage: "arrow.backward") // Create a Label with image and text
-                            .foregroundColor(.customGray)
+        NavigationView {
+            ZStack {
+                VStack {
+                    
+                    HStack {
+                        Button(action: {
+                            goBack()
+                        }) {
+                            Label("", systemImage: "arrow.backward")
+                                .foregroundColor(.customTurquoise)
+                                .padding([.top, .horizontal])
+                        }
+                        
+                        ProgressView(value: progressValue(), total: 4)
+                            .scaleEffect(x: 1, y: 2, anchor: .center)
                             .padding([.top, .horizontal])
+                            .cornerRadius(10)
+                            .accentColor(Color.customTurquoise)
+                    }
+                    .padding(.top, 15)
+                    
+                    Spacer()
+                    
+                    // Survey Step Content
+                    switch currentStep {
+                    case .grade:
+                        gradeStepView
+                    case .school:
+                        schoolStepView
+                    case .major:
+                        majorStepView
+                    case .details:
+                        detailsStepView
                     }
                     
-                    ProgressView(value: progressValue(), total: 4)
-                        .scaleEffect(x: 1, y: 2, anchor: .center)
-                        .padding([.top, .horizontal])
-                        .cornerRadius(10)
+                    Spacer()
+                    
+                    Divider()
+                        .padding(.vertical)
+                    
+                    Button(action: {
+                        goToNextStep()
+                    }) {
+                        Text("Continue")
+                            .bold()
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(BlueButtonStyle())
+                    .padding(.bottom)
                     
                 }
                 
-                Spacer()
-                
-                // Survey Step Content
-                switch currentStep {
-                case .grade:
-                    gradeStepView
-                case .school:
-                    schoolStepView
-                case .major:
-                    majorStepView
-                case .details:
-                    detailsStepView
+                //        .fullScreenCover(isPresented: $showSignUpView) {
+                //            SignUpView(showSignUpView: $showSignUpView, isAuthenticated: $isAuthenticated)
+                //        }
+                .fullScreenCover(isPresented: $showSignUpView) {
+                    SignUpView(
+                        viewModel: SignInEmailViewModel(grade: grade, school: school, major: major),
+                        showSignUpView: $showSignUpView,
+                        isAuthenticated: $isAuthenticated
+                    )
                 }
                 
-                Spacer()
-                Spacer()
-                
-                // Navigation Button
-                Divider()
-                    .padding(.vertical)
-                
-                Button(action: {
-                    goToNextStep()
-                }) {
-                    Text("Continue")
-                        .bold()
-                        .frame(maxWidth: .infinity)
+                // Present HomeView when the signup is successful
+                .fullScreenCover(isPresented: $signupSuccessful) {
+                    //          HomeView()  // Replace with your actual HomeView
+                    SettingsView(isAuthenticated: $isAuthenticated)
                 }
-                .buttonStyle(BlueButtonStyle())
-                .padding(.bottom)
+                .padding(.horizontal)
                 
             }
-            
-            //        .fullScreenCover(isPresented: $showSignUpView) {
-            //            SignUpView(showSignUpView: $showSignUpView, isAuthenticated: $isAuthenticated)
-            //        }
-            .fullScreenCover(isPresented: $showSignUpView) {
-                SignUpView(
-                    viewModel: SignInEmailViewModel(grade: grade, school: school, major: major),
-                    showSignUpView: $showSignUpView,
-                    isAuthenticated: $isAuthenticated
-                )
-            }
-            
-            // Present HomeView when the signup is successful
-            .fullScreenCover(isPresented: $signupSuccessful) {
-                //          HomeView()  // Replace with your actual HomeView
-                SettingsView(isAuthenticated: $isAuthenticated)
-            }
-            .padding(.horizontal) // Apply horizontal padding to the entire VStack
-            
         }
+        
     }
 
     private var gradeStepView: some View {
         VStack(spacing: 10) {
             Text("What grade are you in?")
                         .font(.headline)
-                        .padding(.bottom, 10)
+                        .padding(.top, 30)
+                        .padding(.bottom, 15)
                         .foregroundColor(.customGray)
             ForEach(["9th", "10th", "11th", "12th"], id: \.self) { gradeOption in
                 Button(action: {
@@ -124,11 +127,12 @@ struct SurveyView: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(grade == gradeOption ? Color.customGray : Color.gray.opacity(0.15))
-                        .foregroundColor(.customTurquoise)
+                        .foregroundColor(grade == gradeOption ?  Color.white : .customTurquoise)
                         .cornerRadius(10)
                         .fontWeight(.bold)
                 }
             }
+            Spacer()
         }
         .padding()
     }
@@ -138,48 +142,62 @@ struct SurveyView: View {
         VStack {
             Text("What school do you go to?")
                 .font(.headline)
-                .padding(.bottom, 5)
+                .padding(.top, 30)
+                .padding(.bottom, 15)
                 .foregroundColor(.customGray)
 
             TextField("School", text: $school)
-                .textFieldStyle(.roundedBorder)
                 .padding()
+                .background(Color.gray.opacity(0.15))
+                .cornerRadius(10)
+                .foregroundColor(.customGray)
+            
+            Spacer()
         }
+        .padding()
     }
 
     private var majorStepView: some View {
         VStack {
-            Text("What major are you interested in pursuing?")
+            Text("What major are you interested in?")
                 .font(.headline)
-                .padding(.bottom, 5)
+                .padding(.top, 30)
+                .padding(.bottom, 15)
                 .foregroundColor(.customGray)
 
             TextField("Major", text: $major)
-                .textFieldStyle(.roundedBorder)
                 .padding()
+                .background(Color.gray.opacity(0.15))
+                .cornerRadius(10)
+                .foregroundColor(.customGray)
+            
+            Spacer()
         }
+        .padding()
     }
 
 
     private var detailsStepView: some View {
-        // View for entering name and email
         VStack {
             Text("What's your name?")
                 .font(.headline)
-                .padding(.bottom, 5)
+                .padding(.top, 30)
+                .padding(.bottom, 15)
                 .foregroundColor(.customGray)
             
             TextField("First name", text: $viewModel.email)
                 .padding()
                 .background(Color.gray.opacity(0.15))
                 .cornerRadius(10)
+                .foregroundColor(.customGray)
             
             SecureField("Last name", text: $viewModel.password)
                 .padding()
                 .background(Color.gray.opacity(0.15))
                 .cornerRadius(10)
+                .foregroundColor(.customGray)
             
-            
+            Spacer()
         }
         .padding()
     }

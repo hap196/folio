@@ -9,21 +9,18 @@ struct AddCourseView: View {
     let courseLevels = ["Regular", "Honors", "AP", "IB", "Dual Enrollment"]
     let grades = ["A", "B", "C", "D", "F", "P", "NP", "Other"]
     
-    var selectedYear: String // Passed from PortfolioView
+    var selectedYear: String
     
     var body: some View {
-        NavigationView { // Embedding the content in a NavigationView
+        NavigationView {
             ZStack {
-                // Background gradient
-                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
                 
                 VStack(alignment: .leading) {
                     Divider()
                 
                     Group {
                         Text("Course name")
-                            .foregroundColor(.white)
+                            .foregroundColor(.customGray)
                             .padding(.top)
                         
                         TextField("Ex. AP Chemistry", text: $courseName)
@@ -34,12 +31,12 @@ struct AddCourseView: View {
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                             )
-                            .foregroundColor(Color.white.opacity(0.9))
+                            .foregroundColor(Color.customGray)
                     }
                     
                     Group {
                                         Text("Course level")
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.customGray)
                                             .padding(.top)
                                         
                                         Picker("Course Level", selection: $selectedCourseLevel) {
@@ -48,6 +45,7 @@ struct AddCourseView: View {
                                             }
                                         }
                                         .pickerStyle(MenuPickerStyle())
+                                        .accentColor(Color.customTurquoise)
                                         .padding(.vertical, 4)
                                         .background(Color.clear)
                                         .cornerRadius(5)
@@ -59,24 +57,24 @@ struct AddCourseView: View {
                                     
                                     Group {
                                         Text("Grade")
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.customGray)
                                             .padding(.top)
                                         
                                         Picker("Grade", selection: $selectedGrade) {
-                                            ForEach(grades, id: \.self) { grade in
-                                                Text(grade).foregroundColor(Color.white.opacity(0.7))
-                                            }
-                                        }
-                                        .pickerStyle(MenuPickerStyle())
-                                        .padding(.vertical, 4)
-                                        .background(Color.clear)
-                                        .cornerRadius(5)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 5)
-                                                .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                                        )
-                                    }
-                    
+                                                                                    ForEach(grades, id: \.self) { grade in
+                                                                                        Text(grade).foregroundColor(Color.white.opacity(0.7))
+                                                                                    }
+                                                                                }
+                                                                                .pickerStyle(MenuPickerStyle())
+                                                                                .padding(.vertical, 4)
+                                                                                .background(Color.clear)
+                                                                                .accentColor(Color.customTurquoise)
+                                                                                .cornerRadius(5)
+                                                                                .overlay(
+                                                                                    RoundedRectangle(cornerRadius: 5)
+                                                                                        .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                                                                                )
+                                                                            }
                     Spacer()
                     
                     Divider()
@@ -88,18 +86,18 @@ struct AddCourseView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, minHeight: 44)
-                            .background(Color.blue)
+                            .background(Color.customTurquoise)
                             .cornerRadius(10)
                     }
                     .padding()
                     
                 }
-                .padding(.horizontal) // Apply horizontal padding to the entire VStack
+                .padding(.horizontal)
             }
             
         }
-        .navigationTitle("Add Course - " + selectedYear + "grade") // Setting the navigation title
-        .navigationBarTitleDisplayMode(.inline) // Optional: For inline display of the title
+        .navigationTitle("Add Course - " + selectedYear + " grade")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     @Environment(\.presentationMode) var presentationMode

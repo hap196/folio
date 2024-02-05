@@ -15,22 +15,20 @@ struct AddTestScoreView: View {
     @State private var score: String = ""
     @State private var dateTaken = Date()
 
-    var selectedYear: String // Passed from PortfolioView
+    var selectedYear: String
 
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
-
+                
                 VStack(alignment: .leading) {
                     Divider()
-
+                    
                     Group {
                         Text("Test Name")
-                            .foregroundColor(.white)
+                            .foregroundColor(.customGray)
                             .padding(.top)
-
+                        
                         TextField("Ex. SAT, ACT", text: $testName)
                             .padding()
                             .background(Color.clear)
@@ -39,14 +37,14 @@ struct AddTestScoreView: View {
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                             )
-                            .foregroundColor(Color.white.opacity(0.9))
+                            .foregroundColor(Color.customGray)
                     }
-
+                    
                     Group {
                         Text("Score")
-                            .foregroundColor(.white)
+                            .foregroundColor(.customGray)
                             .padding(.top)
-
+                        
                         TextField("Ex. 1500, 34", text: $score)
                             .padding()
                             .background(Color.clear)
@@ -55,29 +53,30 @@ struct AddTestScoreView: View {
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                             )
-                            .foregroundColor(Color.white.opacity(0.9))
+                            .foregroundColor(Color.customGray)
                     }
-
+                    
                     Group {
                         Text("Date Taken")
-                            .foregroundColor(.white)
+                            .foregroundColor(.customGray)
                             .padding(.top)
-
+                        
                         DatePicker("Select Date", selection: $dateTaken, displayedComponents: .date)
                             .padding()
                             .background(Color.clear)
                             .cornerRadius(5)
+                            .accentColor(Color.customTurquoise)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                             )
-                            .foregroundColor(Color.white.opacity(0.9))
+                            .foregroundColor(Color.customGray)
                     }
-
+                    
                     Spacer()
-
+                    
                     Divider()
-
+                    
                     Button(action: {
                         saveTestScore()
                     }) {
@@ -85,16 +84,16 @@ struct AddTestScoreView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, minHeight: 44)
-                            .background(Color.blue)
+                            .background(Color.customTurquoise)
                             .cornerRadius(10)
                     }
                     .padding()
                 }
-                .padding(.horizontal) // Apply horizontal padding to the entire VStack
+                .padding(.horizontal)
             }
         }
-        .navigationTitle("Add Test Score - " + selectedYear + "grade") // Setting the navigation title
-        .navigationBarTitleDisplayMode(.inline) // Optional: For inline display of the title
+        .navigationTitle("Add Test Score - " + selectedYear + " grade")
+        .navigationBarTitleDisplayMode(.inline)
     }
 
     private func saveTestScore() {

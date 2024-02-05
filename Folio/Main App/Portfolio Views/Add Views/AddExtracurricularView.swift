@@ -14,20 +14,18 @@ struct AddExtracurricularView: View {
     @State private var description: String = ""
     @State private var yearsParticipated: String = ""
 
-    var selectedYear: String // Passed from PortfolioView
+    var selectedYear: String
 
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
                 
                 VStack(alignment: .leading) {
                     Divider()
                     
                     Group {
                         Text("Extracurricular Name")
-                            .foregroundColor(.white)
+                            .foregroundColor(.customGray)
                             .padding(.top)
                         
                         TextField("Ex. Chess Club", text: $extracurricularName)
@@ -38,12 +36,12 @@ struct AddExtracurricularView: View {
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                             )
-                            .foregroundColor(Color.white.opacity(0.9))
+                            .foregroundColor(Color.customGray)
                     }
                     
                     Group {
                         Text("Description")
-                            .foregroundColor(.white)
+                            .foregroundColor(.customGray)
                             .padding(.top)
                         
                         TextField("Ex. President, led weekly meetings...", text: $description)
@@ -54,12 +52,12 @@ struct AddExtracurricularView: View {
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                             )
-                            .foregroundColor(Color.white.opacity(0.9))
+                            .foregroundColor(Color.customGray)
                     }
                     
                     Group {
                         Text("Years Participated (comma-separated)")
-                            .foregroundColor(.white)
+                            .foregroundColor(.customGray)
                             .padding(.top)
                         
                         TextField("Ex. 2020, 2021, 2022", text: $yearsParticipated)
@@ -70,7 +68,7 @@ struct AddExtracurricularView: View {
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                             )
-                            .foregroundColor(Color.white.opacity(0.9))
+                            .foregroundColor(Color.customGray)
                     }
                     
                     Spacer()
@@ -84,16 +82,16 @@ struct AddExtracurricularView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, minHeight: 44)
-                            .background(Color.blue)
+                            .background(Color.customTurquoise)
                             .cornerRadius(10)
                     }
                     .padding()
                 }
-                .padding(.horizontal) // Apply horizontal padding to the entire VStack
+                .padding(.horizontal)
             }
         }
-        .navigationTitle("Add Extracurricular - " + selectedYear + "grade") // Setting the navigation title
-        .navigationBarTitleDisplayMode(.inline) // Optional: For inline display of the title
+        .navigationTitle("Add Extracurricular - " + selectedYear + " grade")
+        .navigationBarTitleDisplayMode(.inline)
     }
 
     private func saveExtracurricular() {

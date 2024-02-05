@@ -18,27 +18,27 @@ struct OpportunityDetailsView: View {
     
     var body: some View {
         ZStack {
-            // Main ScrollView Content
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
                     
                     Text(opportunity.title)
                         .font(.title2)
                         .fontWeight(.bold)
+                        .foregroundColor(.customGray)
                     
                     HStack {
-                        Image("placeholder") // Placeholder image
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .cornerRadius(8)
+//                        Image("placeholder")
+//                            .resizable()
+//                            .frame(width: 50, height: 50)
+//                            .cornerRadius(8)
 
                         VStack(alignment: .leading) {
 
                             HStack {
-                                Image(systemName: "location.fill") // Location icon
+                                Image(systemName: "location.fill")
                                 Text(opportunity.location)
                                     .font(.subheadline)
-                                    .foregroundColor(.secondary)
+                                    .foregroundColor(.customGray)
                             }
 
                             // Tags for type and level
@@ -64,6 +64,7 @@ struct OpportunityDetailsView: View {
                         .font(.headline)
                         .fontWeight(.bold)
                         .padding(.vertical, 5)
+                        .foregroundColor(.customGray)
 
                     Text(opportunity.description)
                         .font(.body)
@@ -73,19 +74,20 @@ struct OpportunityDetailsView: View {
                         .font(.headline)
                         .fontWeight(.bold)
                         .padding(.vertical, 5)
+                        .foregroundColor(.customGray)
 
                     ForEach(opportunity.eligibility?.components(separatedBy: ",") ?? [], id: \.self) { qualification in
                         Text("• \(qualification.trimmingCharacters(in: .whitespacesAndNewlines))")
                     }
+                    .foregroundColor(.gray)
                     
-                    Spacer() // This will push all the content to the top
+                    Spacer()
                 }
                 .padding()
             }
 
-            // Apply Now Button at the Bottom
             VStack {
-                Spacer() // Pushes the button to the bottom
+                Spacer()
 
                 Divider()
 
@@ -95,7 +97,7 @@ struct OpportunityDetailsView: View {
                             }) {
                                 Text("Apply Now")
                                     .frame(maxWidth: .infinity, minHeight: 50)
-                                    .background(Color.blue)
+                                    .background(Color.customTurquoise)
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
                             }
@@ -118,7 +120,7 @@ struct OpportunityDetailsView: View {
                 }
             }
         }
-        .navigationBarTitle(Text("Opportunity Details"), displayMode: .inline)
-        .edgesIgnoringSafeArea(.bottom) // Ensures the button is aligned at the very bottom
+        .navigationBarTitle(Text("Venture Details"), displayMode: .inline)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }

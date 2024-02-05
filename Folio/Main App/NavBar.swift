@@ -46,7 +46,7 @@ struct TabBar: View {
 
                 Spacer()
 
-                // Tab 4: Ventures
+                // Tab 4: Opportunities
                 Button(action: { selectedTab = 3 }) {
                     VStack(spacing: 4) {
                         Image(systemName: "star.fill")

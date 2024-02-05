@@ -5,7 +5,7 @@ struct SignInView: View {
     @Binding var isAuthenticated: Bool
 
     var body: some View {
-        VStack(spacing: 5) { // Added spacing between elements
+        VStack(spacing: 5) {
             
             HStack {
                 Text("Enter your details")
@@ -13,32 +13,32 @@ struct SignInView: View {
                     .foregroundColor(.customGray)
                     .padding(.top)
                     .padding(.bottom, 10)
-                    .shadow(color: .gray.opacity(0.25), radius: 10, x: 5, y: 5) // Angled glowing shadow
-                    .frame(maxWidth: .infinity, alignment: .center) // Center horizontally
+                    .shadow(color: .gray.opacity(0.25), radius: 10, x: 5, y: 5)
+                    .frame(maxWidth: .infinity, alignment: .center)
 
-                Spacer() // This pushes the Text to the left
+                Spacer()
             }
-            .padding([.leading, .trailing]) // Add padding on the sides if needed
+            .padding([.leading, .trailing])
 
             TextField("Email...", text: $viewModel.email)
                 .padding()
                 .background(Color.gray.opacity(0.15))
                 .cornerRadius(10)
-                .foregroundColor(.customGray) // Made placeholder text more white
-                .padding(.bottom, 8) // Added bottom padding for spacing
+                .foregroundColor(.customGray)
+                .padding(.bottom, 8)
 
             SecureField("Password...", text: $viewModel.password)
                 .padding()
                 .background(Color.gray.opacity(0.15))
                 .cornerRadius(10)
-                .foregroundColor(.customGray) // Made placeholder text more white
-                .padding(.bottom, 20) // Added bottom padding for spacing
+                .foregroundColor(.customGray)
+                .padding(.bottom, 20)
 
             Button(action: {
                 Task {
                     do {
                         try await viewModel.signIn()
-                        isAuthenticated = true  // Set isAuthenticated to true if signIn succeeds
+                        isAuthenticated = true
                         print("Signed in successfully")
                     } catch {
                         print("Sign in error \(error)")
@@ -52,16 +52,16 @@ struct SignInView: View {
                     .cornerRadius(10)
             }
             .buttonStyle(BlueButtonStyle())
-            .padding(.bottom, 10) // Added bottom padding for spacing
+            .padding(.bottom, 10)
 
             if viewModel.emailVerificationError {
                 Text("Email not verified")
                     .foregroundColor(.red)
-                    .padding(.bottom, 10) // Added bottom padding for spacing
+                    .padding(.bottom, 10)
             } else if let loginError = viewModel.loginError, !viewModel.emailVerificationError {
                 Text(loginError)
                     .foregroundColor(.red)
-                    .padding(.bottom, 10) // Added bottom padding for spacing
+                    .padding(.bottom, 10)
             }
 
             Spacer()

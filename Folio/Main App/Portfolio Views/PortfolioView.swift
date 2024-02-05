@@ -36,21 +36,20 @@ struct PortfolioView: View {
                                 }
                             }
                         }
-                        .frame(height: 50) // Set the height of the tabs
-                        .background(Color.clear) // Clear background
+                        .frame(height: 50)
+                        .background(Color.clear)
                         
-                        // Blue line on top of the selected tab
                         Rectangle()
                             .fill(Color.customTurquoise)
                             .frame(width: UIScreen.main.bounds.width / CGFloat(years.count), height: 2)
                             .offset(x: CGFloat(selectedYear) * (UIScreen.main.bounds.width / CGFloat(years.count)), y: -50)
                             .animation(.default, value: selectedYear)
                     }
-                    .frame(height: 50) // Set the height including the top line
-                    .background(Color.clear) // Clear background
+                    .frame(height: 50)
+                    .background(Color.clear)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 10) // Rounded rectangle overlay for borders
+                        RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.gray.opacity(0.15), lineWidth: 1)
                     )
                     .padding(.horizontal)
@@ -65,7 +64,7 @@ struct PortfolioView: View {
                                             title: sectionType.rawValue,
                                             sectionType: sectionType,
                                             viewModel: viewModel,
-                                            selectedYear: years[selectedYear] // Convert the index to a year string
+                                            selectedYear: years[selectedYear]
                                         )
                                     }
                                 }
