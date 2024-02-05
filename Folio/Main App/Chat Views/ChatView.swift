@@ -13,21 +13,30 @@ struct ChatView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 10) {
                     ChatHeaderView()
                     
-                    // Messages list
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: 10) {
-                            ForEach(messages, id: \.id) { message in
-                                MessageView(message: message)
+                    // Messages list or Logo
+                    if messages.isEmpty {
+                        // Display the logo in the center when there are no messages
+                        Spacer() // Add spacers to center the logo vertically
+                        Image("folio_logo") // Make sure "LogoImage" is the name of your logo in the asset catalog
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100) // Adjust the size as needed
+                        Spacer()
+                    } else {
+                        // Existing ScrollView for messages
+                        ScrollView {
+                            VStack(alignment: .leading, spacing: 10) {
+                                ForEach(messages, id: \.id) { message in
+                                    MessageView(message: message)
+                                }
                             }
                         }
+                        .padding()
                     }
-                    .padding()
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
@@ -38,9 +47,9 @@ struct ChatView: View {
                                     VStack(alignment: .leading) {
                                         Text(prompt.action)
                                             .bold()
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.customGray)
                                         Text(prompt.description)
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.customGray)
                                             .lineLimit(2)
                                     }
                                     .padding()
@@ -59,14 +68,14 @@ struct ChatView: View {
                             .padding(10)
                             .background(Color.clear)
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
-                            .foregroundColor(.white)
+                            .foregroundColor(.customGray)
 
                         Button(action: {
                             sendMessage()
                         }) {
                             Image(systemName: "paperplane.fill")
                                 .font(.system(size: 22))
-                                .foregroundColor(.white)
+                                .foregroundColor(.customTurquoise)
                         }
                         .disabled(messageText.isEmpty)
                         .padding(.horizontal)
@@ -124,17 +133,18 @@ struct ChatView: View {
 struct ChatHeaderView: View {
     var body: some View {
         HStack {
-            Image(systemName: "doc.append")
+            Image(systemName: "message.fill")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 25, height: 25)
                 .padding(.leading, 20)
-                .foregroundColor(.white)
+                .foregroundColor(.customGray)
             Text("Chat")
                 .font(.headline)
                 .fontWeight(.bold)
-                .foregroundColor(.white)
+                .foregroundColor(.customGray)
             Spacer()
         }
+        .padding(.vertical)
     }
 }

@@ -8,30 +8,30 @@ struct SignInView: View {
         VStack(spacing: 5) { // Added spacing between elements
             
             HStack {
-                Text("Sign in")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+                Text("Enter your details")
+                    .font(.headline)
+                    .foregroundColor(.customGray)
                     .padding(.top)
                     .padding(.bottom, 10)
-                    .shadow(color: .white, radius: 10, x: 5, y: 5) // Angled glowing shadow
-                
+                    .shadow(color: .gray.opacity(0.25), radius: 10, x: 5, y: 5) // Angled glowing shadow
+                    .frame(maxWidth: .infinity, alignment: .center) // Center horizontally
+
                 Spacer() // This pushes the Text to the left
             }
             .padding([.leading, .trailing]) // Add padding on the sides if needed
 
             TextField("Email...", text: $viewModel.email)
                 .padding()
-                .background(Color.gray.opacity(0.5))
+                .background(Color.gray.opacity(0.15))
                 .cornerRadius(10)
-                .foregroundColor(.white) // Made placeholder text more white
+                .foregroundColor(.customGray) // Made placeholder text more white
                 .padding(.bottom, 8) // Added bottom padding for spacing
 
             SecureField("Password...", text: $viewModel.password)
                 .padding()
-                .background(Color.gray.opacity(0.5))
+                .background(Color.gray.opacity(0.15))
                 .cornerRadius(10)
-                .foregroundColor(.white) // Made placeholder text more white
+                .foregroundColor(.customGray) // Made placeholder text more white
                 .padding(.bottom, 20) // Added bottom padding for spacing
 
             Button(action: {
@@ -49,7 +49,6 @@ struct SignInView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
-                    .background(Color.blue)
                     .cornerRadius(10)
             }
             .buttonStyle(BlueButtonStyle())
@@ -74,7 +73,7 @@ struct SignInView: View {
         } message: {
             Text(viewModel.loginError ?? "")
         }
-        .background(LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .bottom, endPoint: .top))
+//        .background(LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .bottom, endPoint: .top))
         .edgesIgnoringSafeArea(.all)
     }
 }

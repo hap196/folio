@@ -7,7 +7,7 @@ struct TabBar: View {
         VStack(spacing: 0) {
             Rectangle()
                 .frame(height: 1)
-                .foregroundColor(.gray)
+                .foregroundColor(.gray.opacity(0.45))
 
             HStack {
                 // Tab 1: Home
@@ -15,9 +15,10 @@ struct TabBar: View {
                     VStack(spacing: 4) {
                         Image(systemName: "house.fill")
                         Text("Home")
+                            .font(.caption)
                     }
                 }
-                .foregroundColor(selectedTab == 0 ? .blue : Color.lightGray)
+                .foregroundColor(selectedTab == 0 ? .customTurquoise : .gray.opacity(0.45))
 
                 Spacer()
 
@@ -26,9 +27,10 @@ struct TabBar: View {
                     VStack(spacing: 4) {
                         Image(systemName: "folder.fill")
                         Text("Portfolio")
+                            .font(.caption)
                     }
                 }
-                .foregroundColor(selectedTab == 1 ? .blue : Color.lightGray)
+                .foregroundColor(selectedTab == 1 ? .customTurquoise : .gray.opacity(0.45))
 
                 Spacer()
 
@@ -37,9 +39,10 @@ struct TabBar: View {
                     VStack(spacing: 4) {
                         Image(systemName: "message.fill")
                         Text("Chat")
+                            .font(.caption)
                     }
                 }
-                .foregroundColor(selectedTab == 2 ? .blue : Color.lightGray)
+                .foregroundColor(selectedTab == 2 ? .customTurquoise : .gray.opacity(0.45))
 
                 Spacer()
 
@@ -48,22 +51,19 @@ struct TabBar: View {
                     VStack(spacing: 4) {
                         Image(systemName: "star.fill")
                         Text("Ventures")
+                            .font(.caption)
                     }
                 }
-                .foregroundColor(selectedTab == 3 ? .blue : Color.lightGray)
+                .foregroundColor(selectedTab == 3 ? .customTurquoise : .gray.opacity(0.45))
             }
-            .padding(.vertical, 20) // Adjusted for taller tab bar
+            .padding(.vertical, 20)
+            .padding(.horizontal)
+            .padding(.bottom)
             .frame(maxWidth: .infinity)
             .background(Color.clear)
             .padding(.horizontal)
         }
         .background(Color.clear)
         .cornerRadius(10)
-        .shadow(radius: 5)
     }
-}
-
-// Light gray color extension
-extension Color {
-    static let lightGray = Color(red: 200 / 255, green: 200 / 255, blue: 200 / 255)
 }

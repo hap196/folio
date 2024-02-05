@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1C1CC5422B6FACF900152B16 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1CC5412B6FACF900152B16 /* SafariView.swift */; };
+		1C1CC5442B6FD95100152B16 /* folioworking in Resources */ = {isa = PBXBuildFile; fileRef = 1C1CC5432B6FD95100152B16 /* folioworking */; };
+		1C1CC5472B6FDC2600152B16 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1CC5462B6FDC2600152B16 /* GreetingView.swift */; };
+		1C1CC5492B6FDC4E00152B16 /* UpcomingTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1CC5482B6FDC4E00152B16 /* UpcomingTasksView.swift */; };
+		1C1CC54C2B6FDC7B00152B16 /* DeadlinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1CC54B2B6FDC7B00152B16 /* DeadlinesView.swift */; };
+		1C1CC54E2B6FDC9A00152B16 /* FeaturedOpportunitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1CC54D2B6FDC9A00152B16 /* FeaturedOpportunitiesView.swift */; };
+		1C1CC5502B6FE0AB00152B16 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1CC54F2B6FE0AB00152B16 /* TaskView.swift */; };
+		1C1CC5532B6FE0CC00152B16 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1CC5522B6FE0CB00152B16 /* Todo.swift */; };
+		1C1CC5572B708A2900152B16 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1CC5562B708A2900152B16 /* Colors.swift */; };
 		1C261D3A2B62CDC2000D2C4C /* PortfolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D392B62CDC2000D2C4C /* PortfolioViewModel.swift */; };
 		1C261D3C2B6A07EB000D2C4C /* Extracurricular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D3B2B6A07EB000D2C4C /* Extracurricular.swift */; };
 		1C261D3E2B6A082A000D2C4C /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C261D3D2B6A082A000D2C4C /* Award.swift */; };
@@ -86,6 +94,14 @@
 
 /* Begin PBXFileReference section */
 		1C1CC5412B6FACF900152B16 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		1C1CC5432B6FD95100152B16 /* folioworking */ = {isa = PBXFileReference; lastKnownFileType = folder; name = folioworking; path = ../folioworking; sourceTree = "<group>"; };
+		1C1CC5462B6FDC2600152B16 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
+		1C1CC5482B6FDC4E00152B16 /* UpcomingTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingTasksView.swift; sourceTree = "<group>"; };
+		1C1CC54B2B6FDC7B00152B16 /* DeadlinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlinesView.swift; sourceTree = "<group>"; };
+		1C1CC54D2B6FDC9A00152B16 /* FeaturedOpportunitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedOpportunitiesView.swift; sourceTree = "<group>"; };
+		1C1CC54F2B6FE0AB00152B16 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		1C1CC5522B6FE0CB00152B16 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		1C1CC5562B708A2900152B16 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1C261D392B62CDC2000D2C4C /* PortfolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewModel.swift; sourceTree = "<group>"; };
 		1C261D3B2B6A07EB000D2C4C /* Extracurricular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extracurricular.swift; sourceTree = "<group>"; };
 		1C261D3D2B6A082A000D2C4C /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
@@ -172,6 +188,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C1CC5452B6FDBFB00152B16 /* Homepage Views */ = {
+			isa = PBXGroup;
+			children = (
+				1C1CC5512B6FE0B400152B16 /* Data models */,
+				1CC221C92B603BD400FBC7E4 /* HomeView.swift */,
+				1C1CC5462B6FDC2600152B16 /* GreetingView.swift */,
+				1C1CC5482B6FDC4E00152B16 /* UpcomingTasksView.swift */,
+				1C1CC54B2B6FDC7B00152B16 /* DeadlinesView.swift */,
+				1C1CC54D2B6FDC9A00152B16 /* FeaturedOpportunitiesView.swift */,
+				1C1CC54F2B6FE0AB00152B16 /* TaskView.swift */,
+			);
+			path = "Homepage Views";
+			sourceTree = "<group>";
+		};
+		1C1CC5512B6FE0B400152B16 /* Data models */ = {
+			isa = PBXGroup;
+			children = (
+				1C1CC5522B6FE0CB00152B16 /* Todo.swift */,
+			);
+			path = "Data models";
+			sourceTree = "<group>";
+		};
 		1C261D412B6A25C5000D2C4C /* Item Edit Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +242,7 @@
 		1C8DFCFE2B522023003B7233 = {
 			isa = PBXGroup;
 			children = (
+				1C1CC5432B6FD95100152B16 /* folioworking */,
 				1C8DFD092B522023003B7233 /* Folio */,
 				1C8DFD1A2B52202D003B7233 /* FolioTests */,
 				1C8DFD242B52202D003B7233 /* FolioUITests */,
@@ -235,6 +274,7 @@
 				1CC221D12B60623B00FBC7E4 /* Main App */,
 				1C8DFD472B5225C2003B7233 /* Login */,
 				1C8DFD102B52202C003B7233 /* Preview Content */,
+				1C1CC5562B708A2900152B16 /* Colors.swift */,
 			);
 			path = Folio;
 			sourceTree = "<group>";
@@ -304,11 +344,11 @@
 		1CC221D12B60623B00FBC7E4 /* Main App */ = {
 			isa = PBXGroup;
 			children = (
+				1C1CC5452B6FDBFB00152B16 /* Homepage Views */,
 				1CB97EE32B6AD1A300DAD30C /* Opportunity Views */,
 				1C261D4A2B6A4788000D2C4C /* Chat Views */,
 				1CD9423B2B6212370022D119 /* Portfolio Views */,
 				1CC221D22B60625400FBC7E4 /* NavBar.swift */,
-				1CC221C92B603BD400FBC7E4 /* HomeView.swift */,
 			);
 			path = "Main App";
 			sourceTree = "<group>";
@@ -502,6 +542,7 @@
 				1C8DFD122B52202C003B7233 /* Preview Assets.xcassets in Resources */,
 				1C8DFD572B524F3F003B7233 /* GoogleService-Info.plist in Resources */,
 				1CB97EEB2B6AD6FC00DAD30C /* opportunities.json in Resources */,
+				1C1CC5442B6FD95100152B16 /* folioworking in Resources */,
 				1C8DFD0F2B52202C003B7233 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,6 +579,9 @@
 				1CD9424B2B6213B60022D119 /* AddTestScoreView.swift in Sources */,
 				1C8DFD552B523EB1003B7233 /* SettingsView.swift in Sources */,
 				1CB97EF02B6AF5A800DAD30C /* OpportunityDetailsView.swift in Sources */,
+				1C1CC5472B6FDC2600152B16 /* GreetingView.swift in Sources */,
+				1C1CC5572B708A2900152B16 /* Colors.swift in Sources */,
+				1C1CC54C2B6FDC7B00152B16 /* DeadlinesView.swift in Sources */,
 				1C261D3A2B62CDC2000D2C4C /* PortfolioViewModel.swift in Sources */,
 				1C8DFD0B2B522023003B7233 /* FolioApp.swift in Sources */,
 				1C8DFD532B523AF4003B7233 /* RootView.swift in Sources */,
@@ -545,6 +589,7 @@
 				1CC221CE2B605FAE00FBC7E4 /* ChatView.swift in Sources */,
 				1CD942432B6212810022D119 /* AwardsView.swift in Sources */,
 				1CD942412B62126B0022D119 /* TestScoresView.swift in Sources */,
+				1C1CC5502B6FE0AB00152B16 /* TaskView.swift in Sources */,
 				1CC221CA2B603BD400FBC7E4 /* HomeView.swift in Sources */,
 				1CB97EF42B6C81C400DAD30C /* FilteredOpportunitiesView.swift in Sources */,
 				1C6A91002B5455CE0048405E /* SurveyView.swift in Sources */,
@@ -561,14 +606,17 @@
 				1CB97EED2B6AE9F600DAD30C /* OpportunityCard.swift in Sources */,
 				1C261D402B6A083C000D2C4C /* TestScore.swift in Sources */,
 				1CD9423F2B62125E0022D119 /* ExtracurricularsView.swift in Sources */,
+				1C1CC5492B6FDC4E00152B16 /* UpcomingTasksView.swift in Sources */,
 				1C8DFD4F2B522A5D003B7233 /* StartingView.swift in Sources */,
 				1CD942322B61511E0022D119 /* BackgroundModifier.swift in Sources */,
 				1C261D4C2B6A47A1000D2C4C /* ChatMessage.swift in Sources */,
+				1C1CC54E2B6FDC9A00152B16 /* FeaturedOpportunitiesView.swift in Sources */,
 				1C261D472B6A25FF000D2C4C /* EditTestScoreView.swift in Sources */,
 				1CD9424D2B6213D30022D119 /* AddAwardView.swift in Sources */,
 				1C261D452B6A25F4000D2C4C /* EditExtracurricularView.swift in Sources */,
 				1C8DFD512B5233EF003B7233 /* AuthenticationManager.swift in Sources */,
 				1C261D432B6A25E7000D2C4C /* EditCourseView.swift in Sources */,
+				1C1CC5532B6FE0CC00152B16 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

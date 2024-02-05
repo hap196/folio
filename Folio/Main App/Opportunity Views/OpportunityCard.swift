@@ -22,18 +22,26 @@ struct OpportunityCard: View {
                     .truncationMode(.tail)
                 Spacer()
                 Image(systemName: "bookmark")
-                    .foregroundColor(.blue)
+                    .foregroundColor(.customTurquoise)
+                    .font(.title) // Make the bookmark icon larger
             }
             Text(opportunity.title)
                 .font(.headline)
-                .foregroundColor(.white)
+                .foregroundColor(.customGray)
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
                 .truncationMode(.tail)
                 .frame(minHeight: 44)
-            Text(opportunity.location)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
+            HStack(spacing: 5) { // Wrap the location text and icon in an HStack
+                Image(systemName: "mappin")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 12, height: 12) // Adjust size as needed
+                    .foregroundColor(.secondary)
+                Text(opportunity.location)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
 
             BadgeView(text: opportunity.type, color: colorForType(opportunity.type))
             
@@ -58,12 +66,10 @@ struct OpportunityCard: View {
             }
         }
         .padding()
-        .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .top, endPoint: .bottom))
+        .background(Color.gray.opacity(0.15))
         .cornerRadius(10)
-        .shadow(radius: 5)
         .clipped()
         .frame(width: UIScreen.main.bounds.width - 150, height: 250) // Set a fixed width and height
-    
     }
     
     // Function to determine the color for the type badge
@@ -97,7 +103,6 @@ struct OpportunityCard: View {
     }
 }
 
-// View for colored badges
 struct BadgeView: View {
     let text: String
     let color: Color
@@ -107,7 +112,7 @@ struct BadgeView: View {
             .font(.caption)
             .padding(5)
             .background(color)
-            .foregroundColor(.white)
+            .foregroundColor(.customGray)
             .cornerRadius(5)
     }
 }

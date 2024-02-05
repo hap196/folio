@@ -24,8 +24,6 @@ struct OpportunitiesView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
 
                 VStack {
                     OpportunitiesHeaderView()
@@ -35,13 +33,13 @@ struct OpportunitiesView: View {
                         TextField("Search...", text: $searchText)
                             .padding(7)
                             .padding(.leading, 30) // add padding to make room for the icon
-                            .background(Color(.systemGray6).opacity(0.5)) // Semi-transparent background
+                            .background(Color(.gray).opacity(0.25)) // Semi-transparent background
                             .cornerRadius(10)
                             .foregroundColor(.white.opacity(0.7)) // Muted white text
                             .overlay(
                                 HStack {
                                     Image(systemName: "magnifyingglass")
-                                        .foregroundColor(.gray)
+                                        .foregroundColor(.customGray)
                                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                         .padding(.leading, 8)
                                 }
@@ -58,7 +56,7 @@ struct OpportunitiesView: View {
                                 // Dismiss the keyboard
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                             }
-                            .foregroundColor(.white)
+                            .foregroundColor(.customTurquoise)
                             .padding(.trailing, 10)
                             .transition(.move(edge: .trailing))
                             .animation(.default)
@@ -75,9 +73,9 @@ struct OpportunitiesView: View {
                                                 List(viewModel.opportunities.filter({ searchText.isEmpty ? true : $0.title.localizedCaseInsensitiveContains(searchText) })) { opportunity in
                                                     NavigationLink(destination: OpportunityDetailsView(opportunity: opportunity)) {
                                                         Text(opportunity.title)
-                                                            .foregroundColor(.white.opacity(0.7)) // Muted white text
+                                                            .foregroundColor(.customTurquoise) // Muted white text
                                                     }
-                                                    .listRowBackground(Color.black.opacity(0.3)) // Semi-transparent background for list rows
+                                                    .listRowBackground(Color.clear) // Semi-transparent background for list rows
                                                 }
                                                 .listStyle(PlainListStyle())
                                             } else {
@@ -87,22 +85,22 @@ struct OpportunitiesView: View {
                                                         // Subheading "Start Browsing"
                                                         Text("Start Browsing")
                                                             .font(.system(size: 19, weight: .bold)) // Smaller font size
-                                                            .foregroundColor(.white)
+                                                            .foregroundColor(.customGray)
                                                             .padding(.top)
 
                                                         // 2x2 grid for "Start Browsing"
                                                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
-                                                            CategoryButton(title: "Internships", color: Color.white.opacity(0.95), textColor: .black, viewModel: viewModel)
-                                                            CategoryButton(title: "Competitions", color: Color.white.opacity(0.95), textColor: .black, viewModel: viewModel)
-                                                            CategoryButton(title: "Volunteering", color: Color.white.opacity(0.95), textColor: .black, viewModel: viewModel)
-                                                            CategoryButton(title: "Scholarships", color: Color.white.opacity(0.95), textColor: .black, viewModel: viewModel)
+                                                            CategoryButton(title: "Internships", color: Color.customTurquoise.opacity(0.95), textColor: .white, viewModel: viewModel)
+                                                            CategoryButton(title: "Competitions", color: Color.customTurquoise.opacity(0.95), textColor: .white, viewModel: viewModel)
+                                                            CategoryButton(title: "Volunteering", color: Color.customTurquoise.opacity(0.95), textColor: .white, viewModel: viewModel)
+                                                            CategoryButton(title: "Scholarships", color: Color.customTurquoise.opacity(0.95), textColor: .white, viewModel: viewModel)
                                                         }
                                                         .padding(.bottom)
 
                                                         // Subheading "Picked for You"
                                                         Text("Picked for You")
                                                             .font(.system(size: 19, weight: .bold)) // Smaller font size
-                                                            .foregroundColor(.white)
+                                                            .foregroundColor(.customGray)
                                                             .padding(.top)
                                                             .padding(.leading, 5)
                                                             .padding(.bottom)
@@ -127,7 +125,7 @@ struct OpportunitiesView: View {
                                                         // Subheading "Picked for You"
                                                         Text("New Postings")
                                                             .font(.system(size: 19, weight: .bold)) // Smaller font size
-                                                            .foregroundColor(.white)
+                                                            .foregroundColor(.customGray)
                                                             .padding(.top)
                                                             .padding(.leading, 5)
                                                             .padding(.bottom)
@@ -152,7 +150,7 @@ struct OpportunitiesView: View {
                                                         // Subheading "Picked for You"
                                                         Text("New Postings")
                                                             .font(.system(size: 19, weight: .bold)) // Smaller font size
-                                                            .foregroundColor(.white)
+                                                            .foregroundColor(.customGray)
                                                             .padding(.top)
                                                             .padding(.leading, 5)
                                                             .padding(.bottom)
@@ -212,17 +210,18 @@ struct CategoryButton: View {
 struct OpportunitiesHeaderView: View {
     var body: some View {
         HStack {
-            Image(systemName: "doc.append")
+            Image(systemName: "star.fill")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 25, height: 25)
                 .padding(.leading, 20)
-                .foregroundColor(.white)
+                .foregroundColor(.customGray)
             Text("Opportunities")
                 .font(.headline)
                 .fontWeight(.bold)
-                .foregroundColor(.white)
+                .foregroundColor(.customGray)
             Spacer()
         }
+        .padding(.vertical)
     }
 }

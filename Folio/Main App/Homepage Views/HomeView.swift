@@ -11,13 +11,18 @@ struct HomeView: View {
                     NavigationView {
                         
                         ZStack {
-                            LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom)
-                                .edgesIgnoringSafeArea(.all)
                             
-                            VStack(spacing: 10) {
-                                HomeHeaderView()
-                                Spacer()
-                            }
+                            ScrollView {
+                                                VStack(spacing: 30) {
+                                                    HomeHeaderView()
+                                                    GreetingView()
+                                                    UpcomingTasksView()
+                                                    Spacer()
+                                                    DeadlinesView()
+                                                    FeaturedOpportunitiesView()
+                                                }
+                                                
+                                            }
                         }
                         
                     }
@@ -37,25 +42,25 @@ struct HomeView: View {
             TabBar(selectedTab: $selectedTab)
         }
         .edgesIgnoringSafeArea(.bottom)
-        .gradientBackground()
     }
 }
 
 struct HomeHeaderView: View {
     var body: some View {
         HStack {
-            Image(systemName: "doc.append")
+             Image(systemName: "house.fill")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 25, height: 25)
                 .padding(.leading, 20)
-                .foregroundColor(.white)
+                .foregroundColor(.customGray)
             Text("Home")
                 .font(.headline)
                 .fontWeight(.bold)
-                .foregroundColor(.white)
+                .foregroundColor(.customGray)
             Spacer()
         }
+        .padding()
     }
 }
 

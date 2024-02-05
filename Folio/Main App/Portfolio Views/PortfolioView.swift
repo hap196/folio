@@ -11,8 +11,6 @@ struct PortfolioView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 10) {
                     PortfolioHeaderView()
@@ -27,14 +25,14 @@ struct PortfolioView: View {
                                     }
                                 }) {
                                     Text(year)
-                                        .foregroundColor(selectedYear == index ? .customBlue : .white)
+                                        .foregroundColor(selectedYear == index ? .customTurquoise : .customGray)
                                         .fontWeight(.bold)
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                                         .contentShape(Rectangle())
                                 }
                                 
                                 if index < years.count - 1 {
-                                    Divider().background(Color.gray)
+                                    Divider().background(Color.gray.opacity(0.15))
                                 }
                             }
                         }
@@ -43,7 +41,7 @@ struct PortfolioView: View {
                         
                         // Blue line on top of the selected tab
                         Rectangle()
-                            .fill(Color.customBlue)
+                            .fill(Color.customTurquoise)
                             .frame(width: UIScreen.main.bounds.width / CGFloat(years.count), height: 2)
                             .offset(x: CGFloat(selectedYear) * (UIScreen.main.bounds.width / CGFloat(years.count)), y: -50)
                             .animation(.default, value: selectedYear)
@@ -53,7 +51,7 @@ struct PortfolioView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .overlay(
                         RoundedRectangle(cornerRadius: 10) // Rounded rectangle overlay for borders
-                            .stroke(Color.gray, lineWidth: 1)
+                            .stroke(Color.gray.opacity(0.15), lineWidth: 1)
                     )
                     .padding(.horizontal)
                     
@@ -107,18 +105,19 @@ struct PortfolioView: View {
 struct PortfolioHeaderView: View {
     var body: some View {
         HStack {
-            Image(systemName: "doc.append")
+            Image(systemName: "folder.fill")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 25, height: 25)
                 .padding(.leading, 20)
-                .foregroundColor(.white)
+                .foregroundColor(.customGray)
             Text("My Portfolio")
                 .font(.headline)
                 .fontWeight(.bold)
-                .foregroundColor(.white)
+                .foregroundColor(.customGray)
             Spacer()
         }
+        .padding(.vertical)
     }
 }
 
@@ -146,13 +145,13 @@ struct CollapsibleSectionCardView: View {
                     }
                 }) {
                     Image(systemName: isCollapsed ? "chevron.down" : "chevron.up")
-                        .foregroundColor(.white)
+                        .foregroundColor(.customGray)
                 }
 
                 Text(title)
                     .font(.headline)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundColor(.customGray)
 
                 Spacer()
 
@@ -160,14 +159,14 @@ struct CollapsibleSectionCardView: View {
                     navigateToEditView = true
                 }) {
                     Image(systemName: "pencil")
-                        .foregroundColor(.white)
+                        .foregroundColor(.customGray)
                 }
 
                 Button(action: {
                     navigateToAddView = true
                 }) {
                     Image(systemName: "plus")
-                        .foregroundColor(.white)
+                        .foregroundColor(.customGray)
                 }
             }
             .padding(.vertical, 10)
@@ -180,22 +179,22 @@ struct CollapsibleSectionCardView: View {
                     switch sectionType {
                     case .Courses:
                         ForEach(viewModel.courses, id: \.id) { course in
-                            Text(course.name).foregroundColor(Color.gray)
+                            Text(course.name).foregroundColor(Color.gray.opacity(0.15))
                             Divider()
                         }
                     case .Extracurriculars:
                         ForEach(viewModel.extracurriculars, id: \.id) { extracurricular in
-                            Text(extracurricular.name).foregroundColor(Color.gray)
+                            Text(extracurricular.name).foregroundColor(Color.gray.opacity(0.15))
                             Divider()
                         }
                     case .Awards:
                         ForEach(viewModel.awards, id: \.id) { award in
-                            Text(award.name).foregroundColor(Color.gray)
+                            Text(award.name).foregroundColor(Color.gray.opacity(0.15))
                             Divider()
                         }
                     case .TestScores:
                         ForEach(viewModel.testScores, id: \.id) { testScore in
-                            Text(testScore.testName).foregroundColor(Color.gray)
+                            Text(testScore.testName).foregroundColor(Color.gray.opacity(0.15))
                             Divider()
                         }
                     }
@@ -204,7 +203,7 @@ struct CollapsibleSectionCardView: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background(Color.black.opacity(0.3))
+        .background(Color.gray.opacity(0.15))
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.2), radius: 7, x: 0, y: 7)
     }

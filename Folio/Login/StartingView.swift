@@ -8,54 +8,49 @@ struct StartingView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color("000000"), Color("333333")]), startPoint: .bottom, endPoint: .top)
-                .edgesIgnoringSafeArea(.all)
-
-            VStack(spacing: 2) { // Add spacing between VStack elements
-                Spacer()
+            VStack {
                 Spacer()
                 
-                Image("placeholder_logo")
+                Image("folio_logo") // Ensure the image name matches with your assets.
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: .infinity, maxHeight: 200)
-                
+
                 Text("Your AI College Advisor.")
-                    .foregroundColor(.white)
-                    .shadow(color: .white, radius: 10, x: 5, y: 5) // Angled glowing shadow
+                    .foregroundColor(.customGray)
+                    .shadow(color: .black, radius: 10, x: 5, y: 5)
                     .padding()
 
                 Spacer()
-                Spacer()
+                
+                VStack(spacing: 20) {
+                    Button(action: {
+                        showSurveyView = true
+                    }) {
+                        Text("Get started")
+                            .bold()
+                            .frame(maxWidth: .infinity)
+                    }
+                    .sheet(isPresented: $showSurveyView) {
+                        SurveyView(isAuthenticated: $isAuthenticated, showSignInView: $showSignInView)
+                    }
+                    .buttonStyle(BlueButtonStyle())
 
-                Button(action: {
-                    showSurveyView = true
-                }) {
-                    Text("Get started")
-                        .bold()
-                        .frame(maxWidth: .infinity)
+                    Button(action: {
+                        showSignInView = true
+                    }) {
+                        Text("I already have an account")
+                            .bold()
+                            .frame(maxWidth: .infinity)
+                    }
+                    .sheet(isPresented: $showSignInView) {
+                        SignInView(isAuthenticated: $isAuthenticated)
+                    }
+                    .buttonStyle(GrayButtonStyle())
                 }
-                .sheet(isPresented: $showSurveyView) {
-                    SurveyView(isAuthenticated: $isAuthenticated, showSignInView: $showSignInView)
-                }
-                .buttonStyle(BlueButtonStyle())
-                .padding(.bottom, 20) // Add padding below the first button
-
-                Button(action: {
-                    showSignInView = true
-                }) {
-                    Text("I already have an account")
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                }
-                .sheet(isPresented: $showSignInView) {
-                    SignInView(isAuthenticated: $isAuthenticated)
-                }
-                .buttonStyle(GrayButtonStyle())
-
-                Spacer()
+                .padding(.horizontal) // Apply horizontal padding to the button VStack
             }
-            .padding(.horizontal) // Apply horizontal padding to the entire VStack
+            .padding(.bottom) // Apply padding to the bottom of the outer VStack
             .alert("Login Error", isPresented: Binding<Bool>(get: { viewModel.loginError != nil }, set: { _ in viewModel.loginError = nil })) {
                 Button("OK", role: .cancel) { }
             } message: {
@@ -63,7 +58,6 @@ struct StartingView: View {
             }
         }
         .navigationTitle("Sign in")
-        .gradientBackground()
     }
 }
 
@@ -72,22 +66,22 @@ struct BlueButtonStyle: ButtonStyle {
         configuration.label
             .foregroundColor(.white)
             .padding()
-            .background(Color.blue)
+            .background(Color.customTurquoise)
             .cornerRadius(10)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
-            .shadow(color: .white.opacity(0.5), radius: 4, x: 5, y: 5) // Angled glowing shadow
+            .shadow(color: .customTurquoise.opacity(0.5), radius: 4, x: 5, y: 5) // Angled glowing shadow
     }
 }
 
 struct GrayButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundColor(.white)
+            .foregroundColor(.customTurquoise)
             .padding()
-            .background(Color.gray)
+            .background(Color.gray.opacity(0.15))
             .cornerRadius(10)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
-            .shadow(color: .white.opacity(0.5), radius: 4, x: 5, y: 5) // Angled glowing shadow
+            .shadow(color: .black.opacity(0.20), radius: 4, x: 5, y: 5) // Angled glowing shadow
     }
 }
 
@@ -96,3 +90,5 @@ struct StartingView_Previews: PreviewProvider {
         StartingView(isAuthenticated: .constant(false))
     }
 }
+
+
