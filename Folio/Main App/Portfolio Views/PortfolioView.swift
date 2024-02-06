@@ -7,13 +7,14 @@ struct PortfolioView: View {
     let years = ["9th", "10th", "11th", "12th"]
     
     @ObservedObject var viewModel = PortfolioViewModel()
+    @State private var navigateToSettings = false
 
     var body: some View {
         NavigationView {
             ZStack {
                 
                 VStack(spacing: 10) {
-                    PortfolioHeaderView()
+                    PortfolioHeaderView(navigateToSettings: $navigateToSettings)
                     
                     // Custom Tabs with full width and dividers
                     ZStack(alignment: .bottomLeading) {
@@ -102,6 +103,9 @@ struct PortfolioView: View {
 }
 
 struct PortfolioHeaderView: View {
+    
+    @Binding var navigateToSettings: Bool
+    
     var body: some View {
         HStack {
             Image(systemName: "folder.fill")
@@ -115,6 +119,22 @@ struct PortfolioHeaderView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.customGray)
             Spacer()
+            
+            Button(action: {
+                navigateToSettings = true
+            }) {
+                Image(systemName: "person.crop.circle")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 30, height: 30)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                    .foregroundColor(Color.customGray)
+            }
+            .padding(.trailing, 20)
+            NavigationLink(destination: SettingsView(isAuthenticated: .constant(true)), isActive: $navigateToSettings) {
+                EmptyView()
+            }
         }
         .padding(.vertical)
     }

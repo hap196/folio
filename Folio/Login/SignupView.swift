@@ -1,6 +1,6 @@
 //
 //  SignUpView.swift
-//  Jaleo
+//  Folio
 //
 //  Created by Hailey Pan on 1/22/24.
 //

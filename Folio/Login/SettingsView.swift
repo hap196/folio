@@ -1,6 +1,6 @@
 //
 //  SettingsView.swift
-//  Jaleo
+//  Folio
 //
 //  Created by Hailey Pan on 1/12/24.
 //
@@ -15,23 +15,18 @@ final class SettingsViewModel: ObservableObject {
     }
     
     func signOut() async throws {
-        
         let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
-        
         guard let email = authUser.email else {
             throw URLError(.fileDoesNotExist)
         }
-        
         try await AuthenticationManager.shared.resetPassword(email: email)
     }
     
     func resetPassword() async throws {
         let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
-        
         guard let email = authUser.email else {
             throw URLError(.fileDoesNotExist)
         }
-        
         try await AuthenticationManager.shared.resetPassword(email: email)
     }
     
@@ -44,88 +39,89 @@ final class SettingsViewModel: ObservableObject {
         let password = "1234567"
         try await AuthenticationManager.shared.updatePassword(password: password)
     }
-    
 }
 
 struct SettingsView: View {
     
     @StateObject private var viewModel = SettingsViewModel()
-    @Binding var isAuthenticated: Bool  // Changed from showSignInView
+    @Binding var isAuthenticated: Bool
     
     var body: some View {
-        
-        List {
-            Button("Logout") {
-                Task {
-                    do {
-                        try viewModel.signOut()
-                        isAuthenticated = false  // Update isAuthenticated on logout
-                        
-                    } catch {
-                        print("Error signing out.")
+        VStack {
+            List {
+                Button(action: {
+                    Task {
+                        do {
+                            try viewModel.signOut()
+                            isAuthenticated = false
+                        } catch {
+                            print("Error signing out.")
+                        }
+                    }
+                }) {
+                    HStack {
+                        Text("Logout")
+                        Spacer()
+                        Image(systemName: "pencil")
                     }
                 }
+                .foregroundColor(.customTurquoise)
+                
+                Button(action: {
+                    Task {
+                        do {
+                            try await viewModel.resetPassword()
+                        } catch {
+                            print("Error resetting password.")
+                        }
+                    }
+                }) {
+                    HStack {
+                        Text("Reset Password")
+                        Spacer()
+                        Image(systemName: "pencil")
+                    }
+                }
+                .foregroundColor(.customTurquoise)
+                
+                Button(action: {
+                    Task {
+                        do {
+                            try await viewModel.updatePassword()
+                        } catch {
+                            print("Error updating password.")
+                        }
+                    }
+                }) {
+                    HStack {
+                        Text("Update Password")
+                        Spacer()
+                        Image(systemName: "pencil")
+                    }
+                }
+                .foregroundColor(.customTurquoise)
+                
+                Button(action: {
+                    Task {
+                        do {
+                            try await viewModel.updateEmail()
+                        } catch {
+                            print("Error updating email.")
+                        }
+                    }
+                }) {
+                    HStack {
+                        Text("Update Email")
+                        Spacer()
+                        Image(systemName: "pencil")
+                    }
+                }
+                .foregroundColor(.customTurquoise)
             }
-            
-            emailSection
-            
+            .listStyle(PlainListStyle())
+            .background(.white)
         }
         .navigationTitle("Settings")
+        .background(.white)
     }
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            SettingsView(isAuthenticated: .constant(true))
-        }
-    }
-}
-
-extension SettingsView {
-    
-    private var emailSection: some View {
-        Section {
-            
-            Button("Reset Password") {
-                Task {
-                    do {
-                        try await viewModel.resetPassword()
-                        print("Password reset!")
-                        
-                    } catch {
-                        print("Error resetting password.")
-                    }
-                }
-            }
-            
-            Button("Update Password") {
-                Task {
-                    do {
-                        try await viewModel.updatePassword()
-                        print("Password updated!")
-                        
-                    } catch {
-                        print("Error updating password.")
-                    }
-                }
-            }
-            
-            Button("Update Email") {
-                Task {
-                    do {
-                        try await viewModel.updateEmail()
-                        print("Email updated!")
-                        
-                    } catch {
-                        print("Error updating email. There must be a recent sign in.")
-                    }
-                }
-            }
-            
-        } header: {
-                Text("Email functions")
-        }
-    }
-    
 }

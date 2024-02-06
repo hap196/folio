@@ -1,6 +1,6 @@
 //
 //  SurveyView.swift
-//  Jaleo
+//  Folio
 //
 //  Created by Hailey Pan on 1/14/24.
 //
