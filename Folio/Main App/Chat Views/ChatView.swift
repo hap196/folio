@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct ChatView: View {
+    @State private var navigateToSettings = false
+    @Binding var isAuthenticated: Bool
+    
     @State private var messageText: String = ""
     @State private var messages: [ChatMessage] = []
     let prompts: [(action: String, description: String)] = [
@@ -15,7 +18,7 @@ struct ChatView: View {
             ZStack {
                 
                 VStack(spacing: 10) {
-                    ChatHeaderView()
+                    ChatHeaderView(navigateToSettings: $navigateToSettings, isAuthenticated: $isAuthenticated)
                     
                     // Messages list or Logo
                     if messages.isEmpty {
@@ -131,6 +134,10 @@ struct ChatView: View {
 }
 
 struct ChatHeaderView: View {
+    
+    @Binding var navigateToSettings: Bool
+    @Binding var isAuthenticated: Bool
+    
     var body: some View {
         HStack {
             Image(systemName: "message.fill")
@@ -144,6 +151,25 @@ struct ChatHeaderView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.customGray)
             Spacer()
+            
+            Button(action: {
+                navigateToSettings = true
+            }) {
+                Image(systemName: "person.crop.circle")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 30, height: 30)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                    .foregroundColor(Color.customGray)
+            }
+            .padding(.trailing, 20)
+            NavigationLink(
+                            destination: SettingsView(isAuthenticated: $isAuthenticated),
+                            isActive: $navigateToSettings
+                        ) {
+                EmptyView()
+            }
         }
         .padding(.vertical)
     }

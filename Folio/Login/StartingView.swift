@@ -48,7 +48,7 @@ struct StartingView: View {
                     }
                     .buttonStyle(GrayButtonStyle())
                 }
-                .padding(.horizontal) // Apply horizontal padding to the button VStack
+                .padding(.horizontal)
             }
             .padding(.bottom) // Apply padding to the bottom of the outer VStack
             .alert("Login Error", isPresented: Binding<Bool>(get: { viewModel.loginError != nil }, set: { _ in viewModel.loginError = nil })) {
@@ -69,7 +69,7 @@ struct BlueButtonStyle: ButtonStyle {
             .background(Color.customTurquoise)
             .cornerRadius(10)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
-            .shadow(color: .customTurquoise.opacity(0.5), radius: 4, x: 5, y: 5) // Angled glowing shadow
+            .shadow(color: .customTurquoise.opacity(0.5), radius: 4, x: 5, y: 5)
     }
 }
 

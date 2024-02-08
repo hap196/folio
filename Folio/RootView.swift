@@ -8,7 +8,7 @@ struct RootView: View {
         Group {  // Use Group to ensure correct context for modifiers
             if isAuthenticated || signInViewModel.isEmailVerified {
 //                SettingsView(isAuthenticated: $isAuthenticated)
-                HomeView()
+                HomeView(isAuthenticated: $isAuthenticated)
             } else {
                 StartingView(isAuthenticated: $isAuthenticated)
             }

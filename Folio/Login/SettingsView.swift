@@ -14,14 +14,6 @@ final class SettingsViewModel: ObservableObject {
         try AuthenticationManager.shared.signOut()
     }
     
-    func signOut() async throws {
-        let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
-        guard let email = authUser.email else {
-            throw URLError(.fileDoesNotExist)
-        }
-        try await AuthenticationManager.shared.resetPassword(email: email)
-    }
-    
     func resetPassword() async throws {
         let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
         guard let email = authUser.email else {
@@ -54,6 +46,7 @@ struct SettingsView: View {
                         do {
                             try viewModel.signOut()
                             isAuthenticated = false
+                            print("signed out")
                         } catch {
                             print("Error signing out.")
                         }

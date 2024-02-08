@@ -191,7 +191,7 @@ struct SurveyView: View {
                 .cornerRadius(10)
                 .foregroundColor(.customGray)
             
-            SecureField("Last name", text: $viewModel.password)
+            TextField("Last name", text: $viewModel.password)
                 .padding()
                 .background(Color.gray.opacity(0.15))
                 .cornerRadius(10)

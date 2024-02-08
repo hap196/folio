@@ -8,13 +8,14 @@ struct PortfolioView: View {
     
     @ObservedObject var viewModel = PortfolioViewModel()
     @State private var navigateToSettings = false
+    @Binding var isAuthenticated: Bool
 
     var body: some View {
         NavigationView {
             ZStack {
                 
                 VStack(spacing: 10) {
-                    PortfolioHeaderView(navigateToSettings: $navigateToSettings)
+                    PortfolioHeaderView(navigateToSettings: $navigateToSettings, isAuthenticated: $isAuthenticated)
                     
                     // Custom Tabs with full width and dividers
                     ZStack(alignment: .bottomLeading) {
@@ -105,6 +106,7 @@ struct PortfolioView: View {
 struct PortfolioHeaderView: View {
     
     @Binding var navigateToSettings: Bool
+    @Binding var isAuthenticated: Bool
     
     var body: some View {
         HStack {
@@ -132,7 +134,10 @@ struct PortfolioHeaderView: View {
                     .foregroundColor(Color.customGray)
             }
             .padding(.trailing, 20)
-            NavigationLink(destination: SettingsView(isAuthenticated: .constant(true)), isActive: $navigateToSettings) {
+            NavigationLink(
+                            destination: SettingsView(isAuthenticated: $isAuthenticated),
+                            isActive: $navigateToSettings
+                        ) {
                 EmptyView()
             }
         }

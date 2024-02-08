@@ -16,6 +16,9 @@ import SwiftUI
 
 struct OpportunitiesView: View {
     @ObservedObject var viewModel = OpportunitiesViewModel()
+    @State private var navigateToSettings = false
+    @Binding var isAuthenticated: Bool
+    
     @State private var searchText = ""
     @State private var isSearching = false
 
@@ -26,7 +29,7 @@ struct OpportunitiesView: View {
             ZStack {
 
                 VStack {
-                    OpportunitiesHeaderView()
+                    OpportunitiesHeaderView(navigateToSettings: $navigateToSettings, isAuthenticated: $isAuthenticated)
 
                     // Search Bar at the top
                     HStack {
@@ -204,6 +207,10 @@ struct CategoryButton: View {
 
 
 struct OpportunitiesHeaderView: View {
+    
+    @Binding var navigateToSettings: Bool
+    @Binding var isAuthenticated: Bool
+    
     var body: some View {
         HStack {
             Image(systemName: "star.fill")
@@ -217,7 +224,26 @@ struct OpportunitiesHeaderView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.customGray)
             Spacer()
+            
+            Button(action: {
+                navigateToSettings = true
+            }) {
+                Image(systemName: "person.crop.circle")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 30, height: 30)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                    .foregroundColor(Color.customGray)
+            }
+            .padding(.trailing, 20)
+            NavigationLink(
+                            destination: SettingsView(isAuthenticated: $isAuthenticated),
+                            isActive: $navigateToSettings
+                        ) {
+                EmptyView()
+            }
         }
         .padding(.vertical)
-    }
+        }
 }

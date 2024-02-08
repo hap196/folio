@@ -97,7 +97,7 @@ struct SignUpView: View {
             }
             
             // Navigation link that will be activated on successful sign up
-            NavigationLink(destination: HomeView(), isActive: $viewModel.signUpSuccess) {
+            NavigationLink(destination: HomeView(isAuthenticated: $isAuthenticated), isActive: $viewModel.signUpSuccess) {
                 EmptyView()
             }
             
