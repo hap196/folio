@@ -202,22 +202,22 @@ struct CollapsibleSectionCardView: View {
                     switch sectionType {
                     case .Courses:
                         ForEach(viewModel.courses, id: \.id) { course in
-                            Text(course.name).foregroundColor(Color.gray.opacity(0.15))
+                            Text(course.name).foregroundColor(.customGray)
                             Divider()
                         }
                     case .Extracurriculars:
                         ForEach(viewModel.extracurriculars, id: \.id) { extracurricular in
-                            Text(extracurricular.name).foregroundColor(Color.gray.opacity(0.15))
+                            Text(extracurricular.name).foregroundColor(.customGray)
                             Divider()
                         }
                     case .Awards:
                         ForEach(viewModel.awards, id: \.id) { award in
-                            Text(award.name).foregroundColor(Color.gray.opacity(0.15))
+                            Text(award.name).foregroundColor(.customGray)
                             Divider()
                         }
                     case .TestScores:
                         ForEach(viewModel.testScores, id: \.id) { testScore in
-                            Text(testScore.testName).foregroundColor(Color.gray.opacity(0.15))
+                            Text(testScore.testName).foregroundColor(.customGray)
                             Divider()
                         }
                     }
