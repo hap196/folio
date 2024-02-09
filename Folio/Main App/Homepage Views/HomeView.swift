@@ -17,11 +17,11 @@ struct HomeView: View {
                             ScrollView {
                                                 VStack(spacing: 30) {
                                                     HomeHeaderView(navigateToSettings: $navigateToSettings, isAuthenticated: $isAuthenticated)
-                                                    GreetingView()
-                                                    UpcomingTasksView()
-                                                    Spacer()
-                                                    DeadlinesView()
-                                                    FeaturedOpportunitiesView()
+//                                                    GreetingView()
+//                                                    UpcomingTasksView()
+//                                                    Spacer()
+//                                                    DeadlinesView()
+//                                                    FeaturedOpportunitiesView()
                                                 }
                                                 
                                             }

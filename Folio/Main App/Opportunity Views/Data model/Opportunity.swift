@@ -7,6 +7,8 @@
 
 import Foundation
 import FirebaseFirestoreSwift
+import FirebaseFirestore
+import Firebase
 
 // Opportunity Data model
 

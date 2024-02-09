@@ -162,7 +162,6 @@ struct CollapsibleSectionCardView: View {
                     withAnimation {
                         self.isCollapsed.toggle()
                         if !isCollapsed {
-                            // Assuming you have access to the user ID here
                             let userId = Auth.auth().currentUser?.uid ?? ""
                             viewModel.fetchDataForSection(userId: userId, year: selectedYear, sectionType: sectionType)
                         }

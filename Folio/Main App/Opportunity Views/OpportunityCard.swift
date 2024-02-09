@@ -5,9 +5,14 @@
 //  Created by Hailey Pan on 2/1/24.
 //
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 struct OpportunityCard: View {
     var opportunity: Opportunity
+    @State private var isSaved = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -21,9 +26,12 @@ struct OpportunityCard: View {
                     .lineLimit(1)
                     .truncationMode(.tail)
                 Spacer()
-                Image(systemName: "bookmark")
-                    .foregroundColor(.customTurquoise)
-                    .font(.title) // Make the bookmark icon larger
+                Image(systemName: isSaved ? "bookmark.fill" : "bookmark")
+                                    .foregroundColor(.customTurquoise)
+                                    .font(.title)
+                                    .onTapGesture {
+                                        saveOpportunity(opportunity)
+                                    }
             }
             Text(opportunity.title)
                 .font(.headline)
@@ -64,12 +72,14 @@ struct OpportunityCard: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
+
         }
         .padding()
         .background(Color.gray.opacity(0.15))
         .cornerRadius(10)
         .clipped()
         .frame(width: UIScreen.main.bounds.width - 150, height: 250) // Set a fixed width and height
+        
     }
     
     // Function to determine the color for the type badge
@@ -101,6 +111,42 @@ struct OpportunityCard: View {
             return .gray
         }
     }
+    
+    func saveOpportunity(_ opportunity: Opportunity) {
+            guard let userId = Auth.auth().currentUser?.uid else { return }
+
+            let db = Firestore.firestore()
+            let userOpportunityRef = db.collection("Users").document(userId).collection("SavedOpportunities")
+            guard let opportunityId = opportunity.id else {
+                    print("Error: Opportunity ID is nil")
+                    return
+                }
+            
+            // Check if the opportunity is already saved
+            userOpportunityRef.whereField("opportunityId", isEqualTo: opportunity.id).getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else if snapshot!.isEmpty {
+                    // Opportunity not saved yet, proceed to save
+                    userOpportunityRef.addDocument(data: [
+                        "opportunityId": opportunity.id,
+                        // Add other opportunity details as needed
+                    ]) { error in
+                        if let error = error {
+                            print("Error saving document: \(error)")
+                        } else {
+                            print("Opportunity successfully saved!")
+                            // Update the isSaved state to true
+                            self.isSaved = true
+                        }
+                    }
+                } else {
+                    print("Opportunity already saved.")
+                    // If the opportunity is already saved, ensure the bookmark shows as filled
+                    self.isSaved = true
+                }
+            }
+        }
 }
 
 struct BadgeView: View {

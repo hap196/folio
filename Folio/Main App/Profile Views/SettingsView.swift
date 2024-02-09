@@ -110,6 +110,11 @@ struct SettingsView: View {
                     }
                 }
                 .foregroundColor(.customTurquoise)
+                
+                NavigationLink(destination: SavedOpportunitiesView()) {
+                    Text("Saved Opportunities")
+                }
+                .foregroundColor(.customTurquoise)
             }
             .listStyle(PlainListStyle())
             .background(.white)

@@ -7,6 +7,7 @@
 
 import FirebaseFirestore
 import Foundation
+import FirebaseFirestoreSwift
 
 class OpportunitiesViewModel: ObservableObject {
     
@@ -25,10 +26,13 @@ class OpportunitiesViewModel: ObservableObject {
             }
 
             self.opportunities = documents.compactMap { queryDocumentSnapshot -> Opportunity? in
-                try? queryDocumentSnapshot.data(as: Opportunity.self)
+                var opportunity = try? queryDocumentSnapshot.data(as: Opportunity.self)
+                opportunity?.id = queryDocumentSnapshot.documentID
+                return opportunity
             }
         }
     }
+
 
     func parseJson() -> [Opportunity]? {
         guard let url = Bundle.main.url(forResource: "opportunities", withExtension: "json"),
