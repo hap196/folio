@@ -49,6 +49,7 @@
 		1C8DFD592B524F3F003B7233 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */; };
 		1CAD0C392B759CD6006F9828 /* SavedOpportunitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD0C382B759CD6006F9828 /* SavedOpportunitiesView.swift */; };
 		1CAD0C3C2B75A23A006F9828 /* SavedOpportunitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD0C3B2B75A23A006F9828 /* SavedOpportunitiesViewModel.swift */; };
+		1CAD0C3E2B772E75006F9828 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD0C3D2B772E75006F9828 /* VerificationView.swift */; };
 		1CB97EE72B6AD60C00DAD30C /* Opportunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB97EE62B6AD60C00DAD30C /* Opportunity.swift */; };
 		1CB97EE92B6AD6DC00DAD30C /* OpportunitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB97EE82B6AD6DC00DAD30C /* OpportunitiesViewModel.swift */; };
 		1CB97EEB2B6AD6FC00DAD30C /* opportunities.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CB97EEA2B6AD6FC00DAD30C /* opportunities.json */; };
@@ -131,6 +132,7 @@
 		1C8DFD562B524F3F003B7233 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1CAD0C382B759CD6006F9828 /* SavedOpportunitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedOpportunitiesView.swift; sourceTree = "<group>"; };
 		1CAD0C3B2B75A23A006F9828 /* SavedOpportunitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedOpportunitiesViewModel.swift; sourceTree = "<group>"; };
+		1CAD0C3D2B772E75006F9828 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		1CB97EE22B6A4E2900DAD30C /* server.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = server.js; sourceTree = "<group>"; };
 		1CB97EE62B6AD60C00DAD30C /* Opportunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opportunity.swift; sourceTree = "<group>"; };
 		1CB97EE82B6AD6DC00DAD30C /* OpportunitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesViewModel.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				1CC221C32B5F232D00FBC7E4 /* SignInView.swift */,
 				1CC221C52B5F29D400FBC7E4 /* SignUpView.swift */,
 				1CC221C72B5F2B2300FBC7E4 /* SignInEmailViewModel.swift */,
+				1CAD0C3D2B772E75006F9828 /* VerificationView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				1CC221D32B60625400FBC7E4 /* NavBar.swift in Sources */,
 				1CD942492B6213AB0022D119 /* AddExtracurricularView.swift in Sources */,
 				1CAD0C3C2B75A23A006F9828 /* SavedOpportunitiesViewModel.swift in Sources */,
+				1CAD0C3E2B772E75006F9828 /* VerificationView.swift in Sources */,
 				1CB97EED2B6AE9F600DAD30C /* OpportunityCard.swift in Sources */,
 				1C261D402B6A083C000D2C4C /* TestScore.swift in Sources */,
 				1CD9423F2B62125E0022D119 /* ExtracurricularsView.swift in Sources */,

@@ -38,8 +38,13 @@ struct SignInView: View {
                 Task {
                     do {
                         try await viewModel.signIn()
-                        isAuthenticated = true
-                        print("Signed in successfully")
+                        // Check if email is verified before setting isAuthenticated
+                        if viewModel.isEmailVerified {
+                            isAuthenticated = true
+                            print("Signed in successfully")
+                        } else {
+                            print("Email not verified")
+                        }
                     } catch {
                         print("Sign in error \(error)")
                     }
@@ -54,25 +59,18 @@ struct SignInView: View {
             .buttonStyle(BlueButtonStyle())
             .padding(.bottom, 10)
 
-            if viewModel.emailVerificationError {
-                Text("Email not verified")
-                    .foregroundColor(.red)
-                    .padding(.bottom, 10)
-            } else if let loginError = viewModel.loginError, !viewModel.emailVerificationError {
-                Text(loginError)
+            if let loginError = viewModel.loginError, !viewModel.emailVerificationError {
+                let errorMessage = loginError == "The supplied auth credential is malformed or has expired." ? "Incorrect email or password." : loginError
+                Text(errorMessage)
                     .foregroundColor(.red)
                     .padding(.bottom, 10)
             }
+
 
             Spacer()
         }
         .navigationTitle("Sign in")
         .padding()
-        .alert("Login Error", isPresented: Binding<Bool>(get: { viewModel.loginError != nil }, set: { _ in viewModel.loginError = nil })) {
-            Button("OK", role: .cancel) { }
-        } message: {
-            Text(viewModel.loginError ?? "")
-        }
 //        .background(LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .bottom, endPoint: .top))
         .edgesIgnoringSafeArea(.all)
     }

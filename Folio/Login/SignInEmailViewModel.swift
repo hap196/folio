@@ -24,13 +24,12 @@ final class SignInEmailViewModel: ObservableObject {
     @Published var emailVerificationError = false
     @Published var weakPasswordError = false
     @Published var invalidEmailError = false
+    
 
-    // Add properties for grade, school, and major
     var grade: String = ""
     var school: String = ""
     var major: String = ""
     
-    // Add an initializer
         init(grade: String = "", school: String = "", major: String = "") {
             self.grade = grade
             self.school = school
@@ -78,6 +77,9 @@ final class SignInEmailViewModel: ObservableObject {
     }
     
     func signIn() async throws {
+        emailVerificationError = false // Reset the email verification error state
+        loginError = nil // Reset the login error
+
         guard !email.isEmpty, !password.isEmpty else {
             print("No email or password found.")
             return
@@ -85,20 +87,19 @@ final class SignInEmailViewModel: ObservableObject {
 
         do {
             let returnedUserData = try await AuthenticationManager.shared.signInUser(email: email, password: password)
-
-            // If the signInUser method succeeds, the user is authenticated.
-            // You can still inform the user if their email is not verified.
             isEmailVerified = returnedUserData.isEmailVerified
-            if !returnedUserData.isEmailVerified {
-                loginError = "Your email address is not verified. Please check your email."
+            if !isEmailVerified {
+                // Email is not verified
                 emailVerificationError = true
+                return // Return early to avoid checking other errors
             }
         } catch let error as NSError {
-            // Handle specific or general errors
-            loginError = error.localizedDescription
-            emailVerificationError = false
+
+                loginError = error.localizedDescription
+            
         }
     }
+
     
     private func storeUserInfo() async {
             guard let userId = Auth.auth().currentUser?.uid else { return }
