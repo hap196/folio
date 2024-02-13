@@ -1,9 +1,11 @@
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct ChatView: View {
     @State private var navigateToSettings = false
     @Binding var isAuthenticated: Bool
-    
+
     @State private var messageText: String = ""
     @State private var messages: [ChatMessage] = []
     let prompts: [(action: String, description: String)] = [
@@ -16,21 +18,26 @@ struct ChatView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                
                 VStack(spacing: 10) {
                     ChatHeaderView(navigateToSettings: $navigateToSettings, isAuthenticated: $isAuthenticated)
-                    
-                    // Messages list or Logo
+
                     if messages.isEmpty {
-                        // Display the logo in the center when there are no messages
-                        Spacer() // Add spacers to center the logo vertically
-                        Image("folio_logo") // Make sure "LogoImage" is the name of your logo in the asset catalog
+                        Spacer()
+                        Image("folio_logo")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 100, height: 100) // Adjust the size as needed
+                            .frame(width: 100, height: 100)
                         Spacer()
+
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(prompts, id: \.action) { prompt in
+                                    PromptButton(prompt: prompt, messageText: $messageText)
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
                     } else {
-                        // Existing ScrollView for messages
                         ScrollView {
                             VStack(alignment: .leading, spacing: 10) {
                                 ForEach(messages, id: \.id) { message in
@@ -40,32 +47,7 @@ struct ChatView: View {
                         }
                         .padding()
                     }
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(prompts, id: \.action) { prompt in
-                                Button(action: {
-                                    messageText = "\(prompt.action) \(prompt.description)"
-                                }) {
-                                    VStack(alignment: .leading) {
-                                        Text(prompt.action)
-                                            .bold()
-                                            .foregroundColor(.customGray)
-                                        Text(prompt.description)
-                                            .foregroundColor(.customGray)
-                                            .lineLimit(2)
-                                    }
-                                    .padding()
-                                    .background(Color.gray.opacity(0.2))
-                                    .cornerRadius(20)
-                                    .fixedSize(horizontal: false, vertical: true) 
-                                }
-                            }
-                        }
-                        .padding(.horizontal)
-                    }
 
-                    // Message input field
                     HStack {
                         TextField("Type a message", text: $messageText)
                             .padding(10)
@@ -86,6 +68,7 @@ struct ChatView: View {
                     .padding()
                 }
             }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 
@@ -134,7 +117,6 @@ struct ChatView: View {
 }
 
 struct ChatHeaderView: View {
-    
     @Binding var navigateToSettings: Bool
     @Binding var isAuthenticated: Bool
     
@@ -151,7 +133,7 @@ struct ChatHeaderView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.customGray)
             Spacer()
-            
+
             Button(action: {
                 navigateToSettings = true
             }) {
@@ -164,13 +146,34 @@ struct ChatHeaderView: View {
                     .foregroundColor(Color.customGray)
             }
             .padding(.trailing, 20)
-            NavigationLink(
-                            destination: SettingsView(isAuthenticated: $isAuthenticated),
-                            isActive: $navigateToSettings
-                        ) {
+            NavigationLink(destination: SettingsView(isAuthenticated: $isAuthenticated), isActive: $navigateToSettings) {
                 EmptyView()
             }
         }
         .padding(.vertical)
+    }
+}
+
+struct PromptButton: View {
+    let prompt: (action: String, description: String)
+    @Binding var messageText: String
+
+    var body: some View {
+        Button(action: {
+            messageText = "\(prompt.action) \(prompt.description)"
+        }) {
+            VStack(alignment: .leading) {
+                Text(prompt.action)
+                    .bold()
+                    .foregroundColor(.customGray)
+                Text(prompt.description)
+                    .foregroundColor(.customGray)
+                    .lineLimit(2)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(20)
+            .fixedSize(horizontal: false, vertical: true)
+        }
     }
 }
