@@ -13,6 +13,7 @@ struct SignUpView: View {
     @Binding var showSignUpView: Bool
     @Binding var isAuthenticated: Bool
     @State private var showVerificationView = false
+    @State private var passwordVisible = false
 
     var body: some View {
         NavigationView {
@@ -55,12 +56,32 @@ struct SignUpView: View {
                     .foregroundColor(.customGray)
                     .padding(.bottom, 8)
                 
-                SecureField("Password...", text: $viewModel.password)
+//                SecureField("Password...", text: $viewModel.password)
+//                    .padding()
+//                    .background(Color.gray.opacity(0.4))
+//                    .cornerRadius(10)
+//                    .foregroundColor(.customGray)
+//                    .padding(.bottom, 20)
+                
+                HStack {
+                    if passwordVisible {
+                        TextField("Password...", text: $viewModel.password)
+                    } else {
+                        SecureField("Password...", text: $viewModel.password)
+                    }
+
+                        Button(action: {
+                            passwordVisible.toggle()
+                        }) {
+                            Image(systemName: passwordVisible ? "eye.slash.fill" : "eye.fill")
+                                .foregroundColor(.customGray)
+                        }
+                    }
                     .padding()
                     .background(Color.gray.opacity(0.4))
                     .cornerRadius(10)
-                    .foregroundColor(.customGray)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 8)
+
                 
                 Button(action: {
                     Task {

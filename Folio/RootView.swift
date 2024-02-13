@@ -9,6 +9,7 @@ struct RootView: View {
             if isAuthenticated || signInViewModel.isEmailVerified {
 //                SettingsView(isAuthenticated: $isAuthenticated)
                 HomeView(isAuthenticated: $isAuthenticated)
+//                PortfolioView(isAuthenticated: $isAuthenticated)
             } else {
                 StartingView(isAuthenticated: $isAuthenticated)
             }

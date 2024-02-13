@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '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';
 
 app.post('/message', async (req, res) => {
     try {
@@ -24,7 +24,7 @@ app.post('/message', async (req, res) => {
             },
             {
                 headers: {
-                    'Authorization': `Bearer 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`,
+                    'Authorization': `Bearer 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`,
                     'Content-Type': 'application/json'
                 }
             }

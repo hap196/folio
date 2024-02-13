@@ -25,16 +25,25 @@ struct ChatView: View {
                                                 promptAndLogoView
                                                     .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.24)))
                                             } else {
-                            ScrollView {
-                                VStack(alignment: .leading, spacing: 10) {
-                                    ForEach(messages, id: \.id) { message in
-                                        MessageView(message: message)
-                                    }
-                                }
-                            }
-                            .padding()
-                        }
-                    
+                                                ScrollViewReader { scrollView in
+                                                    ScrollView {
+                                                        VStack(alignment: .leading, spacing: 10) {
+                                                            ForEach(messages, id: \.id) { message in
+                                                                MessageView(message: message)
+                                                            }
+                                                        }
+                                                        .padding()
+                                                    }
+                                                    .onReceive(messages.publisher.collect()) { _ in
+                                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                                            withAnimation {
+                                                                scrollView.scrollTo(messages.last?.id, anchor: .bottom)
+                                                            }
+                                                        }
+                                                    }
+
+                                                }
+                                            }
                     HStack {
                         TextField("Type a message", text: $messageText)
                             .padding(10)

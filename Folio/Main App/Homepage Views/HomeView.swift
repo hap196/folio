@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var selectedTab: Int = 0
+    // change back to 0 after demo
+    @State private var selectedTab: Int = 1
     @Binding var isAuthenticated: Bool
     @State private var navigateToSettings = false
 

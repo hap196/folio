@@ -278,7 +278,6 @@
 				1C8DFD522B523AF4003B7233 /* RootView.swift */,
 				1CD9422F2B6150F40022D119 /* Reusable Views */,
 				1CC221D12B60623B00FBC7E4 /* Main App */,
-				1C8DFD472B5225C2003B7233 /* Login */,
 				1C8DFD102B52202C003B7233 /* Preview Content */,
 				1C1CC5562B708A2900152B16 /* Colors.swift */,
 			);
@@ -360,6 +359,7 @@
 		1CC221D12B60623B00FBC7E4 /* Main App */ = {
 			isa = PBXGroup;
 			children = (
+				1C8DFD472B5225C2003B7233 /* Login */,
 				1CAD0C3A2B75A201006F9828 /* Profile Views */,
 				1C1CC5452B6FDBFB00152B16 /* Homepage Views */,
 				1CB97EE32B6AD1A300DAD30C /* Opportunity Views */,

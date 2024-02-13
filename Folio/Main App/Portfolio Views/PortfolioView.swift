@@ -3,7 +3,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 struct PortfolioView: View {
-    @State private var selectedYear = 0
+    @State private var selectedYear = 1
     let years = ["9th", "10th", "11th", "12th"]
     
     @ObservedObject var viewModel = PortfolioViewModel()
