@@ -1,6 +1,9 @@
 # Folio
 ### AI College Advisor App
 
+#### Demo Video
+https://youtu.be/nptzYukaxPo
+
 ## Overview
 The college admissions process is increasingly competitive and complex, often overwhelming students who lack resources or guidance. Our solution is Folio, a personalized and accessible AI-powered college advisor. This app is targeted towards students applying to undergraduate university programs and focuses on developing their portfolios – the culmination of their courses, extracurriculars, and awards -  to maximize their academic potential.
 
