@@ -11,7 +11,7 @@ struct StartingView: View {
             VStack {
                 Spacer()
                 
-                Image("folio_logo") // Ensure the image name matches with your assets.
+                Image("folio_logo")
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: .infinity, maxHeight: 200)

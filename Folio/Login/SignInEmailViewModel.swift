@@ -113,5 +113,38 @@ final class SignInEmailViewModel: ObservableObject {
                 print("Error storing user info: \(error)")
             }
         }
+    
+    func sendVerificationMail() async {
+        guard let user = Auth.auth().currentUser, !user.isEmailVerified else { return }
+        
+        do {
+            try await user.sendEmailVerification()
+            DispatchQueue.main.async {
+                // Handle the confirmation of email sent
+                self.verificationEmailSent = true
+            }
+        } catch {
+            DispatchQueue.main.async {
+                // Handle the error case
+                self.loginError = "Unable to send verification email: \(error.localizedDescription)"
+            }
+        }
+    }
+
+    func checkEmailVerification() async {
+        guard let user = Auth.auth().currentUser else { return }
+        
+        do {
+            try await user.reload()
+            DispatchQueue.main.async {
+                self.isEmailVerified = user.isEmailVerified
+            }
+        } catch {
+            DispatchQueue.main.async {
+                // Handle the error, maybe set an error message to show to the user
+                self.loginError = "Error reloading user: \(error.localizedDescription)"
+            }
+        }
+    }
 
 }

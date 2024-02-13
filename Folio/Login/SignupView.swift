@@ -12,107 +12,109 @@ struct SignUpView: View {
     @ObservedObject var viewModel: SignInEmailViewModel
     @Binding var showSignUpView: Bool
     @Binding var isAuthenticated: Bool
+    @State private var showVerificationView = false
 
     var body: some View {
-        VStack(spacing: 5) {
-            
-            HStack {
-                Button(action: {
-                    // Action to dismiss this view
-                    showSignUpView = false
-                }) {
-                    HStack(spacing: 3) {
-                        Image(systemName: "arrow.backward")
-                        Text("Back")
+        NavigationView {
+            VStack(spacing: 5) {
+                HStack {
+                    Button(action: {
+                        showSignUpView = false
+                    }) {
+                        HStack(spacing: 3) {
+                            Image(systemName: "arrow.backward")
+                            Text("Back")
+                        }
+                        .foregroundColor(.customTurquoise)
+                        .padding()
                     }
-                    .foregroundColor(.customTurquoise)
+                    
+                    Spacer()
+                    
+                    Text("Sign up")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.customGray)
+                        .shadow(color: .black.opacity(0.25), radius: 10, x: 5, y: 5)
+                    
+                    Spacer()
+                    
+                    HStack(spacing: 3) {
+                        Image(systemName: "arrow.backward").opacity(0)
+                        Text("Back").opacity(0)
+                    }
                     .padding()
                 }
+                .padding(.top, 10)
+                .frame(maxWidth: .infinity, alignment: .center)
                 
-                Spacer()
-                
-                Text("Sign up")
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .foregroundColor(.customGray)
-                    .shadow(color: .black.opacity(0.25), radius: 10, x: 5, y: 5)
-
-                Spacer()
-                
-                HStack(spacing: 3) {
-                    Image(systemName: "arrow.backward").opacity(0)
-                    Text("Back").opacity(0)
-                }
-                .padding()
-            }
-            .padding(.top, 10)
-            .frame(maxWidth: .infinity, alignment: .center)
-            
-            TextField("Email...", text: $viewModel.email)
-                .padding()
-                .background(Color.gray.opacity(0.4))
-                .cornerRadius(10)
-                .foregroundColor(.customGray)
-                .padding(.bottom, 8)
-
-            SecureField("Password...", text: $viewModel.password)
-                .padding()
-                .background(Color.gray.opacity(0.4))
-                .cornerRadius(10)
-                .foregroundColor(.customGray)
-                .padding(.bottom, 20)
-
-            Button(action: {
-                Task {
-                    do {
-                        try await viewModel.signUp()
-                        print("Signed up successfully")
-                        if viewModel.signUpSuccess {
-                            isAuthenticated = true
-                        }
-                    } catch {
-                        print("Sign up error: \(error)")
-                    }
-                }
-            }) {
-                Text("Sign up")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.customTurquoise)
+                TextField("Email...", text: $viewModel.email)
+                    .padding()
+                    .background(Color.gray.opacity(0.4))
                     .cornerRadius(10)
-            }
-            .buttonStyle(BlueButtonStyle())
-            .padding(.top, 20) 
-
-
-            if viewModel.weakPasswordError {
-                Text("The password must be 6 characters long or more.")
-                    .foregroundColor(.red)
-            }
-
-            if viewModel.invalidEmailError {
-                Text("The email address is badly formatted.")
-                    .foregroundColor(.red)
+                    .foregroundColor(.customGray)
+                    .padding(.bottom, 8)
+                
+                SecureField("Password...", text: $viewModel.password)
+                    .padding()
+                    .background(Color.gray.opacity(0.4))
+                    .cornerRadius(10)
+                    .foregroundColor(.customGray)
+                    .padding(.bottom, 20)
+                
+                Button(action: {
+                    Task {
+                        do {
+                            try await viewModel.signUp()
+                            
+                            if viewModel.signUpSuccess {
+                                print("Signed up successfully")
+                                //isAuthenticated = true
+                                showVerificationView = true
+                            }
+                        } catch {
+                            print("Sign up error: \(error)")
+                        }
+                    }
+                }) {
+                    Text("Sign up")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.customTurquoise)
+                        .cornerRadius(10)
+                }
+                .buttonStyle(BlueButtonStyle())
+                .padding(.top, 20)
+                
+                
+                if viewModel.weakPasswordError {
+                    Text("The password must be 6 characters long or more.")
+                        .foregroundColor(.red)
+                }
+                
+                if viewModel.invalidEmailError {
+                    Text("The email address is badly formatted.")
+                        .foregroundColor(.red)
+                }
+                
+                // Navigation link that will be activated on successful sign up
+                NavigationLink(destination: VerificationView(viewModel: viewModel, showVerificationView: $showVerificationView, isAuthenticated: $isAuthenticated), isActive: $showVerificationView) {
+                    EmptyView()
+                }
+                
+                
+                Spacer()
             }
             
-            // Navigation link that will be activated on successful sign up
-            NavigationLink(destination: HomeView(isAuthenticated: $isAuthenticated), isActive: $viewModel.signUpSuccess) {
-                EmptyView()
-            }
-            
-            Spacer()
+            //        .alert("Verification Required", isPresented: $viewModel.showVerificationAlert) {
+            //            Button("OK", role: .cancel) {}
+            //        } message: {
+            //            Text("Please verify your email. Check your inbox for the verification link. You can verify your email later in Settings.")
+            //        }
+            .padding()
         }
-        
-//        .alert("Verification Required", isPresented: $viewModel.showVerificationAlert) {
-//            Button("OK", role: .cancel) {}
-//        } message: {
-//            Text("Please verify your email. Check your inbox for the verification link. You can verify your email later in Settings.")
-//        }
-        .navigationBarTitle("Sign up")
-        .padding()
     }
-        
 }
 
 struct SignUpView_Previews: PreviewProvider {
