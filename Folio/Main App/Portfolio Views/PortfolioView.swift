@@ -151,7 +151,7 @@ struct CollapsibleSectionCardView: View {
     let viewModel: PortfolioViewModel
     let selectedYear: String
 
-    @State private var isCollapsed: Bool = false
+    @State private var isCollapsed: Bool = true
     @State private var navigateToEditView = false
     @State private var navigateToAddView = false
 

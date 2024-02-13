@@ -21,33 +21,20 @@ struct ChatView: View {
                 VStack(spacing: 10) {
                     ChatHeaderView(navigateToSettings: $navigateToSettings, isAuthenticated: $isAuthenticated)
 
-                    if messages.isEmpty {
-                        Spacer()
-                        Image("folio_logo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100)
-                        Spacer()
-
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(prompts, id: \.action) { prompt in
-                                    PromptButton(prompt: prompt, messageText: $messageText)
+                        if messages.isEmpty && messageText.isEmpty {
+                                                promptAndLogoView
+                                                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.24)))
+                                            } else {
+                            ScrollView {
+                                VStack(alignment: .leading, spacing: 10) {
+                                    ForEach(messages, id: \.id) { message in
+                                        MessageView(message: message)
+                                    }
                                 }
                             }
-                            .padding(.horizontal)
+                            .padding()
                         }
-                    } else {
-                        ScrollView {
-                            VStack(alignment: .leading, spacing: 10) {
-                                ForEach(messages, id: \.id) { message in
-                                    MessageView(message: message)
-                                }
-                            }
-                        }
-                        .padding()
-                    }
-
+                    
                     HStack {
                         TextField("Type a message", text: $messageText)
                             .padding(10)
@@ -71,6 +58,25 @@ struct ChatView: View {
             .navigationViewStyle(StackNavigationViewStyle())
         }
     }
+    
+    private var promptAndLogoView: some View {
+            VStack {
+                Spacer()
+                Image("folio_logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                Spacer()
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(prompts, id: \.action) { prompt in
+                            PromptButton(prompt: prompt, messageText: $messageText)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+            }
+        }
 
     private func sendMessage() {
         let newMessage = ChatMessage(text: messageText, isSentByCurrentUser: true)
@@ -115,6 +121,8 @@ struct ChatView: View {
         .resume()
     }
 }
+
+
 
 struct ChatHeaderView: View {
     @Binding var navigateToSettings: Bool
