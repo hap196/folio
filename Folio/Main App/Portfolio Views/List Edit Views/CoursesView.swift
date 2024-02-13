@@ -18,7 +18,6 @@ struct CoursesView: View {
     @State private var isEditingCourse = false
     
     var body: some View {
-        NavigationView {
             VStack(spacing:0) {
                 Divider()
                 
@@ -30,11 +29,11 @@ struct CoursesView: View {
                             Image(systemName: "pencil")
                         }
                     }
-                    .listStyle(PlainListStyle())
+                    
                 }
-                .onAppear(perform: loadCourses)
+                .listStyle(PlainListStyle())
             }
-        }
+            .onAppear(perform: loadCourses)
         .navigationBarTitle(title + " - " + selectedYear + " grade", displayMode: .inline)
     }
     

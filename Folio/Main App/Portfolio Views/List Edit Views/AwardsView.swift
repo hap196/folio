@@ -8,7 +8,6 @@ struct AwardsView: View {
     let title: String
 
     var body: some View {
-        NavigationView {
             VStack(spacing: 0) {
                 Divider()
                 List(viewModel.awards) { award in
@@ -23,7 +22,6 @@ struct AwardsView: View {
                 .listStyle(PlainListStyle())
             }
             .onAppear(perform: loadAwards)
-        }
         .navigationBarTitle(title + " - " + selectedYear + " grade", displayMode: .inline)
     }
 

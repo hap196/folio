@@ -8,7 +8,6 @@ struct ExtracurricularsView: View {
     let title: String
 
     var body: some View {
-        NavigationView {
             VStack(spacing: 0) {
                 Divider()
                 List(viewModel.extracurriculars) { extracurricular in
@@ -23,7 +22,6 @@ struct ExtracurricularsView: View {
                 .listStyle(PlainListStyle())
             }
             .onAppear(perform: loadExtracurriculars)
-        }
         .navigationBarTitle(title + " - " + selectedYear + " grade", displayMode: .inline)
     }
 
