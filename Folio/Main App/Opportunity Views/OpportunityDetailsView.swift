@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct OpportunityDetailsView: View {
     var opportunity: Opportunity
     
     @State private var showingSafariView = false
+    @State private var isSaved = false
     
     private var applyLink: URL? {
         URL(string: opportunity.link)
@@ -70,16 +73,16 @@ struct OpportunityDetailsView: View {
                         .font(.body)
                         .foregroundColor(.gray)
 
-                    Text("Eligibility")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .padding(.vertical, 5)
-                        .foregroundColor(.customGray)
-
-                    ForEach(opportunity.eligibility?.components(separatedBy: ",") ?? [], id: \.self) { qualification in
-                        Text("• \(qualification.trimmingCharacters(in: .whitespacesAndNewlines))")
-                    }
-                    .foregroundColor(.gray)
+//                    Text("Eligibility")
+//                        .font(.headline)
+//                        .fontWeight(.bold)
+//                        .padding(.vertical, 5)
+//                        .foregroundColor(.customGray)
+//
+//                    ForEach(opportunity.eligibility?.components(separatedBy: ",") ?? [], id: \.self) { qualification in
+//                        Text("• \(qualification.trimmingCharacters(in: .whitespacesAndNewlines))")
+//                    }
+//                    .foregroundColor(.gray)
                     
                     Spacer()
                 }
@@ -109,19 +112,74 @@ struct OpportunityDetailsView: View {
                             }
 
                     Button(action: {
-                        // Action for Save
-                    }) {
-                        Image(systemName: "bookmark")
-                            .padding()
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(8)
-                            .foregroundColor(.customTurquoise)
-                    }
-                    .padding(.trailing)
+                                        saveOpportunity(opportunity)
+                                    }) {
+                                        Image(systemName: isSaved ? "bookmark.fill" : "bookmark")
+                                            .padding()
+                                            .background(Color.gray.opacity(0.2))
+                                            .cornerRadius(8)
+                                            .foregroundColor(.customTurquoise)
+                                    }
+                                    .padding(.trailing)
                 }
             }
+            .onAppear {
+                        checkIfOpportunityIsSaved(opportunity)
+                    }
         }
         .navigationBarTitle(Text("Venture Details"), displayMode: .inline)
         .edgesIgnoringSafeArea(.bottom)
+        
     }
+    private func checkIfOpportunityIsSaved(_ opportunity: Opportunity) {
+            guard let userId = Auth.auth().currentUser?.uid, let opportunityId = opportunity.id else { return }
+            let db = Firestore.firestore()
+            let userOpportunityRef = db.collection("Users").document(userId).collection("SavedOpportunities")
+            
+            userOpportunityRef.whereField("opportunityId", isEqualTo: opportunityId).getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    self.isSaved = !snapshot!.isEmpty
+                }
+            }
+        }
+        
+        private func saveOpportunity(_ opportunity: Opportunity) {
+            guard let userId = Auth.auth().currentUser?.uid, let opportunityId = opportunity.id else { return }
+            let db = Firestore.firestore()
+            let userOpportunityRef = db.collection("Users").document(userId).collection("SavedOpportunities")
+
+            if isSaved {
+                
+                userOpportunityRef.whereField("opportunityId", isEqualTo: opportunityId).getDocuments { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error removing saved opportunity: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents {
+                            document.reference.delete() { err in
+                                if let err = err {
+                                    print("Error removing saved opportunity: \(err)")
+                                } else {
+                                    print("Opportunity successfully unsaved")
+                                    self.isSaved = false
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                userOpportunityRef.addDocument(data: [
+                    "opportunityId": opportunityId
+                ]) { error in
+                    if let error = error {
+                        print("Error saving document: \(error)")
+                    } else {
+                        print("Opportunity successfully saved!")
+                        self.isSaved = true
+                    }
+                }
+            }
+        }
 }
+
