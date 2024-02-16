@@ -1,6 +1,9 @@
 # Folio
 ### AI College Advisor App
 
+### Landing Page
+https://folio-ai-website.vercel.app/
+
 #### Demo Video
 https://youtu.be/nptzYukaxPo
 
